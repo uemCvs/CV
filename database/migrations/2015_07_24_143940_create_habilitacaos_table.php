@@ -18,8 +18,8 @@ class CreateHabilitacaosTable extends Migration {
 			$table->string('nivel');
 			$table->string('anoDeConclusao');
 			$table->string('curso');
-			$table->date('sisEnsino');
-			$table->string('instituicao');	
+			$table->string('sisEnsino');
+			$table->string('instituicao');
 			$table->timestamps();
 		});
 	}

@@ -46,7 +46,8 @@ Route::post ('/habilitacaoIntelectual','habIntelectualController@store');
 Route::get ('/disponibilidade','disponibilidadeController@index');
 Route::post ('/disponibilidade','disponibilidadeController@store');
 
-Route::get('/habilitacoes/{id}','HabilitacaoController@edit');
+Route::get('/habilitacoes/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'HabilitacaoController@edit']);
+Route::get('/habilitacoes/{id}/','HabilitacaoController@show');
 Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
 
 Route::get('/estudantes/{id}','EstudanteController@edit');
