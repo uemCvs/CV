@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Estudante;
+use Auth;
 
 class EstudanteController extends Controller {
 
@@ -42,7 +43,11 @@ class EstudanteController extends Controller {
 		$est->nrEstudante= $request->get ('numeroEstudante');
 		$est->curso= $request->get ('curso');
 		$est->nivel= $request->get ('nivel');
-		$est->save();
+	//	$est->user_id= Auth::user()->id;
+		Auth::user()->estudante()->save($est);
+	
+	//$est->utilizador()->associate(Auth::user());
+	//	$est->save();
 		return $est;
 	}
 

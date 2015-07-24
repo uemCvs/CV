@@ -1,4 +1,5 @@
 @if($h)
+  <p>{{ $utilizador->name }}</p>
   <form id="form1" name="form1" method="post" action="{{ route('put_h', ['id' => $h->id]) }}">
     <input type="hidden" name="_method" value="PUT" />
     <p>&nbsp;</p>

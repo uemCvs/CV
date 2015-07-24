@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Habilitacao;
+use Auth;
 
 class HabilitacaoController extends Controller {
 
@@ -15,7 +16,8 @@ class HabilitacaoController extends Controller {
 	 */
 	public function index()
 	{
-		return view('Habilitacao');
+		$habilitacoes = Habilitacao::all();
+		return view('Teste',['habilitacoes'=>$habilitacoes]);
 	}
 
 	/**
@@ -25,7 +27,7 @@ class HabilitacaoController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('Habilitacao');
 	}
 
 	/**
@@ -43,7 +45,7 @@ class HabilitacaoController extends Controller {
 		$hab->instituicao= $request->get ('instituicao');
 
 		$hab->save();
-			return $hab;
+			return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 
 			}
 
@@ -69,7 +71,7 @@ class HabilitacaoController extends Controller {
 	public function edit($id)
 	{
 		$hab = Habilitacao::find($id);
-		return view("habilitacao", ['h' => $hab]);
+		return view("habilitacao", ['h' => $hab, 'utilizador' => Auth::user()]);
 	}
 
 	/**
@@ -88,7 +90,8 @@ class HabilitacaoController extends Controller {
 			$hab->instituicao= $request->get ('instituicao');
 
 			$hab->save();
-			return $hab;
+			//return $hab;
+			return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 	}
 
 	/**
