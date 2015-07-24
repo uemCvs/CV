@@ -54,3 +54,21 @@ Route::put('/estudantes/{id}',['as' =>'put_est', 'uses' => 'EstudanteController@
 
 Route::get('/experiencias/{id}','ExperienciaController@edit');
 Route::put('/experiencias/{id}',['as' =>'put_exp', 'uses' => 'ExperienciaController@update']);
+
+//edicao de formulario (outras qualificacoes, referencia, idioma, habilitacaoIntelectual, disponibilidade)
+
+Route::get('/qualificacao/{id}/editar','qualificacaoController@edit');
+Route::put('/qualificacao/{id}',['as' =>'put_qual', 'uses' => 'qualificacaoController@update']);
+
+Route::get('/habilitacaoIntelectual/{id}/editar','habIntelectualController@edit');
+Route::put('/habilitacaoIntelectual/{id}',['as' =>'put_hab', 'uses' => 'habIntelectualController@update']);
+
+Route::get('/referencia/{id}/editar','referenciaController@edit');
+Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
+
+
+Route::get('/idioma/{id}/editar','idiomaController@edit');
+Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
+
+Route::get('/disponibilidade/{id}/editar','disponibilidadeController@edit');
+Route::put('/disponibilidade/{id}',['as' =>'put_disp', 'uses' => 'disponibilidadeController@update']);

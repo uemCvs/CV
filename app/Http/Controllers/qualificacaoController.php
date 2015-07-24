@@ -62,7 +62,8 @@ class qualificacaoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        $qual = OutraQualificacao::find($id);
+        return view("QualificacaoEdit", ['qual' => $qual]);
 	}
 
 	/**
@@ -71,9 +72,15 @@ class qualificacaoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
+
+        $qual= OutraQualificacao::find($id);
+        $qual->nomeCurso=$request->get('nomeCurso');
+        $qual->nomeInstituicao = $request->get ('nomeInstituicao');
+        $qual->anoConclusao = $request->get ('anoConclusao');
+        $qual->save();
+        return $qual;
 	}
 
 	/**
