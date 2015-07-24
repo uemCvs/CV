@@ -31,6 +31,21 @@ Route::get('/habilitacoes', 'HabilitacaoController@index');
 Route::post('/habilitacoes','HabilitacaoController@store');
 
 
+Route::get ('/qualificacao','qualificacaoController@index');
+Route::post ('/qualificacao','qualificacaoController@store');
+
+Route::get ('/idioma','idiomaController@index');
+Route::post ('/idioma','idiomaController@store');
+
+Route::get ('/referencia','referenciaController@index');
+Route::post ('/referencia','referenciaController@store');
+
+Route::get ('/habilitacaoIntelectual','habIntelectualController@index');
+Route::post ('/habilitacaoIntelectual','habIntelectualController@store');
+
+Route::get ('/disponibilidade','disponibilidadeController@index');
+Route::post ('/disponibilidade','disponibilidadeController@store');
+
 Route::get('/habilitacoes/{id}','HabilitacaoController@edit');
 Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
 
