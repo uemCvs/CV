@@ -3,6 +3,7 @@
 use App\HabilitacaoIntelectual;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+//use App\HabilitacaoIntelectual;
 
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class habIntelectualController extends Controller {
         $hab= new HabilitacaoIntelectual();
         $hab->habilitacao= $request->get('habilitacao');
         $hab->save();
-        return $hab;
+        return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 	}
 
 	/**
@@ -49,7 +50,8 @@ class habIntelectualController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $hab = HabilitacaoIntelectual::find($id);
+        return view("habIntelectuall", ['h' => $hab]);
 	}
 
 	/**

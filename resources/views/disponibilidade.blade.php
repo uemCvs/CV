@@ -19,11 +19,11 @@
         </select>
     <p>
         <label >Hora Inicial</label>
-        <input type="time" name="horaInicial"  />
+        <input type="time" name="tempoInicio"  />
     </p>
     <p>
         <label >Hora Final</label>
-        <input type="time" name="horaFinal"  />
+        <input type="time" name="tempoFim"  />
     </p>
     <p>
         <label >descricao</label>

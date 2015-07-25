@@ -49,8 +49,10 @@ class referenciaController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
-	}
+        $refer = referencia::find($id);
+        return view("referenciaa", ['refer' => $refer]);
+
+    }
 
 	/**
 	 * Show the form for editing the specified resource.

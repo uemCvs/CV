@@ -10,7 +10,7 @@
     <p>Referencias</p>
     <p>
         <label for="referencias">Referencias</label>
-        <input type="textArea" name="referencia" cols="40" rows="10" value="{{ $refer->referencia}}" /><br>
+        <input type="textArea" name="referencia" cols="100" rows="30" value="{{ $refer->referencia}}" /><br>
         <input type="submit" value="enviar">
     </p>
     <p>&nbsp;</p>

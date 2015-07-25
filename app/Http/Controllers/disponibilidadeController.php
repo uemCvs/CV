@@ -52,7 +52,8 @@ class disponibilidadeController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $disp = disponibilidade::find($id);
+        return view("disponibilidadee", ['disp' => $disp]);
 	}
 
 	/**

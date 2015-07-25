@@ -52,7 +52,8 @@ class idiomaController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $idioma = Idioma::find($id);
+        return view("idiomaa", ['idioma' => $idioma]);
 	}
 
 	/**
