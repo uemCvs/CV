@@ -26,7 +26,7 @@ class EstudanteController extends Controller {
 	 */
 	public function create()
 	{
-		return view('Estudante');
+		return view('estudanteGravar');
 	}
 
 	/**

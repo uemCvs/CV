@@ -15,7 +15,7 @@ class ExperienciaController extends Controller {
 	 */
 	public function index()
 	{
-		return view('Experiencia');
+		return view('experienciaGravar');
 	}
 
 	/**

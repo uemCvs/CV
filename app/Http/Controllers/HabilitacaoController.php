@@ -27,7 +27,7 @@ class HabilitacaoController extends Controller {
 	 */
 	public function create()
 	{
-		return view('Habilitacao');
+		return view('habilitacaoGravar');
 	}
 
 	/**
