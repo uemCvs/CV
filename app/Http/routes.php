@@ -101,6 +101,9 @@ Route::put('/disponibilidade/{id}',['as' =>'put_disp', 'uses' => 'disponibilidad
 Route::get('testeYola',function(){
     return view("testeYola");
 });
+Route::get('main',function(){
+    return view("layouts/main");
+});
 
 Route::get('inicio',function(){
     return view("inicio");

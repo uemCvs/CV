@@ -42,8 +42,9 @@
 @yield('script')
 
 @section('footer')
+
 <div class="text-center">
-    <div class="footer-below">
+    <div class="footer-below ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
