@@ -97,3 +97,11 @@ Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@upda
 
 Route::get('/disponibilidade/{id}/editar','disponibilidadeController@edit');
 Route::put('/disponibilidade/{id}',['as' =>'put_disp', 'uses' => 'disponibilidadeController@update']);
+
+Route::get('testeYola',function(){
+    return view("testeYola");
+});
+
+Route::get('inicio',function(){
+    return view("inicio");
+});
