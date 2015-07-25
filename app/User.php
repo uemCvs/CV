@@ -34,4 +34,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function estudante(){
 	  	return $this->hasOne('\App\Estudante');
 	}
+
+	public function endereco(){
+			return $this->hasOne('\App\Endereco');
+	}
 }
