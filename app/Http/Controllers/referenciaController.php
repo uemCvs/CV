@@ -60,8 +60,10 @@ class referenciaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
-	}
+        $refer = referencia::find($id);
+        return view("referenciaEdit", ['refer' => $refer]);
+
+    }
 
 	/**
 	 * Update the specified resource in storage.
@@ -69,10 +71,16 @@ class referenciaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
-	}
+        $refer= referencia::find($id);
+        $refer->referencia=$request->get('referencia');
+        $refer->save();
+        return $refer;
+
+
+
+    }
 
 	/**
 	 * Remove the specified resource from storage.

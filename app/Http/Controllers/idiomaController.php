@@ -63,8 +63,10 @@ class idiomaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
-	}
+        $idioma = Idioma::find($id);
+        return view("idiomaEdit", ['idioma' => $idioma]);
+
+    }
 
 	/**
 	 * Update the specified resource in storage.
@@ -72,9 +74,15 @@ class idiomaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
+        $idioma= Idioma::find($id);
+        $idioma->lingua=$request->get('lingua');
+        $idioma->dominioEsc = $request->get ('dominioEsc');
+        $idioma->dominioFala = $request->get ('dominioFala');
+        $idioma->dominioLei = $request->get ('dominioLei');
+        $idioma->save();
+        return $idioma;
 	}
 
 	/**

@@ -60,8 +60,9 @@ class habIntelectualController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
-	}
+        $hab = HabilitacaoIntelectual::find($id);
+        return view("habilitacaoIntelectualEdit", ['hab' => $hab]);
+    }
 
 	/**
 	 * Update the specified resource in storage.
@@ -69,10 +70,16 @@ class habIntelectualController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
-	}
+        $hab= HabilitacaoIntelectual::find($id);
+        $hab->habilitacao= $request->get('habilitacao');
+        $hab->save();
+        return $hab;
+
+
+
+    }
 
 	/**
 	 * Remove the specified resource from storage.

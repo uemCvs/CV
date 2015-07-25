@@ -64,7 +64,7 @@ class disponibilidadeController extends Controller {
 	public function edit($id)
 	{
         $disp = disponibilidade::find($id);
-        return view("disponibilidade", ['disp' => $disp]);
+        return view("disponibilidadeEdit", ['disp' => $disp]);
 
     }
 
@@ -77,12 +77,10 @@ class disponibilidadeController extends Controller {
 	public function update(Request $request,$id)
 	{
         $disp= disponibilidade::find($id);
-        $disp->apelido= $request->get('apelido');
-        $disp->outrosNomes = $request->get ('outrosNomes');
-        $disp->dataNascimento= $request->get ('dataNascimento');
-        $disp->nrEstudante= $request->get ('numeroEstudante');
-        $disp->curso= $request->get ('curso');
-        $disp->nivel= $request->get ('nivel');
+        $disp->disp=$request->get('disp');
+        $disp->tempoInicio=$request->get('tempoInicio');
+        $disp->tempoFim=$request->get('tempoFim');
+        $disp->descricao=$request->get('descricao');
         $disp->save();
         return $disp;
 	}
