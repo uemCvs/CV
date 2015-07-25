@@ -93,4 +93,5 @@ Route::get('testeYola',function(){
 
 Route::get('inicio',function(){
     return view("inicio");
+
 });
