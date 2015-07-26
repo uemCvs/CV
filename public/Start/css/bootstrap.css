@@ -3935,7 +3935,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #2c3e50;
-  background-color: #ffffff;
+  background-color: #18BC9C;
   border: 1px solid #ecf0f1;
   border-bottom-color: transparent;
   cursor: default;
@@ -3986,8 +3986,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-pills > li {
   float: left;
-    color:#18BC9C;
-    border: outset;
+    color:#15a589;
+    border-right-style: solid;
+    background-color: #B2DFDB;
 
 }
 .nav-pills > li > a {
@@ -4877,7 +4878,7 @@ a.badge:focus {
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 6px;
-    background-color: #18BC9C;
+    background-color: #fff;
     min-height:100%;
     width:100%;
     height: 100%;
@@ -5319,6 +5320,8 @@ a.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
+    border: solid;
+    border-color: #18BC9C;
 }
 .panel-heading {
   padding: 10px 15px;

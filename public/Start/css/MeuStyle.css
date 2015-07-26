@@ -362,7 +362,10 @@ footer .footer-col {
     padding: 25px 0;
     background-color: #233140;
     color: #fff;
-
+    bottom: 0;
+    position:relative;
+    width:100%;
+    left:0;
 
 }
 

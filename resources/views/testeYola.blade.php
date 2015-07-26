@@ -13,7 +13,7 @@
     <div class="container-fluid">
 
         <h3 class="text-center">Preencha o seu Curriculum</h3>
-        <ul class="nav nav-pills nav-justified topnav">
+        <ul class="nav nav-pills nav-justified top">
             <li class="active"><a data-toggle="pill" href="#home">Dados Pessoais</a></li>
             <li><a data-toggle="pill" href="#menu1">Habilitacoes Literarias</a></li>
             <li><a data-toggle="pill" href="#menu2">Qualificacoes</a></li>
@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <ul class="nav nav-tabs nav-stacked ">
-                                    <li class="active"><a data-toggle="tab" href="#dados1">Dados Pessoais</a></li>
+                                    <li class="active"><a data-toggle="tab" href="{{URL::to("estudantes/create")}}">Dados Pessoais</a></li>
                                     <li><a data-toggle="tab" href="#endereco">Endereco</a></li>
                                     <li><a data-toggle="tab" href="#contacto">Contacto</a></li>
                                 </ul>
@@ -42,9 +42,37 @@
                                 <div class="panel panel-body">
                                     <div class="tab-content">
                                         <div id="dados1" class="tab-pane fade in active">
-                                            <h3>HOME</h3>
+                                            <form id="form1" name="form1" method="post" >
+                                                <input type="hidden" name="_method" value="PUT" />
+                                                <p><strong>Dados Pessoais</strong></p>
+                                                <label for="apelido">Apelido</label>
+                                                <input type="text" name="apelido" id="apelido"  />
 
-                                            <p>Some content.</p>
+                                                <p>
+                                                    <label for="outrosNomes">Outros Nomes</label>
+                                                    <input type="text" name="outrosNomes" id="outrosNomes" >  </p>
+                                                <p>
+                                                    <label for="dataNascimento">Data de Nascimento</label>
+                                                    <input type="text" name="dataNascimento" id="dataNascimento"/>
+                                                </p>
+                                                <p>
+                                                    <label for="numeroEstudante">Número de Estudante</label>
+                                                    <input type="text" name="numeroEstudante" id="numeroEstudante" />
+                                                </p>
+                                                <p>
+                                                    <label for="curso">Curso</label>
+                                                    <input type="text" name="curso" id="curso" />
+                                                </p>
+                                                <p>
+                                                    <label for="nivel">Nível</label>
+                                                    <input type="text" name="nivel" id="nivel" />
+                                                </p>
+                                                <p>
+                                                    <input type="submit" name="gravarDpessoais" id="gravarDpessoais" value="Gravar" />
+                                                </p>
+                                                <p>&nbsp;</p>
+                                                <p>&nbsp;</p>
+                                            </form>
                                         </div>
                                         <div id="endereco" class="tab-pane fade">
                                             <h3>Menu 1</h3>
