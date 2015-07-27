@@ -46,37 +46,37 @@ Route::put('/estudantes/{id}',['as' =>'put_est', 'uses' => 'EstudanteController@
 Route::get('/experiencias/{id}','ExperienciaController@edit');
 Route::put('/experiencias/{id}',['as' =>'put_exp', 'uses' => 'ExperienciaController@update']);
 
-//edicao de formulario (outras qualificacoes, referencia, idioma, habilitacaoIntelectual, disponibilidade)
 
 
-
+//outras qualificacoes
 Route::get ('/qualificacao','qualificacaoController@index');
 Route::post ('/qualificacao','qualificacaoController@store');
 Route::get('/qualificacao/{id}/editar',['as' =>'editar_qualificacao', 'uses' => 'qualificacaoController@edit']);
 Route::get('/qualificacao/{id}/','qualificacaoController@show');
 Route::put('/qualificacao/{id}',['as' =>'put_qual', 'uses' => 'qualificacaoController@update']);
 
+//habilitacaoIntelectual
 Route::get ('/habilitacaoIntelectual','habIntelectualController@index');
 Route::post ('/habilitacaoIntelectual','habIntelectualController@store');
 Route::get('/habilitacaoIntelectual/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'habIntelectualController@edit']);
 Route::get('/habilitacaoIntelectual/{id}/',['as'=>'visualizarHabilitacao', 'uses' => 'habIntelectualController@show'])->where(['id'=>'(0-9)+']);
 Route::put('/habilitacaoIntelectual/{id}',['as' =>'put_hab', 'uses' => 'habIntelectualController@update']);
 
-
+//referencia
 Route::get ('/referencia','referenciaController@index');
 Route::post ('/referencia','referenciaController@store');
 Route::get('/referencia/{id}/editar',['as' =>'editar_referencia', 'uses' => 'referenciaController@edit']);
 Route::get('/referencia/{id}/','referenciaController@show');
 Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
 
-
+// idioma
 Route::get ('/idioma','idiomaController@index');
 Route::post ('/idioma','idiomaController@store');
 Route::get('/idioma/{id}/editar',['as' =>'editar_idioma', 'uses' => 'idiomaController@edit']);
 Route::get('/idioma/{id}/','idiomaController@show');
 Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
 
-
+//disponibilidade
 Route::get ('/disponibilidade','disponibilidadeController@index');
 Route::post ('/disponibilidade','disponibilidadeController@store');
 Route::get('/disponibilidade/{id}/editar',['as' =>'editar_disponibilidade', 'uses' => 'disponibilidadeController@edit']);
