@@ -6,13 +6,16 @@
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-    <p>Referencias</p>
+    <p>Referencias</p><br>
     <p>
-        <label for="referencias">Referencias</label>
-        <input type="textArea" name="referencia" width="400" length="10" id="referencias" /><br>
+        <label>Referencias:</label><br>
+        <textArea name="referencia" cols="40" rows="10" ></textArea><br>
         <input type="submit" value="enviar">
     </p>
     <p>&nbsp;</p>
 </form>
+
 </body>
 </html>
+
+

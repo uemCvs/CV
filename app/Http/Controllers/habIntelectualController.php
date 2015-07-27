@@ -51,7 +51,7 @@ class habIntelectualController extends Controller {
 	public function show($id)
 	{
         $hab = HabilitacaoIntelectual::find($id);
-        return view("habIntelectuall", ['h' => $hab]);
+        return view("habIntelectuall", ['hab' => $hab]);
 	}
 
 	/**
@@ -77,7 +77,7 @@ class habIntelectualController extends Controller {
         $hab= HabilitacaoIntelectual::find($id);
         $hab->habilitacao= $request->get('habilitacao');
         $hab->save();
-        return $hab;
+        return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 
 
 

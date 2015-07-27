@@ -38,7 +38,7 @@ class referenciaController extends Controller {
         $refer = new referencia();
         $refer->referencia=$request->get('referencia');
         $refer->save();
-        return $refer;
+        return redirect(route('visualizarReferencia',['id'=>$refer->id]));
 	}
 
 	/**
@@ -78,7 +78,7 @@ class referenciaController extends Controller {
         $refer= referencia::find($id);
         $refer->referencia=$request->get('referencia');
         $refer->save();
-        return $refer;
+        return redirect(route('visualizarReferencia',['id'=>$refer->id]));
 
 
 

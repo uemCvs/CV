@@ -41,7 +41,7 @@ class disponibilidadeController extends Controller {
         $disp->tempoFim=$request->get('tempoFim');
         $disp->descricao=$request->get('descricao');
         $disp->save();
-        return $disp;
+        return redirect(route('visualizarDisponibilidade',['id'=>$disp->id]));
 	}
 
 	/**
@@ -83,7 +83,7 @@ class disponibilidadeController extends Controller {
         $disp->tempoFim=$request->get('tempoFim');
         $disp->descricao=$request->get('descricao');
         $disp->save();
-        return $disp;
+        return redirect(route('visualizarDisponibilidade',['id'=>$disp->id]));
 	}
 
 	/**
