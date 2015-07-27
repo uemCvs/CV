@@ -41,8 +41,9 @@ class idiomaController extends Controller {
         $idioma->dominioFala = $request->get ('dominioFala');
         $idioma->dominioLei = $request->get ('dominioLei');
         $idioma->save();
-        return $idioma;
-	}
+        return redirect(url('idioma/'.$idioma->id.''));
+
+    }
 
 	/**
 	 * Display the specified resource.

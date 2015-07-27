@@ -73,8 +73,8 @@ Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaControll
 Route::get ('/idioma','idiomaController@index');
 Route::post ('/idioma','idiomaController@store');
 Route::get('/idioma/{id}/editar',['as' =>'editar_idioma', 'uses' => 'idiomaController@edit']);
-Route::get('/idioma/{id}/','idiomaController@show');
-Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
+Route::get('/idioma/{id}',['as' =>'visualizarIdioma', 'uses' => 'idiomaController@show'])->where(['id'=>'[0-9]+']);
+//Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
 
 //disponibilidade
 Route::get ('/disponibilidade','disponibilidadeController@index');
