@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Estudante;
+use Auth;
 
 class EstudanteController extends Controller {
 
@@ -15,7 +16,7 @@ class EstudanteController extends Controller {
 	 */
 	public function index()
 	{
-		return view('Estudante');
+
 	}
 
 	/**
@@ -25,7 +26,7 @@ class EstudanteController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('estudanteGravar');
 	}
 
 	/**
@@ -42,7 +43,11 @@ class EstudanteController extends Controller {
 		$est->nrEstudante= $request->get ('numeroEstudante');
 		$est->curso= $request->get ('curso');
 		$est->nivel= $request->get ('nivel');
-		$est->save();
+	//	$est->user_id= Auth::user()->id;
+		Auth::user()->estudante()->save($est);
+		return redirect(route('visualizarEstudante',['id'=>$est->id]));
+	//$est->utilizador()->associate(Auth::user());
+	//	$est->save();
 		return $est;
 	}
 
@@ -54,7 +59,8 @@ class EstudanteController extends Controller {
 	 */
 	public function show($id)
 	{
-
+		$estudante = Estudante::find($id);
+		return view("estudantee", ['est' => $estudante]);
 	}
 
 	/**
@@ -86,7 +92,7 @@ class EstudanteController extends Controller {
 		$est->curso= $request->get ('curso');
 		$est->nivel= $request->get ('nivel');
 		$est->save();
-		return $est;
+		return redirect(route('visualizarEstudante',['id'=>$est->id]));
 	}
 
 	/**

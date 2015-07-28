@@ -1,9 +1,17 @@
-<?php namespace App;
+	<?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+	use Illuminate\Database\Eloquent\Model;
 
-class Endereco extends Model {
+	class Endereco extends Model {
 
-	protected $table = 'enderecos';
+		protected $table = 'enderecos';
 
-}
+	}
+
+	public function curriculo(){
+			return $this->belongsTo('\App\Curriculo');
+	}
+
+	public function utilizador(){
+			return $this->belongsTo('\App\User);
+	}

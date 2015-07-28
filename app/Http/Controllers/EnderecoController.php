@@ -4,9 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use \App\Experiencia;
-
-class ExperienciaController extends Controller {
+use \App\Endereco;
+class EnderecoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +14,7 @@ class ExperienciaController extends Controller {
 	 */
 	public function index()
 	{
-		return view('experienciaGravar');
+		//
 	}
 
 	/**
@@ -25,7 +24,7 @@ class ExperienciaController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('enderecoGravar');
 	}
 
 	/**
@@ -33,21 +32,21 @@ class ExperienciaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request  $request)
+	public function store(Request $request)
 	{
+		$end= new Endereco();
+		$end->pais= $request->get('pais');
+		$end->provincia = $request->get ('provincia');
+		$end->distrito= $request->get ('distrito');
+		$end->bairro= $request->get ('bairro');
+		$end->rua= $request->get ('rua');
+		$end->avenida= $request->get ('avenida');
+		$end->nrDeCasa= $request->get ('nrDeCasa');
+		$end->quarteirao= $request->get ('quarteirao');
 
-		$exp= new Experiencia();
-	//	$exp-> = $request->get('nomeCurso');
-		$exp->instituicao = $request->get ('nomeInstituicao');
-		$exp->cargo= $request->get ('cargo');
-		$exp->anoIngresso = $request->get ('anoIngresso');
-		$exp->anoTermino= $request->get ('anoConclusao');
+			return redirect(route('visualizarEndereco',['id'=>$end->id]));
 
-		$exp->save();
-			return $exp;
 	}
-
-
 
 	/**
 	 * Display the specified resource.
@@ -68,9 +67,7 @@ class ExperienciaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$exp = Experiencia::find($id);
-		return view("experiencia", ['exp' => $exp]);
-
+		//
 	}
 
 	/**
@@ -79,16 +76,9 @@ class ExperienciaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update($id)
 	{
-		$exp = Experiencia::find($id);
-		$exp->instituicao = $request->get ('nomeInstituicao');
-		$exp->cargo= $request->get ('cargo');
-		$exp->anoIngresso = $request->get ('anoIngresso');
-		$exp->anoTermino= $request->get ('anoConclusao');
-
-		$exp->save();
-			return $exp;
+		//
 	}
 
 	/**
