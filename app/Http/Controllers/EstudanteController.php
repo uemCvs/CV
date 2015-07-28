@@ -48,7 +48,7 @@ class EstudanteController extends Controller {
 		return redirect(route('visualizarEstudante',['id'=>$est->id]));
 	//$est->utilizador()->associate(Auth::user());
 	//	$est->save();
-		return $est;
+
 	}
 
 	/**

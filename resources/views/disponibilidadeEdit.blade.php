@@ -22,11 +22,11 @@
         </select>
     <p>
         <label >Hora Inicial</label>
-        <input type="time" name="horaInicial"  value="{{ $disp->horaInicial}}"/>
+        <input type="time" name="horaInicial"  value="{{ $disp->tempoInicio}}"/>
     </p>
     <p>
         <label >Hora Final</label>
-        <input type="time" name="horaFinal"  value="{{ $disp->horaFina}}"/>
+        <input type="time" name="horaFinal"  value="{{ $disp->tempoFim}}"/>
     </p>
     <p>
         <label >descricao</label>

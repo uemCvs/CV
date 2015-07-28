@@ -1,18 +1,21 @@
+<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
+<script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Untitled Document</title>
-</head>
+<form id="form1" name="form1" method="post" action="{{url('referencia')}}">
+    <h4 class="text-center">Referencias</h4>
+    <div class="form-group">
+        <label  for="referencia" >Referencias</label>
+        <textarea class="form-control"  name="referencia" id="referencia" rows="10" cols="10" ></textarea>
 
-<body>
-<form id="form1" name="form1" method="post" action="">
-    <p>Referencias</p>
-    <p>
-        <label for="referencias">Referencias</label>
-        <input type="textArea" name="referencia" width="400" length="10" id="referencias" /><br>
-        <input type="submit" value="enviar">
-    </p>
-    <p>&nbsp;</p>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input type="submit" class="btn btn-success" name="gravarReferencias" id="gravarReferencias" value="Gravar"/>
+        </div>
+    </div>
+
 </form>
-</body>
-</html>
+

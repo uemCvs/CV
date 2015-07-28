@@ -17,7 +17,7 @@ class CreateHabilitacaosTable extends Migration {
 			$table->increments('id');
 			$table->string('nivel');
 			$table->string('anoDeConclusao');
-			$table->string('curso');
+			$table->string('curso')->nullable();
 			$table->string('sisEnsino');
 			$table->string('instituicao');
 			$table->timestamps();

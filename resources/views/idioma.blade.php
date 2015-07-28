@@ -1,57 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Untitled Document</title>
-    <script type="text/javascript">
+<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
+<script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
+<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('idioma')}}">
+    <h4 class="text-center">Idiomas</h4>
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="lingua">Nome do Idioma</label>
+
+        <div class="col-sm-9">
+            <select class="form-control" name="lingua" id="lingua" onclick="showIdioma()">
+                <option value="Portugues" >Português</option>
+                <option value="Ingles">Inglês</option>
+                <option value="Changana">Changana</option>
+                <option value="Frances">Francês</option>
+                <option value="Espanhol">Espanhol</option>
+                <option value="Outros">Outros</option>
+            </select>
+            <input class="form-control" type="hidden" name="outroIdioma" id="outroIdioma"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="dominioEsc">Dominio de Escrito</label>
+
+        <div class="col-sm-9">
+            <select class="form-control" name="dominioEsc" id="dominioEsc">
+                <option value="Excelente" >Excelente</option>
+                <option value="Bom">Bom</option>
+                <option value="Razoavel">Razoável</option>
+                <option value="Mau">Mau</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="dominioFala">Dominio de Fala</label>
+
+        <div class="col-sm-9">
+            <select class="form-control" name="dominioFala" id="dominioFala">
+                <option value="Excelente" >Excelente</option>
+                <option value="Bom">Bom</option>
+                <option value="Razoavel">Razoável</option>
+                <option value="Mau">Mau</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="dominioLei">Dominio de leitura</label>
+
+        <div class="col-sm-9">
+            <select class="form-control" name="dominioLei" id="dominioLei">
+                <option value="Excelente" >Excelente</option>
+                <option value="Bom">Bom</option>
+                <option value="Razoavel">Razoável</option>
+                <option value="Mau">Mau</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-success" name="gravarIdioma" id="gravarIdioma" value="Gravar"/>
+        </div>
+    </div>
+    <script>
+        function showIdioma(){
+
+            var lingua= document.getElementById("lingua");
+            var outroIdioma=document.getElementById("outroIdioma");
+
+            if(lingua.value=='Outros'){
+               outroIdioma.setAttribute('type','text');
+            }else {
+                outroIdioma.setAttribute('type','hidden');
+            }
+
+        }
     </script>
-</head>
-
-<body>
-<form id="form1" name="form1" method="post" action="{{url('idioma')}}">
-    <p>Idiomas</p>
-    <p>
-        <label for="nomeIdioma">Nome do Idioma</label>
-        <select name="lingua" id="jumpMenu" >
-            <option selected="selected">Changana</option>
-            <option>Inglês</option>
-            <option>Português</option>
-            <option>Francês</option>
-            <option>Espanhol</option>
-        </select>
-        <input type="submit" name="adicionarNomeIdioma" id="adicionarNomeIdioma" value="+" />
-    </p>
-    <p>
-        Dominio de Escrito
-        <select name="dominioEsc" id="jumpMenu2">
-            <option selected="selected">Excelente</option>
-            <option>Bom</option>
-            <option>Razoável</option>
-            <option>Mau</option>
-        </select>
-    </p>
-    <p>Dominio de Fala
-        <select name="dominioFala" id="jumpMenu3" >
-            <option>Razoável</option>
-            <option>Excelente</option>
-            <option>Bom</option>
-            <option>Mau</option>
-        </select>
-    </p>
-    <p>Dominio de leitura
-        <select name="dominioLei" id="jumpMenu3" >
-            <option>Razoável</option>
-            <option>Excelente</option>
-            <option>Bom</option>
-            <option>Mau</option>
-        </select>
-    </p>
-
-    <p>
-        <input type="submit" name="adicionarIdioma" id="adicionarIdioma" value="+" />
-        <input type="submit" name="gravarIdioma" id="gravarIdioma" value="Gravar" />
-    </p>
 </form>
-</body>
-</html>

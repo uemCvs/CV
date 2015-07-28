@@ -13,6 +13,7 @@ html {
 }
 body {
   margin: 0;
+    background-color: #fff;
 }
 article,
 aside,
@@ -3935,7 +3936,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #2c3e50;
-  background-color: #18BC9C;
+  background-color: #B2DFDB;
   border: 1px solid #ecf0f1;
   border-bottom-color: transparent;
   cursor: default;
@@ -3972,6 +3973,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
   border: 1px solid #ecf0f1;
+    background-color: #80CBC4;
 }
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li > a {
@@ -4186,6 +4188,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
+
 }
 .navbar-brand > img {
   display: block;
@@ -4406,8 +4409,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #18bc9c;
-  background-color: transparent;
+
+  color:#2c3e50 ;
+
 }
 .navbar-default .navbar-text {
   color: #777777;
@@ -4417,7 +4421,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #18bc9c;
+  color: #2c3e50;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -4878,7 +4882,7 @@ a.badge:focus {
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 6px;
-    background-color: #fff;
+
     min-height:100%;
     width:100%;
     height: 100%;
@@ -5042,7 +5046,7 @@ a.thumbnail.active {
   line-height: 21px;
   color: #ffffff;
   text-align: center;
-  background-color: #2c3e50;
+  background-color: #fff;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
@@ -5319,9 +5323,8 @@ a.list-group-item-danger.active:focus {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .panel-body {
-  padding: 15px;
-    border: solid;
-    border-color: #18BC9C;
+
+    background-color: #fff;
 }
 .panel-heading {
   padding: 10px 15px;
