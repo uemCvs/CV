@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Endereco;
+use Auth;
 class EnderecoController extends Controller {
 
 	/**
@@ -43,6 +44,7 @@ class EnderecoController extends Controller {
 		$end->avenida= $request->get ('avenida');
 		$end->nrDeCasa= $request->get ('nrDeCasa');
 		$end->quarteirao= $request->get ('quarteirao');
+		Auth::user()->endereco()->save($end);
 
 			return redirect(route('visualizarEndereco',['id'=>$end->id]));
 
@@ -56,7 +58,8 @@ class EnderecoController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$end = Endereco::find($id);
+		return view("enderecoo", ['end' => $end]);
 	}
 
 	/**
@@ -67,8 +70,10 @@ class EnderecoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
-	}
+
+			$end = Endereco::find($id);
+			return view("endereco", ['end' => $end]);
+		}
 
 	/**
 	 * Update the specified resource in storage.
@@ -78,7 +83,18 @@ class EnderecoController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$est = Endereco::find($id);
+		$end->pais= $request->get('pais');
+		$end->provincia = $request->get ('provincia');
+		$end->distrito= $request->get ('distrito');
+		$end->bairro= $request->get ('bairro');
+		$end->rua= $request->get ('rua');
+		$end->avenida= $request->get ('avenida');
+		$end->nrDeCasa= $request->get ('nrDeCasa');
+		$end->quarteirao= $request->get ('quarteirao');
+		$end->save();
+		return redirect(route('visualizarEndereco',['id'=>$end->id]));
+
 	}
 
 	/**

@@ -1,4 +1,4 @@
-	<?php namespace App;
+<?php namespace App;
 
 	use Illuminate\Database\Eloquent\Model;
 
@@ -6,12 +6,11 @@
 
 		protected $table = 'enderecos';
 
-	}
+		public function curriculo(){
+				return $this->belongsTo('\App\Curriculo');
+		}
 
-	public function curriculo(){
-			return $this->belongsTo('\App\Curriculo');
-	}
-
-	public function utilizador(){
-			return $this->belongsTo('\App\User);
+		public function utilizador(){
+				return $this->belongsTo('\App\User');
+		}
 	}

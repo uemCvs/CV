@@ -64,11 +64,12 @@
 
   //Endereco
 
-    Route::get('/enderencos', 'EnderecoController@index');
-    Route::get('/enderencos/create', 'EnderecoController@create');
-    Route::get('/enderencos/{id}/editar',['as' =>'editar_endereco', 'uses' => 'EnderecoController@edit']);
-    Route::put('/enderencos/{id}',['as' =>'put_end', 'uses' => 'EnderecoController@update']);
-    Route::get('/enderencos/{id}/',['as' =>'visualizarEndereco', 'uses' => 'EnderecoController@show'])->where(['id' => '[0-9]+']);
+    Route::get('/enderecos', 'EnderecoController@index');
+    Route::get('/enderecos/create', 'EnderecoController@create');
+    Route::post('/enderecos', 'EnderecoController@store');
+    Route::get('/enderecos/{id}/editar',['as' =>'editar_endereco', 'uses' => 'EnderecoController@edit']);
+    Route::put('/enderecos/{id}',['as' =>'put_end', 'uses' => 'EnderecoController@update']);
+    Route::get('/enderecos/{id}/',['as' =>'visualizarEndereco', 'uses' => 'EnderecoController@show'])->where(['id' => '[0-9]+']);
 
 
   //Estudante
