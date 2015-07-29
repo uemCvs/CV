@@ -1,4 +1,4 @@
-<form id="form1" name="form1" method="post" action="{{url('habilitacoes')}}">
+<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('habilitacoes')}}">
   <p>&nbsp;</p>
   <p>
     <label for="nivel">Nível</label>

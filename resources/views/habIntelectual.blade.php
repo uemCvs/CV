@@ -1,21 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Untitled Document</title>
-</head>
+<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
+<script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
-<body>
 <form id="form1" name="form1" method="post" action="habilitacaoIntelectual">
-    <p>Habilitações Intelectuais
-    </p>
-    <p>Descrição: </p>
 
-    <p>
-        <textarea name="habilitacao" id="descrHabilIntelc" cols="50" rows="10"></textarea>
-    </p>
-    <input type="submit" value="enviar">
+
+    <h4 class="text-center">Habilitações Intelectuais</h4>
+    <div class="form-group">
+        <label  for="descrHabilIntelc" >Descrição:</label>
+        <textarea class="form-control"  name="habilitacao" id="descrHabilIntelc" rows="10" cols="10" ></textarea>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input type="submit" class="btn btn-success" name="gravarHabIntelectual" id="gravarHabIntelectual" value="Gravar"/>
+        </div>
+    </div>
+
 </form>
 
-</body>
-</html>

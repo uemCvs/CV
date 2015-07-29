@@ -5,9 +5,10 @@
  */
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     width: 100%;
     height: 100%;
+    background-color: #fff;;
 }
 
 p {
@@ -36,10 +37,13 @@ h6 {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
-    color: #15a589;
+    color:  #2c3e50;
 }
 
-
+body > div.container-fluid > div.panel-body{
+    height: 70vh;
+background-color: #fff;
+}
 
 hr.star-light,
 hr.star-primary {
@@ -50,6 +54,20 @@ hr.star-primary {
     border-top: solid 5px;
     text-align: center;
 }
+
+.ideia{
+    border-radius: 0;
+}
+
+.nav-esquerdo{
+    width: 15em;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/*#home > div > div.col-md-3{
+    padding-left: 0;
+}*/
 
 hr.star-light:after,
 hr.star-primary:after {
@@ -114,6 +132,9 @@ header .intro-text .skills {
 }
 
 @media(min-width:768px) {
+    body{
+        overflow-y: visible;
+    }
     header .container {
         padding-top: 200px;
         padding-bottom: 100px;
@@ -129,6 +150,9 @@ header .intro-text .skills {
 }
 
 @media(min-width:768px) {
+    body{
+        overflow-y: visible;
+    }
     .navbar-fixed-top {
         padding: 25px 0;
         -webkit-transition: padding .3s;
@@ -161,6 +185,7 @@ header .intro-text .skills {
 
 .navbar a:focus {
     outline: 0;
+
 }
 
 .navbar .navbar-nav {
@@ -174,7 +199,10 @@ header .intro-text .skills {
 .navbar-default,
 .navbar-inverse {
     border: 0;
-    padding: 25px 0;
+    padding: 13px 0;
+    background-color: #15a589;
+    border-color: transparent;
+
 }
 
 section {
@@ -201,6 +229,9 @@ section.success a.active {
 }
 
 @media(max-width:767px) {
+    body{
+        overflow-y: visible;
+    }
     section {
         padding: 75px 0;
     }
@@ -323,7 +354,7 @@ section.success a.active {
     transition: top .3s ease,opacity .3s ease;
 }
 
-.floating-label-form-group::not(:first-child) {
+.floating-label-form-group:not(:first-child) {
     padding-left: 14px;
     border-left: 1px solid #eee;
 }
@@ -359,11 +390,11 @@ footer .footer-col {
 }
 
 .footer-below {
-    padding: 25px 0;
-    background-color: #233140;
+    padding: 14px 0;
+    background-color: #15a589;
     color: #fff;
-    bottom: 0;
-    position:relative;
+   bottom: 0;
+    position:absolute;
     width:100%;
     left:0;
 
