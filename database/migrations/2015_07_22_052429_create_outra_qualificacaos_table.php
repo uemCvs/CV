@@ -18,6 +18,8 @@ class CreateOutraQualificacaosTable extends Migration {
             $table->string('nomeCurso');
             $table->string('nomeInstituicao');
             $table->string('anoConclusao');
+            $table->integer('curriculo_id')->unsigned();
+            $table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');
             $table->timestamps();
 		});
 	}

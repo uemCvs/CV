@@ -19,8 +19,9 @@ class CreateDisponibilidadesTable extends Migration {
             $table->time('tempoInicio')->nullable();
             $table->time('tempoFim')->nullable();
             $table->LongText('descricao')->nullable();
-
             $table->timestamps();
+            $table->integer('curriculo_id')->unsigned();
+            $table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');
 		});
 	}
 

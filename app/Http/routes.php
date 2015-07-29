@@ -21,41 +21,6 @@
   ]);
 
   //Route::resource('estudantes', 'EstudanteController');
-  //outras qualificacoes
-  Route::get ('/qualificacao','qualificacaoController@index');
-  Route::post ('/qualificacao','qualificacaoController@store');
-  Route::get('/qualificacao/{id}/editar',['as' =>'editar_qualificacao', 'uses' => 'qualificacaoController@edit']);
-  Route::get('/qualificacao/{id}/',['as' =>'visualizarQualificacao', 'uses' => 'qualificacaoController@show'])->where(['id'=>'[0-9]+']);
-  Route::put('/qualificacao/{id}',['as' =>'put_qual', 'uses' => 'qualificacaoController@update']);
-
-  // idioma
-  Route::get ('/idioma','idiomaController@index');
-  Route::post ('/idioma','idiomaController@store');
-  Route::get('/idioma/{id}/editar',['as' =>'editar_idioma', 'uses' => 'idiomaController@edit']);
-  Route::get('/idioma/{id}',['as' =>'visualizarIdioma', 'uses' => 'idiomaController@show'])->where(['id'=>'[0-9]+']);
-  Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
-
-  //disponibilidade
-  Route::get ('/disponibilidade','disponibilidadeController@index');
-  Route::post ('/disponibilidade','disponibilidadeController@store');
-  Route::get('/disponibilidade/{id}/editar',['as' =>'editar_disponibilidade', 'uses' => 'disponibilidadeController@edit']);
-  Route::get('/disponibilidade/{id}/',['as' =>'visualizarDisponibilidade', 'uses' => 'disponibilidadeController@show'])->where(['id'=>'[0-9]+']);
-  Route::put('/disponibilidade/{id}',['as' =>'put_disp', 'uses' => 'disponibilidadeController@update']);
-
-
-  //habilitacaoIntelectual
-  Route::get ('/habilitacaoIntelectual','habIntelectualController@index');
-  Route::post ('/habilitacaoIntelectual','habIntelectualController@store');
-  Route::get('/habilitacaoIntelectual/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'habIntelectualController@edit']);
-  Route::get('/habilitacaoIntelectual/{id}/',['as'=>'visualizarHabilitacao', 'uses' => 'habIntelectualController@show'])->where(['id'=>'[0-9]+']);
-  Route::put('/habilitacaoIntelectual/{id}',['as' =>'put_hab', 'uses' => 'habIntelectualController@update']);
-
-  //referencia
-  Route::get ('/referencia','referenciaController@index');
-  Route::post ('/referencia','referenciaController@store');
-  Route::get('/referencia/{id}/editar',['as' =>'editar_referencia', 'uses' => 'referenciaController@edit']);
-  Route::get('/referencia/{id}/',['as' =>'visualizarReferencia', 'uses' => 'referenciaController@show'])->where(['id'=>'[0-9]+']);
-  Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
 
 
   //Habilitacoes
@@ -99,40 +64,57 @@
     Route::get('/estudantes/{id}/',['as' =>'visualizarEstudante', 'uses' => 'EstudanteController@show'])->where(['id' => '[0-9]+']);
 
 
-  	//Qualificacao
-  	Route::get ('/qualificacao','qualificacaoController@index');
-  	Route::post ('/qualificacao','qualificacaoController@store');
+
+
+      //outras qualificacoes
+      Route::get ('/qualificacao','qualificacaoController@index');
+      Route::post ('/qualificacao','qualificacaoController@store');
+      Route::get('/qualificacao/{id}/editar',['as' =>'editar_qualificacao', 'uses' => 'qualificacaoController@edit']);
+      Route::get('/qualificacao/{id}/',['as' =>'visualizarQualificacao', 'uses' => 'qualificacaoController@show'])->where(['id'=>'[0-9]+']);
+      Route::put('/qualificacao/{id}',['as' =>'put_qual', 'uses' => 'qualificacaoController@update']);
+
+      // idioma
+      Route::get ('/idioma','idiomaController@index');
+      Route::post ('/idioma','idiomaController@store');
+      Route::get('/idioma/{id}/editar',['as' =>'editar_idioma', 'uses' => 'idiomaController@edit']);
+      Route::get('/idioma/{id}',['as' =>'visualizarIdioma', 'uses' => 'idiomaController@show'])->where(['id'=>'[0-9]+']);
+      Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
+
+      //disponibilidade
+      Route::get ('/disponibilidade','disponibilidadeController@index');
+      Route::post ('/disponibilidade','disponibilidadeController@store');
+      Route::get('/disponibilidade/{id}/editar',['as' =>'editar_disponibilidade', 'uses' => 'disponibilidadeController@edit']);
+      Route::get('/disponibilidade/{id}/',['as' =>'visualizarDisponibilidade', 'uses' => 'disponibilidadeController@show'])->where(['id'=>'[0-9]+']);
+      Route::put('/disponibilidade/{id}',['as' =>'put_disp', 'uses' => 'disponibilidadeController@update']);
+
+
+      //habilitacaoIntelectual
+      Route::get ('/habilitacaoIntelectual','habIntelectualController@index');
+      Route::post ('/habilitacaoIntelectual','habIntelectualController@store');
+      Route::get('/habilitacaoIntelectual/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'habIntelectualController@edit']);
+      Route::get('/habilitacaoIntelectual/{id}/',['as'=>'visualizarHabilitacao', 'uses' => 'habIntelectualController@show'])->where(['id'=>'[0-9]+']);
+      Route::put('/habilitacaoIntelectual/{id}',['as' =>'put_hab', 'uses' => 'habIntelectualController@update']);
+
+      //referencia
+      Route::get ('/referencia','referenciaController@index');
+      Route::post ('/referencia','referenciaController@store');
+      Route::get('/referencia/{id}/editar',['as' =>'editar_referencia', 'uses' => 'referenciaController@edit']);
+      Route::get('/referencia/{id}/',['as' =>'visualizarReferencia', 'uses' => 'referenciaController@show'])->where(['id'=>'[0-9]+']);
+      Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
 
 
   });
 
   //edicao de formulario (outras qualificacoes, referencia, idioma, habilitacaoIntelectual, disponibilidade)
 
-  Route::get('/qualificacao/{id}/editar','qualificacaoController@edit');
-  Route::put('/qualificacao/{id}',['as' =>'put_qual', 'uses' => 'qualificacaoController@update']);
 
-  Route::get('/habilitacaoIntelectual/{id}/editar','habIntelectualController@edit');
-  Route::put('/habilitacaoIntelectual/{id}',['as' =>'put_hab', 'uses' => 'habIntelectualController@update']);
-
-  Route::get('/referencia/{id}/editar','referenciaController@edit');
-  Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
-
-
-  Route::get('/idioma/{id}/editar','idiomaController@edit');
-  Route::put('/idioma/{id}',['as' =>'put_idioma', 'uses' => 'idiomaController@update']);
 Route::get('testeYola',function(){
-    return view("testeYola");
+    return view("teste");
 });
 Route::get('main',function(){
     return view("layouts/main");
 });
 
-  Route::get('/disponibilidade/{id}/editar','disponibilidadeController@edit');
-  Route::put('/disponibilidade/{id}',['as' =>'put_disp', 'uses' => 'disponibilidadeController@update']);
-
-  Route::get('testeYola',function(){
-      return view("testeYola");
-  });
 
   Route::get('inicio',function(){
       return view("inicio");

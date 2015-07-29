@@ -17,6 +17,8 @@ class CreateHabilitacaoIntelectualsTable extends Migration {
 			$table->increments('id');
             $table->longText('habilitacao');
 			$table->timestamps();
+            $table->integer('curriculo_id')->unsigned();
+            $table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');
 		});
 	}
 

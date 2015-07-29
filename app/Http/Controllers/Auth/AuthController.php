@@ -19,7 +19,7 @@ class AuthController extends Controller {
 	*/
 
 	use AuthenticatesAndRegistersUsers;
-
+    protected $redirectPath = '/';
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -29,6 +29,7 @@ class AuthController extends Controller {
 	 */
 	public function __construct(Guard $auth, Registrar $registrar)
 	{
+      //  $redirectPath = Auth::user()->estudante()->first() == null ? '/idioma' : '/qualificacao';
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
