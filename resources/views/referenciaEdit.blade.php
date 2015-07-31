@@ -9,8 +9,8 @@
     <input type="hidden" name="_method" value="PUT">
     <p>Referencias</p>
     <p>
-        <label for="referencias">Referencias</label>
-        <input type="textArea" name="referencia" cols="40" rows="10" value="{{ $refer->referencia}}" /><br>
+        <label for="referencias">Referencias:</label><br>
+        <textArea name="referencia" cols="40" rows="10" value="{{ $refer->referencia}}" /><br>
         <input type="submit" value="enviar">
     </p>
     <p>&nbsp;</p>

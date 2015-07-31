@@ -19,6 +19,8 @@ class CreateIdiomasTable extends Migration {
             $table->String('dominioEsc');
             $table->String('dominioFala');
             $table->String('dominioLei');
+            $table->integer('curriculo_id')->unsigned();
+            $table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');
             $table->timestamps();
 		});
 	}
