@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 
 class AuthController extends Controller {
 
@@ -29,7 +30,6 @@ class AuthController extends Controller {
 	 */
 	public function __construct(Guard $auth, Registrar $registrar)
 	{
-      //  $redirectPath = Auth::user()->estudante()->first() == null ? '/idioma' : '/qualificacao';
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
