@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabilitacaosTable extends Migration {
+class CreateEmailsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,13 @@ class CreateHabilitacaosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('habilitacaos', function(Blueprint $table)
+		Schema::create('emails', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nivel');
-			$table->string('anoDeConclusao');
-			$table->string('curso')->nullable();
-			$table->string('sisEnsino');
-			$table->string('instituicao');
+			$table->String('email');
+			$table->integer('contacto_id')->unsigned();
 			$table->timestamps();
+			$table->foreign('contacto_id')->references('id')->on('contactos')->onDelete('cascade');
 		});
 	}
 
@@ -31,7 +29,7 @@ class CreateHabilitacaosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('habilitacaos');
+		Schema::drop('emails');
 	}
 
 }

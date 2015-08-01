@@ -40,7 +40,7 @@ class qualificacaoController extends Controller {
         $qual->nomeInstituicao = $request->get ('nomeInstituicao');
         $qual->anoConclusao = $request->get ('anoConclusao');
         $qual->save();
-        return $qual;
+        return redirect(route('visualizarQualificacao',['id'=>$qual->id]));
 	}
 
 	/**
@@ -51,7 +51,8 @@ class qualificacaoController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $qual = OutraQualificacao::find($id);
+        return view("Qualificacaoo", ['qual' => $qual]);
 	}
 
 	/**
@@ -80,7 +81,7 @@ class qualificacaoController extends Controller {
         $qual->nomeInstituicao = $request->get ('nomeInstituicao');
         $qual->anoConclusao = $request->get ('anoConclusao');
         $qual->save();
-        return $qual;
+        return redirect(route('visualizarQualificacao',['id'=>$qual->id]));
 	}
 
 	/**

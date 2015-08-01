@@ -8,7 +8,7 @@
     </title>
     @section('links')
         <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
-        <link href="{{URL::asset('Start/css/meuStyle.css')}} " rel="stylesheet">
+        <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
         <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
         <script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
@@ -20,7 +20,7 @@
 
 
 @section('header')
-    <nav class="navbar navbar-default ">
+    <nav class="navbar navbar-default ideia">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">UEM CV'S</a>
@@ -42,8 +42,9 @@
 @yield('script')
 
 @section('footer')
+
 <div class="text-center">
-    <div class="footer-below">
+    <div class="footer-below ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

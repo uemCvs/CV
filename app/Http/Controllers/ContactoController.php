@@ -1,13 +1,14 @@
 <?php namespace App\Http\Controllers;
 
-use App\HabilitacaoIntelectual;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-//use App\HabilitacaoIntelectual;
-
+use \App\Contacto;
+use \App\Email;
+use \App\Telefone;
 use Illuminate\Http\Request;
+use Input;
 
-class habIntelectualController extends Controller {
+class ContactoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +17,7 @@ class habIntelectualController extends Controller {
 	 */
 	public function index()
 	{
-		return view('habIntelectual');
+		//
 	}
 
 	/**
@@ -26,7 +27,7 @@ class habIntelectualController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('contactoGravar');
 	}
 
 	/**
@@ -36,11 +37,37 @@ class habIntelectualController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-        $hab= new HabilitacaoIntelectual();
-        $hab->habilitacao= $request->get('habilitacao');
-        $hab->save();
-        return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
+		$telefones=Input::get('telefone');
+		$emails= Input::get ('email');
+
+		$contacto = new Contacto();
+		$contacto->save();
+
+		foreach($telefones as  $telefone){
+			if ($telefone != null){
+				$t= new Telefone();
+				$t->telefone=$telefone;
+				$t->contacto()->associate($contacto);
+				$t->save();
+			}
+
+
+		}
+
+				foreach($emails as $email){
+					if($email != null){
+						$e= new Email();
+						$e->email=$email;
+						$e->contacto()->associate($contacto);
+						$e->save();
+
+					}
+				}
 	}
+
+
+
+
 
 	/**
 	 * Display the specified resource.
@@ -50,8 +77,7 @@ class habIntelectualController extends Controller {
 	 */
 	public function show($id)
 	{
-        $hab = HabilitacaoIntelectual::find($id);
-        return view("habIntelectuall", ['hab' => $hab]);
+		//
 	}
 
 	/**
@@ -62,9 +88,8 @@ class habIntelectualController extends Controller {
 	 */
 	public function edit($id)
 	{
-        $hab = HabilitacaoIntelectual::find($id);
-        return view("habilitacaoIntelectualEdit", ['hab' => $hab]);
-    }
+		//
+	}
 
 	/**
 	 * Update the specified resource in storage.
@@ -72,16 +97,10 @@ class habIntelectualController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request,$id)
+	public function update($id)
 	{
-        $hab= HabilitacaoIntelectual::find($id);
-        $hab->habilitacao= $request->get('habilitacao');
-        $hab->save();
-        return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
-
-
-
-    }
+		//
+	}
 
 	/**
 	 * Remove the specified resource from storage.

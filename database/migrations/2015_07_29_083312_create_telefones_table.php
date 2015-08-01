@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQualificoesTable extends Migration {
+class CreateTelefonesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class CreateQualificoesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('qualificoes', function(Blueprint $table)
+		Schema::create('telefones', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nomeCurso');
-			$table->string('instituicao');
-			$table->string('anoConclusao');
-			$table->binary('certificado')->nullable();
+			$table->String('telefone');
+			$table->integer('contacto_id')->unsigned();
 			$table->timestamps();
+			$table->foreign('contacto_id')->references('id')->on('contactos')->onDelete('cascade');
+
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateQualificoesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('qualificoes');
+		Schema::drop('telefones');
 	}
 
 }

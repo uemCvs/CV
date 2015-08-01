@@ -7,7 +7,7 @@
   </p>
   <p>
     <label for="outrosNomes">Outros Nomes</label>
-    <input type="text" name="outrosNomes" id="outrosNomes" value="{{ $est->outrosNomes }}"  </p>
+    <input type="text" name="outrosNomes" id="outrosNomes" value="{{ $est->outrosNomes }}" > </p>
   <p>
     <label for="dataNascimento">Data de Nascimento</label>
     <input type="text" name="dataNascimento" id="dataNascimento" value="{{ $est->dataNascimento }}"/>

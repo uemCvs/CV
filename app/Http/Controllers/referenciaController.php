@@ -38,7 +38,7 @@ class referenciaController extends Controller {
         $refer = new referencia();
         $refer->referencia=$request->get('referencia');
         $refer->save();
-        return $refer;
+        return redirect(route('visualizarReferencia',['id'=>$refer->id]));
 	}
 
 	/**
@@ -49,8 +49,10 @@ class referenciaController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
-	}
+        $refer = referencia::find($id);
+        return view("referenciaa", ['refer' => $refer]);
+
+    }
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -76,7 +78,7 @@ class referenciaController extends Controller {
         $refer= referencia::find($id);
         $refer->referencia=$request->get('referencia');
         $refer->save();
-        return $refer;
+        return redirect(route('visualizarReferencia',['id'=>$refer->id]));
 
 
 

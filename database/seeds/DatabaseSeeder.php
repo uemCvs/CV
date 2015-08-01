@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-	$this->call('EnderecoSeeder');
+		$this->call('EmailSeeder');
 	}
 
 }
