@@ -1,46 +1,39 @@
-<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
-<link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
-<link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
-<script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
-<form class="form-horizontal" id="form1" name="form1" method="post" action="disponibilidade">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+    <script type="text/javascript">
 
-    <h4 class="text-center">Disponibilidade</h4>
-    <div class="form-group">
-        <label class="control-label col-sm-3" for="disp">Tempo</label>
-    <div class="col-sm-9">
-        <select class="form-control" name="disp" id="disp" required="required">
+        
+
+    </script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="disponibilidade">
+    <p>Idiomas</p>
+    <p>
+        <label for="Tempo">Tempo</label>
+        <select name="disp" id="jumpMenu" >
             <option selected="selected">Inteiro</option>
             <option>Parcial</option>
         </select>
-        </div>
-        </div>
-
-    <div class="form-group">
-        <label class="control-label col-sm-3" for="tempoInicio" >Hora Inicial</label>
-        <div class="col-sm-9">
-        <input class="form-control" type="time" name="tempoInicio" id="tempoInicio" />
-   </div>
-        </div>
-
-    <div class="form-group">
-        <label class="control-label col-sm-3" for="tempoFim" >Hora Final</label>
-        <div class="col-sm-9">
-            <input class="form-control" type="time" name="tempoFim" id="tempoFim" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label  for="descricao" >Descricao</label>
-            <textarea class="form-control"  name="descricao" id="descricao" rows="10" cols="10" ></textarea>
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-            <input type="submit" class="btn btn-success" name="gravarDisponibilidade" id="gravarDisponibilidade" value="Gravar"/>
-        </div>
-    </div>
+    <p>
+        <label >Hora Inicial</label>
+        <input type="time" name="tempoInicio"  />
+    </p>
+    <p>
+        <label >Hora Final</label>
+        <input type="time" name="tempoFim"  />
+    </p>
+    <p>
+        <label >descricao</label>
+        <input type="textArea" name="descricao" cols="50" rows="10"/>
 
 
-
+        <input type="submit" name="gravarDisponibilidade" id="gravarIdioma" value="Gravar" />
+    </p>
 </form>
+</body>
+</html>

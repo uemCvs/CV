@@ -17,6 +17,8 @@ class CreateReferenciasTable extends Migration {
 			$table->increments('id');
             $table->longText('referencia');
 			$table->timestamps();
+            $table->integer('curriculo_id')->unsigned();
+            $table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');
 		});
 	}
 

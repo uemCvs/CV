@@ -16,7 +16,7 @@ class CreateExperienciasTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('instituicao');
-			$table->string('cargo');
+			$table->string('cargo')->nullable();
 			$table->string('anoIngresso');
 			$table->string('anoTermino');
 			$table->timestamps();

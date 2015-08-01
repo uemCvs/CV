@@ -1,6 +1,7 @@
 
 @if($h)
-<a href="{{ route('editar_habilitacao', ['id' => $h->id]) }}"><button>Editar</button></a>
+<a href="{{route('editar_habilitacao', ['id' => $h->id]) }}"><button>Editar</button></a>
+<a href="{{ route('gravarHabilitacao')}}"><button>Adicionar</button></a>
     <p>
       Nível : {{ $h->nivel }}
     </p>

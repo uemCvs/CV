@@ -1,6 +1,8 @@
 
 @if($qual)
     <a href="{{ route('editar_qualificacao', ['id' => $qual->id]) }}"><button>Editar</button></a>
+    <a href="{{ route('gravar_qualificacao')}}"><button>Adicionar</button></a>
+
     <p>
         Ano de Conclusão :{{ $qual->nomeCurso}}
     </p>

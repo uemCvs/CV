@@ -11,5 +11,9 @@ class Contacto extends Model {
 	public function telefone(){
 	  	return $this->hasMany('\App\Telefone');
 	}
+	public function utilizador(){
+
+			return $this->belongsTo('\App\User');
+	}
 
 }

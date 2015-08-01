@@ -7,6 +7,9 @@ use \App\Email;
 use \App\Telefone;
 use Illuminate\Http\Request;
 use Input;
+use DB;
+use Auth;
+
 
 class ContactoController extends Controller {
 
@@ -41,7 +44,7 @@ class ContactoController extends Controller {
 		$emails= Input::get ('email');
 
 		$contacto = new Contacto();
-		$contacto->save();
+		Auth::user()->contacto()->save($contacto);
 
 		foreach($telefones as  $telefone){
 			if ($telefone != null){
@@ -63,6 +66,7 @@ class ContactoController extends Controller {
 
 					}
 				}
+				return redirect(route('visualizarContacto',['id'=>$contacto->id]));
 	}
 
 
@@ -77,7 +81,10 @@ class ContactoController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$cont = Contacto::find($id);
+		$telefones = Telefone::where('contacto_id', '=', $id)->get();
+		$emails = Email::where('contacto_id', '=', $id)->get();
+		return view("contactoo", ['cont' => $cont,'telefones' => $telefones, 'emails' => $emails]);
 	}
 
 	/**
@@ -88,7 +95,14 @@ class ContactoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+
+        $cont = Contacto::find($id);
+        $telefones = Telefone::where('contacto_id', '=', $id)->get();
+        $emails = Email::where('contacto_id', '=', $id)->get();
+
+        return view("contacto", ['cont' => $cont,'telefones' => $telefones, 'emails' => $emails]);
+
+
 	}
 
 	/**
@@ -99,8 +113,29 @@ class ContactoController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
-	}
+		$contacto = Contacto::find($id);
+		$telefones=Input::get('telefone');
+		$emails= Input::get ('email');
+
+
+
+		foreach($telefones as  $telefone){
+			if ($telefone != null){
+				$t->telefone=$telefone;
+				$t->save();
+			}
+
+
+		}
+				foreach($emails as $email){
+					if($email != null){
+						$e->email=$email;
+						$e->save();
+
+					}
+				}
+				}
+
 
 	/**
 	 * Remove the specified resource from storage.
@@ -110,7 +145,7 @@ class ContactoController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+
 	}
 
 }

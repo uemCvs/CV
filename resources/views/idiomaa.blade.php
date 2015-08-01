@@ -1,6 +1,7 @@
 
 
 <a href="{{ route('editar_idioma', ['id' => $idioma->id]) }}"><button>Editar</button></a>
+<a href="{{ route('gravar_idioma')}}"><button>Adicionar</button></a>
     <p>
         Idioma : {{ $idioma->lingua }}
     </p>

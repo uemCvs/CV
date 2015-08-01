@@ -14,4 +14,4 @@ class EnderecoSeeder extends Seeder {
     }
 
 }
-}
+

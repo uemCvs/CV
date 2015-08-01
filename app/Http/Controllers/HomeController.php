@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use Auth;
 
 class HomeController extends Controller {
 
@@ -30,7 +31,13 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+        if (Auth::user()->estudante()->first()){
+            $estudante=Auth::user()->estudante()->first();
+            return redirect(route('visualizarEstudante', ['id'=>$estudante]));
+
+        }
+		return redirect(route('curriculo'));
+//return view('home');
 	}
 
 }
