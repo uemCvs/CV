@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
+use Psy\Test\CodeCleaner\MagicConstantsPassTest;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -32,5 +36,25 @@ class WelcomeController extends Controller {
 	{
 		return view('welcome');
 	}
-
+public function contacto(){
+    $messagem=null;
+    if(isset($_POST['contacto'])){
+        $data=array('nome'=>Input::get('nome'),
+            'email'=>Input::get('email'),
+            'number'=>Input::get('number'),
+            'message'=>Input::get('message')
+            );
+        $fromEmail='yoyogarife@gmail.com';
+        $fromName='Administrador';
+        Mail::send('emails.contacto',$data, function($messagem) use
+        ($fromName,$fromEmail){
+$messagem->to($fromEmail,$fromName);
+            $messagem->from($fromEmail,$fromName);
+            $messagem->subject('Novo email do contacto');
+        }
+        );
+        $messagem='<div class="text-info">Messagem enviado com exito</div>';
+    }
+return view('welcome');
+}
 }

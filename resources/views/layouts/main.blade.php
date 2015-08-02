@@ -28,8 +28,8 @@
             <div>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Clientes</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Restaurantes</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Sair</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +44,7 @@
 @section('footer')
 
 <div class="text-center">
-    <div class="footer-below ">
+    <div class="footer ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

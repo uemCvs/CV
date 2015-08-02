@@ -92,7 +92,7 @@ class EstudanteController extends Controller {
 		$est->curso= $request->get ('curso');
 		$est->nivel= $request->get ('nivel');
 		$est->save();
-		return redirect(route('visualizarEstudante',['id'=>$est->id]));
+		return redirect(route('gestorCurriculumView',['id'=>$est->id]));
 	}
 
 	/**

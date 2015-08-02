@@ -22,7 +22,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="anoIngresso">Ano de Ingresso</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="anoIngresso" id="anoIngresso" placeholder="0000" required="required"  min="1920" max="{{date("Y")}}" />
+            <input class="form-control" type="number" name="anoIngresso" id="anoIngresso" placeholder="0000" required="required"  maxlength="4" min="1920" max="{{date("Y")}}" />
 
         </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="anoConclusao">Ano de Conclusão</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" placeholder="0000" required="required" onclick="changeMin()" max="{{date("Y")}}" />
+            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" placeholder="0000" required="required" maxlength="4" min="1920" onclick="changeMin()" max="{{date("Y")}}" />
 
         </div>
     </div>
@@ -51,6 +51,7 @@
 //alert(ano);
             var anoConclusao = document.getElementById("anoConclusao");
             anoConclusao.setAttribute('min','2014');
+         //  anoConclusao.readOnly=true;
             anoConclusao.min = 2014;
             /*var ano2=anoConclusao.value;
              // alert(ano2);
