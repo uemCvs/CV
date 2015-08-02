@@ -63,7 +63,7 @@
                     <a href="#contact">Contacto</a>
                 </li>
                 <li class="page-scroll">
-                    <a href='#'><button class="btn btn-success btn-sm ">Entrar</button></a>
+                    <a href='{{url('/auth/login')}}'><button class="btn btn-success btn-sm ">Entrar</button></a>
 
                 </li>
 

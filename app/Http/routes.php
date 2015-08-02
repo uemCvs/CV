@@ -116,9 +116,9 @@
       Route::get('/contactos/{id}/',['as' =>'visualizarContacto', 'uses' => 'ContactoController@show'])->where(['id'=>'[0-9]+']);
 
 
-      Route::get('gestorCurriculum',['as'=>'curriculo', function(){
+     /* Route::get('gestorCurriculum',['as'=>'curriculo', function(){
 
-      return view("gestorCurriculum"); }]);
+      return view("gestorCurriculum"); }]);*/
   Route::get('gestorCurriculum',function(){
       return view("gestorCurriculum");
   });
@@ -130,9 +130,7 @@
   });
 
 
-      Route::get('inicio',function(){
-                    return view("inicio");
-      });
+
 
       Route::get('main',function(){
         return view("layouts/main");
@@ -141,3 +139,6 @@
 
 
 });
+  Route::get('inicio',function(){
+      return view("inicio");
+  });
