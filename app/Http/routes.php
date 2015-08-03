@@ -13,7 +13,7 @@
 
   Route::get('/', 'WelcomeController@index');
 
-  Route::get('home', 'HomeController@index');
+  Route::get('/home', 'HomeController@index');
 
   Route::controllers([
   	'auth' => 'Auth\AuthController',
@@ -59,7 +59,7 @@
     Route::post('/estudantes','EstudanteController@store');
     Route::get('/estudantes', 'EstudanteController@index');
     Route::get('/estudantes/create', 'EstudanteController@create');
-    Route::put('/estudantes/{id}',['as' =>'put_est', 'uses' => 'EstudanteController@update']);
+    Route::put('/gestorCurriculumView/{id}',['as' =>'put_est', 'uses' => 'EstudanteController@update']);
     Route::get('/estudantes/{id}/editar',['as' =>'editar_estudante', 'uses' => 'EstudanteController@edit']);
     Route::get('/estudantes/{id}/',['as' =>'visualizarEstudante', 'uses' => 'EstudanteController@show'])->where(['id' => '[0-9]+']);
 
@@ -116,14 +116,21 @@
       Route::get('/contactos/{id}/',['as' =>'visualizarContacto', 'uses' => 'ContactoController@show'])->where(['id'=>'[0-9]+']);
 
 
-      Route::get('gestorCurriculum',['as'=>'curriculo', function(){
+     /* Route::get('gestorCurriculum',['as'=>'curriculo', function(){
 
-      return view("gestorCurriculum"); }]);
+      return view("gestorCurriculum"); }]);*/
+  Route::get('gestorCurriculum',function(){
+      return view("gestorCurriculum");
+  });
+  Route::get('gestorNucleo',function(){
+      return view("gestorNucleo");
+  });
+  Route::get('gestorEmpregador',function(){
+      return view("gestorEmpregador");
+  });
 
 
-      Route::get('inicio',function(){
-                    return view("inicio");
-      });
+
 
       Route::get('main',function(){
         return view("layouts/main");
@@ -132,3 +139,6 @@
 
 
 });
+  Route::get('inicio',function(){
+      return view("inicio");
+  });

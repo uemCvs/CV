@@ -118,7 +118,6 @@ class ContactoController extends Controller {
 		$emails= Input::get ('email');
 
 
-$t=new stdClass();
 		foreach($telefones as  $telefone){
 			if ($telefone != null){
 				$t->telefone=$telefone;
@@ -127,7 +126,7 @@ $t=new stdClass();
 
 
 		}
-		$e=null;
+
 				foreach($emails as $email){
 					if($email != null){
 						$e->email=$email;

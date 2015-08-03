@@ -17,7 +17,6 @@ class CreateVagasTable extends Migration {
             $table->increments('id');
             $table->string('nome');
             $table->string('descricao')->nullable();
-            $table->string('cursos')->nullable();
             $table->integer('nrVagas')->nullable();
             $table->string('sistemaEnsino')->nullable();
             $table->string('idioma')->nullable();
