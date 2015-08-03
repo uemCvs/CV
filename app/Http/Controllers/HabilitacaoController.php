@@ -45,7 +45,7 @@ class HabilitacaoController extends Controller {
 		$hab->instituicao= $request->get ('instituicao');
 
 		$hab->save();
-			return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
+			return redirect(route('visualizarHab',['id'=>$hab->id]));
 
 			}
 

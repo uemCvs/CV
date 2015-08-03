@@ -25,7 +25,7 @@ class ExperienciaController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('experienciaGravar');
 	}
 
 	/**
@@ -44,7 +44,7 @@ class ExperienciaController extends Controller {
 		$exp->anoTermino= $request->get ('anoConclusao');
 
 		$exp->save();
-			return $exp;
+		return redirect(route('visualizarExperiencia',['id'=>$exp->id]));
 	}
 
 
@@ -57,7 +57,8 @@ class ExperienciaController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$experiencia = Experiencia::find($id);
+		return view("experienciaa", ['exp' => $experiencia]);
 	}
 
 	/**
