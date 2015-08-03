@@ -5,6 +5,10 @@ use App\Http\Controllers\Controller;
 use App\OutraQualificacao;
 
 use Illuminate\Http\Request;
+use App\Estudante;
+use App\Curriculo;
+use Auth;
+
 
 class qualificacaoController extends Controller {
 
@@ -35,7 +39,12 @@ class qualificacaoController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		$user_id=Auth::user()->id;
+			$estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+			$curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
+
         $qual= new OutraQualificacao();
+				$qual->curriculo_id=$curriculo_id;
         $qual->nomeCurso=$request->get('nomeCurso');
         $qual->nomeInstituicao = $request->get ('nomeInstituicao');
         $qual->anoConclusao = $request->get ('anoConclusao');
@@ -52,7 +61,7 @@ class qualificacaoController extends Controller {
 	public function show($id)
 	{
         $qual = OutraQualificacao::find($id);
-        return view("qualificaoo", ['qual' => $qual]);
+        return view("qualificacaoo", ['qual' => $qual]);
 	}
 
 	/**

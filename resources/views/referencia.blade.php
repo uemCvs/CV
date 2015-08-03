@@ -5,7 +5,7 @@
 </head>
 
 <body>
-<form id="form1" name="form1" method="post" action="">
+<form id="form1" name="form1" method="post" action="{{url('referencia')}">
     <p>Referencias</p><br>
     <p>
         <label>Referencias:</label><br>
@@ -17,5 +17,3 @@
 
 </body>
 </html>
-
-

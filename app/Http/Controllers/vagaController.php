@@ -53,7 +53,10 @@ class vagaController extends Controller {
         $vaga->condicoesOferecidas=$request->get('condicoesOferecidas');
         $vaga->save();
 
-				$vaga->cursos=$request->get('cursos');
+foreach ($variable as $key => $value) {
+	# code...
+}
+				$cursos=$request->get('cursos');
         return redirect(route('visualizarVaga',['id'=>$vaga->id]));
 
 	}
