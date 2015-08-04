@@ -4,11 +4,8 @@
     <a href="{{ route('gravar_referencia')}}"><button>Adicionar</button></a>
 
     <p>
-        Referencia : {{ $refer->referencia }}
+              Referencia : {{ $refer->referencia }}
     </p>
-    <p>
-
-    </p>
-@else
+  @else
     <p>404 nao existe</p>
 @endif
