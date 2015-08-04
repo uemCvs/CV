@@ -18,7 +18,6 @@ class CreateHabilitacaosTable extends Migration {
 			$table->string('nivel');
 			$table->string('anoDeConclusao');
 			$table->string('curso')->nullable();
-			$table->string('sisEnsino');
 			$table->string('instituicao');
 			$table->integer('curriculo_id')->unsigned();
 			$table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');

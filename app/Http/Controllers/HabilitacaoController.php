@@ -47,7 +47,6 @@ class HabilitacaoController extends Controller {
 		$hab->nivel= $request->get('nivel');
 		$hab->anoDeConclusao = $request->get ('anoConclusao');
 		$hab->curso= $request->get ('curso');
-		$hab->sisEnsino= $request->get ('sisEnsino');
 		$hab->instituicao= $request->get ('instituicao');
 
 		$hab->save();
@@ -92,7 +91,6 @@ class HabilitacaoController extends Controller {
 			$hab->nivel= $request->get('nivel');
 			$hab->anoDeConclusao = $request->get ('anoConclusao');
 			$hab->curso= $request->get ('curso');
-			$hab->sisEnsino= $request->get ('sisEnsino');
 			$hab->instituicao= $request->get ('instituicao');
 
 			$hab->save();

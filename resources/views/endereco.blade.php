@@ -1,6 +1,7 @@
 <form id="form1" name="form1" method="post" action="{{ route('put_end', ['id' => $end->id]) }}">
-
+  <input type="hidden" name="_method" value="PUT">
 <p><strong>Endereço</strong></p>
+
       <label for="pais">Pais</label>
     <input type="text" name="pais" id="pais" value="{{ $end->pais }}"/>
   </p>
