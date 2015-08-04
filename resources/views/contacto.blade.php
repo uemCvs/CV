@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="control-label col-sm-3" for="telefone">Telefone</label>
             <div class="col-sm-9">
-                <input class="form-control" type="text" name="telefone[]" id="telefone" placeholder="Introduza o telefone" value="{{ $telefone->telefone }}"/>
+                <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Introduza o telefone" value="{{ $telefone->telefone }}"/>
             </div>
         </div>
       @endforeach

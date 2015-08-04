@@ -5,14 +5,14 @@
     <title>Untitled Document</title>
     <script type="text/javascript">
 
-        
+
 
     </script>
 </head>
 
 <body>
-<form id="form1" name="form1" method="post" action="disponibilidade">
-    <p>Idiomas</p>
+<form id="form1" name="form1" method="post" action="{{url('disponibilidade')}}">
+    <p>Disponibilidade</p>
     <p>
         <label for="Tempo">Tempo</label>
         <select name="disp" id="jumpMenu" >

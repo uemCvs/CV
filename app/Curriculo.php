@@ -5,10 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 class Curriculo extends Model
 {
 
-    public function endereco()
-    {
-        return $this->hasOne('\App\Endereco');
-    }
 
     public function estudante()
     {
@@ -42,4 +38,12 @@ class Curriculo extends Model
         return $this->hasMany('App\HabilitacaoIntelectual');
 
     }
+
+    public function habilitacao(){
+  	  	return $this->hasMany('\App\Habilitacao');
+  	}
+
+  	public function experiencia(){
+  	  	return $this->hasMany('\App\Experiencia');
+  	}
 }

@@ -1,6 +1,5 @@
 @if($h)
-  <p>{{ $utilizador->name }}</p>
-  <form id="form1" name="form1" method="post" action="{{ route('put_h', ['id' => $h->id]) }}">
+    <form id="form1" name="form1" method="post" action="{{ route('put_h', ['id' => $h->id]) }}">
     <input type="hidden" name="_method" value="PUT" />
     <p>&nbsp;</p>
     <p>
@@ -14,10 +13,6 @@
     <p>
       <label for="curso">Curso</label>
       <input type="text" name="curso" id="curso" value="{{ $h->curso }}"/>
-    </p>
-    <p>
-      <label for="sisEnsino">Sistema de Ensino</label>
-      <input type="text" name="sisEnsino" id="sisEnsino" value="{{ $h->sisEnsino }}"/>
     </p>
     <p>
       <label for="instituicao">Instituição</label>

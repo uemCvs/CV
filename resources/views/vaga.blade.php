@@ -73,17 +73,14 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="curso">curso </label>
         <div class="col-sm-9">
-            <select class="form-control" id="curso" name="cursos">
-                <option selected="selected">Escolha o nivel</option>
-                <option value="Engenharia Informatica">Engenharia Informatica</option>
-                <option value="Engenharia Electrica">Engenharia Electrica</option>
-                <option value="Engenharia Civil">Engenharia Civil</option>
-                <option value="Engenharia Electronica"> Engenharia Electronica</option>
-                <option value="Engenharia Ambiental">Engenharia Ambiental</option>
-                <option value="Engenharia Quimica">Engenharia quimica</option>
-                <option value="Engenharia Mecanica">Engenharia Mecanica</option>
 
-            </select>
+                @foreach($cursos as $curso)
+                <input type="checkbox" value="{{$curso->id}}" name="curso[]"/>{{ $curso->curso}}  </br>
+
+                @endforeach
+
+
+
         </div>
     </div>
 
@@ -108,4 +105,3 @@
 
 
 </form>
-

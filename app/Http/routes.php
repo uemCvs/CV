@@ -29,8 +29,8 @@
     //Route::resource('habilitacoes', 'HabilitacaoController');
     Route::get('/habilitacoes', 'HabilitacaoController@index');
     Route::post('/habilitacoes',['as'=>'gravarHabilitacao','uses'=>'HabilitacaoController@store']);
-    Route::get('/habilitacoes/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'HabilitacaoController@edit']);
-    Route::get('/habilitacoes/create', 'HabilitacaoController@create');
+    Route::get('/habilitacoes/{id}/editar',['as' =>'editarHabilitacao', 'uses' => 'HabilitacaoController@edit']);
+    Route::get('/habilitacoes/create',['as' =>'gravarHabilitacao', 'uses' =>  'HabilitacaoController@create']);
     Route::get('/habilitacoes/{id}/',['as' =>'visualizarHab', 'uses' => 'HabilitacaoController@show'])->where(['id' => '[0-9]+']);
     Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
 
