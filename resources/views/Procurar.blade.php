@@ -39,10 +39,22 @@
         <div class="col-sm-9">
         </br>
               <input type="checkbox" name="nivel" value="1">1
-              <input type="checkbox" name="nivel" value="2">2</br>
+              <input type="checkbox" name="nivel" value="2">2
               <input type="checkbox" name="nivel" value="3">3
-              <input type="checkbox" name="nivel" value="4">4<br>
+              <input type="checkbox" name="nivel" value="4">4
               <input type="checkbox" name="nivel" value="5">5
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" id="nivel" for="idioma">Idioma:</label>
+        <div class="col-sm-9">
+        </br>
+              <input type="checkbox" name="idioma" value="Inglês">Inglês
+              <input type="checkbox" name="idioma" value="Português">Português
+              <input type="checkbox" name="idioma" value="Francês">Francês
+              <input type="checkbox" name="idioma" value="Espanhol">Espanhol
+
         </div>
     </div>
 
