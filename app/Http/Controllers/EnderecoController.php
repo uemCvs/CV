@@ -28,7 +28,11 @@ class EnderecoController extends Controller {
         return view('enderecoGravar');
     }
 
-    /**
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+
      * Store a newly created resource in storage.
      *
      * @return Response
@@ -50,33 +54,39 @@ class EnderecoController extends Controller {
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        $end = Endereco::find($id);
-        return view("enderecoo", ['end' => $end]);
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$end = Endereco::find($id);
+		return view("enderecoo", ['end' => $end]);
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
 
-        $end = Endereco::find($id);
-        return view("endereco", ['end' => $end]);
-    }
+			$end = Endereco::find($id);
+			return view("endereco", ['end' => $end]);
+		}
 
-    /**
-     * Update the specified resource in storage.
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+
+     /* Update the specified resource in storage.
      *
      * @param  int  $id
      * @return Response

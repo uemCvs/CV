@@ -52,7 +52,7 @@ class qualificacaoController extends Controller {
 	public function show($id)
 	{
         $qual = OutraQualificacao::find($id);
-        return view("Qualificacaoo", ['qual' => $qual]);
+        return view("qualificaoo", ['qual' => $qual]);
 	}
 
 	/**

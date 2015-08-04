@@ -3,7 +3,7 @@
 <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
 <script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
-<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('estudantes')}}">
+<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('gestorCurriculum')}}">
     <input type="hidden" id="registoEstudante" name="registoEstudante" value="1" />
     <h4 class="text-center">Dados Pessoais</h4>
     <div class="form-group">

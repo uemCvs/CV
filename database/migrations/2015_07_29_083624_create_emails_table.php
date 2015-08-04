@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExperienciasTable extends Migration {
+class CreateEmailsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateExperienciasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('experiencias', function(Blueprint $table)
+		Schema::create('emails', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('instituicao');
-			$table->string('cargo')->nullable();
-			$table->string('anoIngresso');
-			$table->string('anoTermino');
+			$table->String('email');
+			$table->integer('contacto_id')->unsigned();
 			$table->timestamps();
+			$table->foreign('contacto_id')->references('id')->on('contactos')->onDelete('cascade');
 		});
 	}
 
@@ -30,7 +29,7 @@ class CreateExperienciasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('experiencias');
+		Schema::drop('emails');
 	}
 
 }
