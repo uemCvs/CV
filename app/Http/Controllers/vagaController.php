@@ -15,7 +15,13 @@ class vagaController extends Controller {
 	 */
 	public function index()
 	{
-		return view('vaga');
+		$cursos=\App\curso::all();
+		if(count($cursos) != 0){
+			return view('vaga',['cursos'=>$cursos]);
+		} else{
+			echo "Nao tem cursos disponíveis";
+		}
+
 	}
 
 	/**
@@ -40,14 +46,19 @@ class vagaController extends Controller {
         $vaga->descricao=$request->get('descricao');
         $vaga->nrVagas=$request->get('nrVagas');
         $vaga->sistemaEnsino=$request->get('sistemaEnsino');
-        $vaga->cursos=$request->get('cursos');
         $vaga->idioma=$request->get('idioma');
         $vaga->outroCurso=$request->get('outroCurso');
         $vaga->disponibilidade=$request->get('disponibilidade');
         $vaga->competencia=$request->get('competencia');
         $vaga->condicoesOferecidas=$request->get('condicoesOferecidas');
         $vaga->save();
+
+foreach ($variable as $key => $value) {
+	# code...
+}
+				$cursos=$request->get('cursos');
         return redirect(route('visualizarVaga',['id'=>$vaga->id]));
+
 	}
 
 	/**

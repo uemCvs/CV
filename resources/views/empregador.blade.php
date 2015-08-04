@@ -3,7 +3,7 @@
 <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
 <script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
-<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('')}}">
+<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('cadastroEmpregador')}}">
     <input type="hidden" id="registoEstudante" name="registoEstudante" value="1" />
     <h4 class="text-center">Cadastro do Empregador</h4>
     <div class="form-group">
@@ -31,7 +31,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="nomeUsuario">Nome de usuario</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="nomeUsuario"  id="nomeUsuario" placeholder="Introduza o nome de usuario"  required="required"/>
+            <input class="form-control" type="text" name="name"  id="nomeUsuario" placeholder="Introduza o nome de usuario"  required="required"/>
         </div>
     </div>
 
@@ -39,7 +39,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="email">Email</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="email"  id="email" placeholder="Introduza o nome de usuario"  required="required"/>
+            <input class="form-control" type="text" name="email"  id="email" placeholder="Introduza o email de usuario"  required="required"/>
         </div>
     </div>
     <div class="form-group">
@@ -52,7 +52,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label">Confirm Password</label>
         <div class="col-md-6">
-            <input type="password" class="form-control" name="password_confirmation">
+            <input type="password" class="form-control" name="remember_token">
         </div>
     </div>
     <div class="form-group">

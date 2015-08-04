@@ -1,8 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\HabilitacaoIntelectual;
+use App\Estudante;
+use App\Curriculo;
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 //use App\HabilitacaoIntelectual;
 
 use Illuminate\Http\Request;
@@ -35,10 +39,13 @@ class habIntelectualController extends Controller {
 	 * @return Response
 	 */
 	public function store(Request $request)
-	{
+	{     $user_id=Auth::user()->id;
+		    $estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+				$curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
         $hab= new HabilitacaoIntelectual();
+				$hab->curriculo_id=$curriculo_id;
         $hab->habilitacao= $request->get('habilitacao');
-        $hab->save();
+				$hab->save();
         return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 	}
 

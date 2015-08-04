@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Experiencia;
+use App\Estudante;
+use App\Curriculo;
+use Auth;
 
 class ExperienciaController extends Controller {
 
@@ -35,9 +38,11 @@ class ExperienciaController extends Controller {
 	 */
 	public function store(Request  $request)
 	{
-
+		$user_id=Auth::user()->id;
+		$estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+		$curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
 		$exp= new Experiencia();
-	//	$exp-> = $request->get('nomeCurso');
+		$exp->curriculo_id=$curriculo_id;
 		$exp->instituicao = $request->get ('nomeInstituicao');
 		$exp->cargo= $request->get ('cargo');
 		$exp->anoIngresso = $request->get ('anoIngresso');

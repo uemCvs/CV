@@ -18,6 +18,8 @@ class CreateEmpregadorsTable extends Migration {
             $table->String('nome');
             $table->binary('logotipo');
             $table->longText('descricao');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
 		});
 	}

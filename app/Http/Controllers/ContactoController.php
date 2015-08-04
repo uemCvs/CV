@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Input;
 use DB;
 use Auth;
-
+use stdClass;
 
 class ContactoController extends Controller {
 
@@ -40,33 +40,25 @@ class ContactoController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$telefones=Input::get('telefone');
-		$emails= Input::get ('email');
+		$telefone=Input::get('telefone');
+		$email= Input::get ('email');
 
 		$contacto = new Contacto();
 		Auth::user()->contacto()->save($contacto);
 
-		foreach($telefones as  $telefone){
-			if ($telefone != null){
+
 				$t= new Telefone();
 				$t->telefone=$telefone;
 				$t->contacto()->associate($contacto);
 				$t->save();
-			}
 
 
-		}
-
-				foreach($emails as $email){
-					if($email != null){
-						$e= new Email();
+					$e= new Email();
 						$e->email=$email;
 						$e->contacto()->associate($contacto);
 						$e->save();
 
-					}
-				}
-				return redirect(route('visualizarContacto',['id'=>$contacto->id]));
+	return redirect(route('visualizarContacto',['id'=>$contacto->id]));
 	}
 
 
@@ -114,26 +106,19 @@ class ContactoController extends Controller {
 	public function update($id)
 	{
 		$contacto = Contacto::find($id);
-		$telefones=Input::get('telefone');
-		$emails= Input::get ('email');
+		$telefone=Input::get('telefone');
+		$email= Input::get ('email');
 
 
+		$t->telefone=$telefone;
+		$t->contacto()->associate($contacto);
+		$t->save();
 
-		foreach($telefones as  $telefone){
-			if ($telefone != null){
-				$t->telefone=$telefone;
-				$t->save();
-			}
+				$e->email=$email;
+				$e->contacto()->associate($contacto);
+				$e->save();
 
-
-		}
-				foreach($emails as $email){
-					if($email != null){
-						$e->email=$email;
-						$e->save();
-
-					}
-				}
+				return redirect(route('visualizarContacto',['id'=>$contacto->id]));
 				}
 
 

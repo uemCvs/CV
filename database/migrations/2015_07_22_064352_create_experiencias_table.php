@@ -19,6 +19,8 @@ class CreateExperienciasTable extends Migration {
 			$table->string('cargo')->nullable();
 			$table->string('anoIngresso');
 			$table->string('anoTermino');
+			$table->integer('curriculo_id')->unsigned();
+			$table->foreign('curriculo_id')->references('id')->on('curriculos')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 
 use App\referencia;
 use Illuminate\Http\Request;
+use App\Estudante;
+use App\Curriculo;
+use Auth;
 
 class referenciaController extends Controller {
 
@@ -35,7 +38,12 @@ class referenciaController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		$user_id=Auth::user()->id;
+			$estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+			$curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
+
         $refer = new referencia();
+				$refer->curriculo_id=$curriculo_id;
         $refer->referencia=$request->get('referencia');
         $refer->save();
         return redirect(route('visualizarReferencia',['id'=>$refer->id]));

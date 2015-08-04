@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Estudante;
+use \App\Curriculo;
 use Auth;
 
 class EstudanteController extends Controller {
@@ -45,6 +46,9 @@ class EstudanteController extends Controller {
 		$est->nivel= $request->get ('nivel');
 	//	$est->user_id= Auth::user()->id;
 		Auth::user()->estudante()->save($est);
+		 $curriculo = new Curriculo();
+		$curriculo->estudante_id=$est->id;
+		$curriculo->save();
 		return redirect(route('visualizarEstudante',['id'=>$est->id]));
 	//$est->utilizador()->associate(Auth::user());
 	//	$est->save();

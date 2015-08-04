@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use \App\Habilitacao;
+use App\Estudante;
+use App\Curriculo;
 use Auth;
 
 class HabilitacaoController extends Controller {
@@ -36,12 +38,15 @@ class HabilitacaoController extends Controller {
 	 * @return Response
 	 */
 	public function store(Request $request)
-	{
+	{	$user_id=Auth::user()->id;
+		$estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+		$curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
+
 		$hab= new Habilitacao();
+		$hab->curriculo_id=$curriculo_id;
 		$hab->nivel= $request->get('nivel');
 		$hab->anoDeConclusao = $request->get ('anoConclusao');
 		$hab->curso= $request->get ('curso');
-		$hab->sisEnsino= $request->get ('sisEnsino');
 		$hab->instituicao= $request->get ('instituicao');
 
 		$hab->save();
@@ -86,7 +91,6 @@ class HabilitacaoController extends Controller {
 			$hab->nivel= $request->get('nivel');
 			$hab->anoDeConclusao = $request->get ('anoConclusao');
 			$hab->curso= $request->get ('curso');
-			$hab->sisEnsino= $request->get ('sisEnsino');
 			$hab->instituicao= $request->get ('instituicao');
 
 			$hab->save();

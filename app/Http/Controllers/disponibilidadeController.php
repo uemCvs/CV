@@ -5,6 +5,10 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\disponibilidade;
+use App\Estudante;
+use App\Curriculo;
+use Auth;
+
 
 class disponibilidadeController extends Controller {
 
@@ -35,7 +39,12 @@ class disponibilidadeController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		$user_id=Auth::user()->id;
+			$estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+			$curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
+
 		$disp= new disponibilidade();
+		$disp->curriculo_id=$curriculo_id;
         $disp->disp=$request->get('disp');
         $disp->tempoInicio=$request->get('tempoInicio');
         $disp->tempoFim=$request->get('tempoFim');
