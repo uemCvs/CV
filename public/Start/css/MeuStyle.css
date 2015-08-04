@@ -6,9 +6,10 @@
 
 body {
     overflow-x: hidden;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;;
+    background-color: #fff;
+    height:100%;
+    min-height: 100%;
+
 }
 
 p {
@@ -40,9 +41,11 @@ h6 {
     color:  #2c3e50;
 }
 
-body > div.container-fluid > div.panel-body{
-    height: 70vh;
-background-color: #fff;
+.panel-body{
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: #fff;
+    height:100%;
+    border:10px;
 }
 
 hr.star-light,
@@ -158,7 +161,7 @@ header .intro-text .skills {
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
-       /* background: #18bc9c;*/
+        /* background: #18bc9c;*/
     }
 
     .navbar-fixed-top .navbar-brand {
@@ -374,9 +377,10 @@ form .row:first-child .floating-label-form-group {
 
 .footer {
     color: #fff;
-    background-color: #15a589;
-    padding: 10px;
-
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color:  #15a589;
 }
 
 footer h3 {
@@ -396,7 +400,7 @@ footer .footer-col {
     padding: 14px 0;
     background-color: #15a589;
     color: #fff;
-   bottom: 0;
+    bottom: 0;
     position:absolute;
     width:100%;
     left:0;
@@ -506,12 +510,17 @@ footer .footer-col {
 }
 
 #boxed{
-border-color: #000033;
+    border-color: #000033;
 
     border-right: 5px ;
-border-left: 5px;
+    border-left: 5px;
     border-bottom: 5px;
     border-top: 5px;
     background-color: #000099;
+
+}
+
+#imgE:hover{
+    background-color: #18BC9C;
 
 }
