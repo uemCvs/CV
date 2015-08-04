@@ -59,7 +59,7 @@
 
 @section('footer')
 
-<div class="text-center">
+{{--<div class="text-center">
     <div class="footer ">
         <div class="container">
             <div class="row">
@@ -70,7 +70,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 @show
 </body>
 </html>

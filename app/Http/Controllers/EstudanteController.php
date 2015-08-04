@@ -27,7 +27,9 @@ class EstudanteController extends Controller {
 	 */
 	public function create()
 	{
-		return view('estudanteGravar');
+        $dadosPessoais=true;
+        $vista = 'estudanteGravar';
+        return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista]);
 	}
 
 	/**
@@ -49,7 +51,10 @@ class EstudanteController extends Controller {
 		 $curriculo = new Curriculo();
 		$curriculo->estudante_id=$est->id;
 		$curriculo->save();
-		return redirect(route('visualizarEstudante',['id'=>$est->id]));
+        $dadosPessoais=true;
+        $vista = 'estudante';
+        return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est]);
+		//return redirect(route('visualizarEstudante',['id'=>$est->id]));
 	//$est->utilizador()->associate(Auth::user());
 	//	$est->save();
 

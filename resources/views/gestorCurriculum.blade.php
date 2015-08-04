@@ -44,7 +44,15 @@
                                         <div class="panel panel-body">
                                             <div class="tab-content">
                                                 <div id="dados1" class="tab-pane fade in active">
-                                                    @include('estudanteGravar')
+                                                    <?php if(isset($dadosPessoais)) { ?>
+                                                    @if($vista=='estudante')
+                                                    @include($vista,["est"=>$est])
+                                                    @elseif($vista=='')
+                                                    @endif
+
+                                                    <?php } else { ?>
+                                                        @include('estudanteGravar')
+                                                    <?php } ?>
                                                 </div>
                                                 <div id="endereco" class="tab-pane fade">
                                                     @include('enderecoGravar')

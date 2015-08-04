@@ -1,36 +1,36 @@
-  <?php
+<?php
 
-  /*
-  |--------------------------------------------------------------------------
-  | Application Routes
-  |--------------------------------------------------------------------------
-  |
-  | Here is where you can register all of the routes for an application.
-  | It's a breeze. Simply tell Laravel the URIs it should respond to
-  | and give it the controller to call when that URI is requested.
-  |
-  */
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
 
-  Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 
-  Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
-  Route::controllers([
-  	'auth' => 'Auth\AuthController',
-  	'password' => 'Auth\PasswordController',
-  ]);
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
 //  Route::resource('estudantes', 'EstudanteController');
 
 
 
 
-  Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function() {
     //Route::resource('habilitacoes', 'HabilitacaoController');
     Route::get('/habilitacoes', 'HabilitacaoController@index');
     Route::post('/habilitacoes',['as'=>'gravarHabilitacao','uses'=>'HabilitacaoController@store']);
-    Route::get('/habilitacoes/{id}/editar',['as' =>'editarHabilitacao', 'uses' => 'HabilitacaoController@edit']);
-    Route::get('/habilitacoes/create',['as' =>'gravarHabilitacao', 'uses' =>  'HabilitacaoController@create']);
+    Route::get('/habilitacoes/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'HabilitacaoController@edit']);
+    Route::get('/habilitacoes/create', 'HabilitacaoController@create');
     Route::get('/habilitacoes/{id}/',['as' =>'visualizarHab', 'uses' => 'HabilitacaoController@show'])->where(['id' => '[0-9]+']);
     Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
 
@@ -44,7 +44,7 @@
     Route::put('/experiencias/{id}',['as' =>'put_exp', 'uses' => 'ExperienciaController@update']);
     Route::get('/experiencias/{id}/',['as' =>'visualizarExperiencia', 'uses' => 'ExperienciaController@show'])->where(['id' => '[0-9]+']);
 
-  //Endereco
+    //Endereco
 
     Route::get('/enderecos', 'EnderecoController@index');
     Route::get('/enderecos/create', 'EnderecoController@create');
@@ -54,7 +54,7 @@
     Route::get('/enderecos/{id}/',['as' =>'visualizarEndereco', 'uses' => 'EnderecoController@show'])->where(['id' => '[0-9]+']);
 
 
-  //Estudante
+    //Estudante
 
     Route::post('/estudantes','EstudanteController@store');
     Route::get('/estudantes', 'EstudanteController@index');
@@ -100,20 +100,21 @@
     Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
 
     //Vaga
-    Route::get ('/vaga',['as' =>'gravarVaga', 'uses' => 'vagaController@index']);
-    Route::post ('/vaga','vagaController@store');
+    Route::get ('/gestorEmpregador',['as' =>'gravarVaga', 'uses' => 'vagaController@showVagas']);
+    Route::post ('/gestorEmpregador','vagaController@store');
     Route::get('/vaga/{id}/editar',['as' =>'editar_vaga', 'uses' => 'vagaController@edit']);
     Route::get('/vaga/{id}/',['as' =>'visualizarVaga', 'uses' => 'vagaController@show'])->where(['id'=>'[0-9]+']);
-    Route::put('/vaga/{id}',['as' =>'put_vaga', 'uses' => 'vagaController@update']);
-
+    Route::get('/vaga/{id}/',['as' =>'visualizarVaga', 'uses' => 'vagaController@show'])->where(['id'=>'[0-9]+']);
+    Route::put('/gestorEmpregador/{id}',['as' =>'put_vaga', 'uses' => 'vagaController@update']);
+    Route::get('/get-curso/{id}','CursoController@getCursos');
     //contacto
 
-      Route::post('/contactos','ContactoController@store');
-      Route::get('/contactos', 'ContactoController@index');
-      Route::get('/contactos/create', 'ContactoController@create');
-      Route::get('/contactos/{id}/editar',['as' =>'editar_contacto', 'uses' => 'ContactoController@edit']);
-      Route::put('/contactos/{id}',['as' =>'put_cont', 'uses' => 'ContactoController@update']);
-      Route::get('/contactos/{id}/',['as' =>'visualizarContacto', 'uses' => 'ContactoController@show'])->where(['id'=>'[0-9]+']);
+    Route::post('/contactos','ContactoController@store');
+    Route::get('/contactos', 'ContactoController@index');
+    Route::get('/contactos/create', 'ContactoController@create');
+    Route::get('/contactos/{id}/editar',['as' =>'editar_contacto', 'uses' => 'ContactoController@edit']);
+    Route::put('/contactos/{id}',['as' =>'put_cont', 'uses' => 'ContactoController@update']);
+    Route::get('/contactos/{id}/',['as' =>'visualizarContacto', 'uses' => 'ContactoController@show'])->where(['id'=>'[0-9]+']);
 
       //Procurar Estudante
 
@@ -126,29 +127,38 @@
 
 
 
-     /* Route::get('gestorCurriculum',['as'=>'curriculo', function(){
+    /* Route::get('gestorCurriculum',['as'=>'curriculo', function(){
 
-      return view("gestorCurriculum"); }]);*/
-  Route::get('gestorCurriculum',function(){
-      return view("gestorCurriculum");
-  });
-  Route::get('gestorNucleo',function(){
-      return view("gestorNucleo");
-  });
-  Route::get('gestorEmpregador',function(){
-      return view("gestorEmpregador");
-  });
+     return view("gestorCurriculum"); }]);*/
+    Route::get('gestorCurriculum',function(){
+        return view("gestorCurriculum");
+    });
+    Route::get('gestorNucleo',function(){
+        return view("gestorNucleo");
+    });
 
 
+    Route::get('print','PrintController@index');
 
 
-      Route::get('main',function(){
+
+
+    Route::get('main',function(){
         return view("layouts/main");
-      });
+    });
 
-
+    Route::get('gestorEmpregador','vagaController@showVagas');
 
 });
-  Route::get('inicio',function(){
-      return view("inicio");
-  });
+Route::get('inicio',function(){
+    return view("inicio");
+});
+
+
+
+Route::get('nivel','NivelController@showNivel');
+Route::post('gravar-nivel','NivelController@createNivel');
+
+Route::get('curso','CursoController@showCurso');
+Route::post('gravar-curso','CursoController@createCurso');
+
