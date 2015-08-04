@@ -37,21 +37,25 @@ class EmpregadorController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-        $emp= new Empregador();
+        $emp= new Empregador;
         $emp->nome= $request->get('nome');
         $emp->descricao = $request->get ('descricao');
         $emp->logotipo= $request->get ('logotipo');
-        Auth::user()->empregador()->save($emp);
-        $user=new User();
-        $user->name= $request->get ('name');
-        $user->email= $request->get ('email');
-        $user->password= $request->get ('password');
-        $user->tipo= 'empregador';
-        $user->remember_token= $request->get ('remember_token');
-        $user->save();
-        $emp->save();
-        return $emp;
-        //return redirect(route('visualizarEstudante',['id'=>$est->id]));
+
+        $name= $request->get ('name');
+        $email= $request->get ('email');
+        $password= $request->get ('password');
+
+        $u = User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt($password),
+            'tipo' => 'empregador'
+        ]);
+
+        $u->empregador()->save($emp);
+
+        return redirect(route('visualizarEmpregador',['id'=>$emp->id]));
 	}
 
 	/**
@@ -63,7 +67,7 @@ class EmpregadorController extends Controller {
 	public function show($id)
 	{
         $emp = Empregador::find($id);
-        return view("empregadorr", ['est' => $emp]);
+        return view("empregadorr", ['emp' => $emp]);
 	}
 
 	/**
@@ -75,7 +79,8 @@ class EmpregadorController extends Controller {
 	public function edit($id)
 	{
         $emp = Empregador::find($id);
-        return view("empregadorEdit", ['emp' => $emp]);
+        $user = User::find($id);
+        return view("empregadorEdit", ['emp' => $emp],['user' => $user]);
 
     }
 
@@ -91,19 +96,20 @@ class EmpregadorController extends Controller {
         $emp->nome= $request->get('nome');
         $emp->descricao = $request->get ('descricao');
         $emp->logotipo= $request->get ('logotipo');
-        Auth::user()->empregador()->save($emp);
 
-        $user=new User();
-        $user->name= $request->get ('name');
-        $user->email= $request->get ('email');
-        $user->password= $request->get ('password');
-        $user->tipo='empregador';
-        $user->remember_token= $request->get ('remember_token');
-        $user->save();
-        $emp->save();
+        $name= $request->get ('name');
+        $email= $request->get ('email');
+        $password= $request->get ('password');
 
+        $u = User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt($password),
+            'tipo' => 'empregador'
+        ]);
+
+        $u->empregador()->save($emp);
         return $emp;
-
     }
 
 	/**

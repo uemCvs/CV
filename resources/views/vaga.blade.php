@@ -39,15 +39,16 @@
         </div>
     </div>
 
+
     <div class="form-group">
-        <label class="control-label col-sm-3" id="idioma" for="idioma">idioma</label>
+        <label class="control-label col-sm-3" for="idioma">Idioma </label>
         <div class="col-sm-9">
-            <select class="form-control" id="idioma" name="idioma">
-                <option selected="selected">Selecione o idioma</option>
-                <option value="Parcial">ingles</option>
-                <option value="Inteiro">Portugues</option>
-            </select>
-        </div>
+
+            @foreach($idiomas as $idioma)
+                <input type="checkbox" value="{{$idioma->id}}" name="idioma[]"/>{{ $idioma->idioma}}  </br>
+
+            @endforeach
+         </div>
     </div>
 
     <div class="form-group">

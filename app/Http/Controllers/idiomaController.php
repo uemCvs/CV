@@ -59,10 +59,10 @@ class idiomaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show()
 	{
-        $idioma = Idioma::find($id);
-        return view("idiomaa", ['idioma' => $idioma]);
+        $idiomas = Idioma::all();
+        return view("idiomaa", ['idiomas' => $idiomas]);
 	}
 
 	/**

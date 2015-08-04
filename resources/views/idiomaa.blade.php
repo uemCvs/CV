@@ -1,7 +1,7 @@
 
-
-<a href="{{ route('editar_idioma', ['id' => $idioma->id]) }}"><button>Editar</button></a>
-<a href="{{ route('gravar_idioma')}}"><button>Adicionar</button></a>
+<a href="{{ route('gravar_idioma')}}"><button>Adicionar</button></a><br>
+@foreach($idiomas as $idioma)
+    <a href="{{ route('editar_idioma', ['id' => $idioma->id]) }}"><button>Editar</button></a>
     <p>
         Idioma : {{ $idioma->lingua }}
     </p>
@@ -17,3 +17,4 @@
 
 
     </p>
+@endforeach

@@ -131,6 +131,10 @@
 
       Route::get ('/cadastroEmpregador',['as' =>'cadastrarEmpregador', 'uses' => 'EmpregadorController@index']);
       Route::post ('/cadastroEmpregador','EmpregadorController@store');
+      Route::get('/cadastroEmpregador/{id}/editar',['as' =>'editar_Empregador', 'uses' => 'EmpregadorController@edit']);
+      Route::get('/cadastroEmpregador/{id}/',['as' =>'visualizarEmpregador', 'uses' => 'EmpregadorController@show'])->where(['id'=>'[0-9]+']);
+      Route::put('/cadastroEmpregador/{id}',['as' =>'put_Empregador', 'uses' => 'EmpregadorController@update']);
+
 
 
 

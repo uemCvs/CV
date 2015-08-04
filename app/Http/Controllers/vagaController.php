@@ -16,11 +16,8 @@ class vagaController extends Controller {
 	public function index()
 	{
 		$cursos=\App\curso::all();
-		if(count($cursos) != 0){
-			return view('vaga',['cursos'=>$cursos]);
-		} else{
-			echo "Nao tem cursos disponíveis";
-		}
+        $idiomas=\App\lingua::all();
+		return view('vaga',['cursos'=>$cursos],['idiomas'=>$idiomas]);
 
 	}
 
@@ -46,18 +43,37 @@ class vagaController extends Controller {
         $vaga->descricao=$request->get('descricao');
         $vaga->nrVagas=$request->get('nrVagas');
         $vaga->sistemaEnsino=$request->get('sistemaEnsino');
-        $vaga->idioma=$request->get('idioma');
+       // $vaga->idioma=$request->get('idioma');
         $vaga->outroCurso=$request->get('outroCurso');
         $vaga->disponibilidade=$request->get('disponibilidade');
         $vaga->competencia=$request->get('competencia');
         $vaga->condicoesOferecidas=$request->get('condicoesOferecidas');
         $vaga->save();
 
-foreach ($variable as $key => $value) {
-	# code...
-}
-				$cursos=$request->get('cursos');
-        return redirect(route('visualizarVaga',['id'=>$vaga->id]));
+
+        $v = \App\Vaga::all();
+        $t = sizeof($v);
+        $vg = $v[--$t];
+
+        $cursos = $request->get('curso');
+        $idiomas = $request->get('idioma');
+        for ($i=0;$i<count($cursos);$i++) {
+            $cv = new \App\CursoVaga;
+            $cv->curso_id = $cursos[$i];
+            $cv->vaga_id = $vg['id'];
+            $cv->save();
+        }
+        for ($i=0;$i<count($idiomas);$i++) {
+            $iv = new \App\IdiomaVaga;
+            $iv->idioma_id = $idiomas[$i];
+            $iv->vaga_id = $vg['id'];
+            $iv->save();
+        }
+
+        //return 'Tudo certo';
+
+       // $cursos=$request->get('cursos');
+        //return redirect(route('visualizarVaga',['id'=>$vaga->id]));
 
 	}
 
