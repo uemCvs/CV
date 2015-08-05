@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/estudantes','EstudanteController@store');
     Route::get('/estudantes', 'EstudanteController@index');
     Route::get('/estudantes/create', 'EstudanteController@create');
-    Route::put('/gestorCurriculumView/{id}',['as' =>'put_est', 'uses' => 'EstudanteController@update']);
+    Route::put('/estudante/{id}',['as' =>'put_est', 'uses' => 'EstudanteController@update']);
     Route::get('/estudantes/{id}/editar',['as' =>'editar_estudante', 'uses' => 'EstudanteController@edit']);
     Route::get('/estudantes/{id}/',['as' =>'visualizarEstudante', 'uses' => 'EstudanteController@show'])->where(['id' => '[0-9]+']);
 
@@ -131,7 +131,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('print','PrintController@index');
 
 
+    Route::get('nivel','NivelController@showNivel');
+    Route::post('gravar-nivel','NivelController@createNivel');
 
+    Route::get('curso','CursoController@showCurso');
+    Route::post('gravar-curso','CursoController@createCurso');
+
+    Route::get('vaga','vagaController@index');
 
     Route::get('main',function(){
         return view("layouts/main");
@@ -145,10 +151,4 @@ Route::group(['middleware' => 'auth'], function() {
 });*/
 
 
-
-Route::get('nivel','NivelController@showNivel');
-Route::post('gravar-nivel','NivelController@createNivel');
-
-Route::get('curso','CursoController@showCurso');
-Route::post('gravar-curso','CursoController@createCurso');
 

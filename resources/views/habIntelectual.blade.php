@@ -4,7 +4,6 @@
 
 <form id="form1" name="form1" method="post" action="habilitacaoIntelectual">
 
-
     <h4 class="text-center">Habilitações Intelectuais</h4>
     <div class="form-group">
         <label  for="descrHabilIntelc" >Descrição:</label>

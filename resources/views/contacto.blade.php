@@ -21,7 +21,7 @@
           <label class="control-label col-sm-3" for="email">Email</label>
           <div class="col-sm-9">
               <input class="form-control" type="text" name="email[]" id="anoConclusao" placeholder="aaaaa@bbbbb.ccc" value="{{ $email->email }}"  />
-
+</div>
           </div>
     @endforeach
 

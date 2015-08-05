@@ -1,10 +1,17 @@
 <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
+
 <script src="{{URL::asset('Start/js/bootstrap.js')}}"></script>
 
 <form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('estudantes')}}">
     <input type="hidden" id="registoEstudante" name="registoEstudante" value="1" />
     <h4 class="text-center">Dados Pessoais</h4>
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{Session::get('message')}}
+        </div>
+
+    @endif
     <div class="form-group">
         <label class="control-label col-sm-3" for="apelido">Apelido</label>
         <div class="col-sm-9">

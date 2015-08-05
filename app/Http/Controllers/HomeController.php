@@ -34,7 +34,9 @@ class HomeController extends Controller {
 	{
          if (Auth::user()->estudante()->first()){
              $estudante=Auth::user()->estudante()->first();
-           return redirect(route('visualizarEstudante', ['id'=>$estudante]));
+
+             $vista='estudante';
+           return view('gestorCurriculum', ['est'=>$estudante,'vista'=>$vista]);
 
         }
 
@@ -42,9 +44,10 @@ class HomeController extends Controller {
         $vaga=Vaga::all();
         $fillable = Auth::user()->get();
         $fillable2=Auth::user()->tipo;
-
+        $vista='estudanteGravar';
+        $v='endereco';
         if($fillable2=='estudante')
-            return view('gestorCurriculum');
+            return view('gestorCurriculum',['vista'=>$vista,'v'=>$v]);
 
         else
             return view('gestorEmpregador',['vaga'=>$vaga]);

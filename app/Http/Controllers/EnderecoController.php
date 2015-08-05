@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \App\Endereco;
 use Auth;
+use Illuminate\Support\Facades\Session;
 class EnderecoController extends Controller {
 
     /**
@@ -24,8 +25,19 @@ class EnderecoController extends Controller {
      * @return Response
      */
     public function create()
-    {
-        return view('enderecoGravar');
+    {$enderecos=true;
+        $ende=Endereco::all();
+        if($ende->isEmpty()){
+        $v = 'enderecoGravar';
+        return view('gestorCurriculum',['enderecos'=>$enderecos,"v"=>$v]);
+    }
+        else
+        { $v = 'endereco';
+            return view('gestorCurriculum',['enderecos'=>$enderecos,"v"=>$v]);}
+
+
+
+        //return view('enderecoGravar');
     }
 
 
@@ -49,8 +61,11 @@ class EnderecoController extends Controller {
         $end->nrDeCasa= $request->get ('nrDeCasa');
         $end->quarteirao= $request->get ('quarteirao');
         Auth::user()->endereco()->save($end);
-
-        return redirect(route('visualizarEndereco',['id'=>$end->id]));
+        $vista = 'endereco';
+        $v = 'endereco';
+        $enderecos=true;
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["enderecos"=>$enderecos,"vista"=>$vista,"end"=>$end,"v"=>$v]);
 
     }
 
@@ -103,7 +118,10 @@ class EnderecoController extends Controller {
         $end->nrDeCasa= $request->get ('nrDeCasa');
         $end->quarteirao= $request->get ('quarteirao');
         $end->save();
-        return redirect(route('visualizarEndereco',['id'=>$end->id]));
+        $vista = 'endereco';
+        $enderecos=true;
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["endereco"=>$enderecos,"vista"=>$vista,"end"=>$end]);
 
     }
 
