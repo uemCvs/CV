@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
+use App\Vaga;
 use Auth;
-
+use \App\User;
 class HomeController extends Controller {
 
 	/*
@@ -36,8 +37,27 @@ class HomeController extends Controller {
            return redirect(route('visualizarEstudante', ['id'=>$estudante]));
 
         }
-		return redirect(route('curriculo'));
+
+        $_SESSION['estudante']=true;
+        $vaga=Vaga::all();
+        $fillable = Auth::user()->get();
+        $fillable2=Auth::user()->tipo;
+
+        if($fillable2=='estudante')
+            return view('gestorCurriculum');
+
+        else
+            return view('gestorEmpregador',['vaga'=>$vaga]);
+
+      /*  if($fillable.isEmpty()){
+            return view('gestorEmpregador',['vaga'=>$vaga]);
+
+        }else
+            return view('gestorCurriculum');*/
+
+
 //return view('home');
+
 	}
 
 }

@@ -140,9 +140,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('gestorEmpregador','vagaController@showVagas');
 
 });
-Route::get('inicio',function(){
+/*Route::get('inicio',function(){
     return view("inicio");
-});
+});*/
 
 
 

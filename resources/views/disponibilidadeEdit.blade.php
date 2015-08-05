@@ -26,7 +26,7 @@
     </p>
     <p>
         <label >Hora Final</label>
-        <input type="time" name="horaFinal"  value="{{ $disp->tempoFim}}"/>
+        <input type="time" name="horaFinal"  value="{{ $disp->tempFim}}"/>
     </p>
     <p>
         <label >descricao</label>

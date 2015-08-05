@@ -10,8 +10,8 @@
         <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
         <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
         <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
-        <script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
     @show
 
 
@@ -36,13 +36,13 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
-                        <li><a href="{{ url('/gestorCurriculum') }}">Login</a></li>
-                        <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                        <li><a href="{{ url('/home') }}">Login</a></li>
+                        <li><a href="{{ url('/auth/register') }}">Registar</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                                <li><a href="{{ url('/auth/logout') }}">Sair</a></li>
                             </ul>
                         </li>
                     @endif
@@ -53,9 +53,11 @@
 
 @show
 
-@yield('body')
+
 
 @yield('script')
+
+@yield('body')
 
 @section('footer')
 

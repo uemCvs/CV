@@ -1,8 +1,6 @@
 <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
-<script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 <script src="{{URL::asset('Start/js/bootstrap.js')}}"></script>
-<script src="{{URL::asset('js/jquery.js')}}"></script>
 
   <form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('enderecos')}}">
 
