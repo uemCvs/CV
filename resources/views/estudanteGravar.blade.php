@@ -46,7 +46,6 @@
         <label class="control-label col-sm-3" id="curso" for="curso">Curso</label>
         <div class="col-sm-9">
             <select class="form-control" id="curso" name="curso">
-                <option selected="selected">Escolha o curso</option>
                 <option value="Eng. Ambiente">Eng. Ambiente</option>
                 <option value="Eng. Civil">Eng. Civil</option>
                 <option value="Eng. Electrica">Eng. Electrica</option>
@@ -54,6 +53,7 @@
                 <option value="Eng. Informatica">Eng. Informatica</option>
                 <option value="Eng. Mecanica">Eng. Mecanica</option>
                 <option value="Eng. Quimica">Eng. Quimica</option>
+                <option value="Gestão Industrial">Gestão Industrial</option>
             </select>
 </div>
     </div>
