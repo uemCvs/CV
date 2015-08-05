@@ -18,7 +18,7 @@ class idiomaController extends Controller {
 	 */
 	public function index()
 	{
-		return view('Idioma');
+		return view('idioma');
 	}
 
 	/**

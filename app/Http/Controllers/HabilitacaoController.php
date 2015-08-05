@@ -62,7 +62,6 @@ class HabilitacaoController extends Controller {
 	 */
 	public function show($id)
 	{
-
 		$hab = Habilitacao::find($id);
 		return view("habilitacaoo", ['h' => $hab]);
 	}

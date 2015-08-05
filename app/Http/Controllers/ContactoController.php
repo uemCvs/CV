@@ -74,9 +74,9 @@ class ContactoController extends Controller {
 	public function show($id)
 	{
 		$cont = Contacto::find($id);
-		$telefones = Telefone::where('contacto_id', '=', $id)->get();
-		$emails = Email::where('contacto_id', '=', $id)->get();
-		return view("contactoo", ['cont' => $cont,'telefones' => $telefones, 'emails' => $emails]);
+		$telefone = Telefone::where('contacto_id', '=', $id)->pluck('telefone');
+		$email = Email::where('contacto_id', '=', $id)->pluck('email');
+		return view("contactoo", ['cont' => $cont,'telefone' => $telefone, 'email' => $email]);
 	}
 
 	/**
@@ -106,9 +106,9 @@ class ContactoController extends Controller {
 	public function update($id)
 	{
 		$contacto = Contacto::find($id);
+		Auth::user()->contacto()->save($contacto);
 		$telefone=Input::get('telefone');
 		$email= Input::get ('email');
-
 
 		$t->telefone=$telefone;
 		$t->contacto()->associate($contacto);

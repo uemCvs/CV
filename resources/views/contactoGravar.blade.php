@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <input type="submit" class="btn btn-success" name="gravarQualificacao" id="gravarQualificacaoo" value="Gravar"/>
+                    <input type="submit" class="btn btn-success" name="gravarContacto" id="gravarContacto" value="Gravar"/>
                 </div>
             </div>
 

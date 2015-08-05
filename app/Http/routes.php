@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
     //Route::resource('habilitacoes', 'HabilitacaoController');
     Route::get('/habilitacoes', 'HabilitacaoController@index');
     Route::post('/habilitacoes',['as'=>'gravarHabilitacao','uses'=>'HabilitacaoController@store']);
-    Route::get('/habilitacoes/{id}/editar',['as' =>'editar_habilitacao', 'uses' => 'HabilitacaoController@edit']);
+    Route::get('/habilitacoes/{id}/editar',['as' =>'editarHabilitacao', 'uses' => 'HabilitacaoController@edit']);
     Route::get('/habilitacoes/create', 'HabilitacaoController@create');
     Route::get('/habilitacoes/{id}/',['as' =>'visualizarHab', 'uses' => 'HabilitacaoController@show'])->where(['id' => '[0-9]+']);
     Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
@@ -119,6 +119,8 @@ Route::group(['middleware' => 'auth'], function() {
       //Procurar Estudante
 
       Route::get('/procurarEstudante', 'ProcuraController@index');
+      Route::get('/procurarEstudante/visualizarEstudante','ProcuraController@show');
+
       // Route::get('/experiencias/create', 'ExperienciaController@create');
       // Route::post('/experiencias', 'ExperienciaController@store');
       // Route::get('/experiencias/{id}/editar',['as' =>'editar_experiencia', 'uses' => 'ExperienciaController@edit']);
@@ -161,4 +163,3 @@ Route::post('gravar-nivel','NivelController@createNivel');
 
 Route::get('curso','CursoController@showCurso');
 Route::post('gravar-curso','CursoController@createCurso');
-

@@ -29,8 +29,8 @@
                 <p>Instituição : {{ $h->instituicao }}
 
                 </p>
-
-    @endif
-      @else
+                @endif 
+        @else
   <p>404 nao existe</p>
+
 @endif
