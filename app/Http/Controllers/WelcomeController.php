@@ -34,7 +34,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('inicio');
+		return view('welcome');
 	}
 public function contacto(){
     $messagem=null;

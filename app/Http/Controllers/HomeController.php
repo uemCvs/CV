@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
+use App\Vaga;
 use Auth;
-
+use \App\User;
 class HomeController extends Controller {
 
 	/*
@@ -31,17 +32,42 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-         if (Auth::user()->estudante()->first()){
-             $est=Auth::user()->estudante()->first();
-						$dadosPessoais=true;
-						$vista = 'estudante';
-						return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est]);
-
-           //return redirect(route('visualizarEstudante', ['id'=>$estudante]));
+        //  if (Auth::user()->estudante()->first()){
+        //      $est=Auth::user()->estudante()->first();
+				// 		$dadosPessoais=true;
+				// 		$vista = 'estudante';
+				// 		return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est]);
+				//
+        //    //return redirect(route('visualizarEstudante', ['id'=>$estudante]));
+				//
+        //      $estudante=Auth::user()->estudante()->first();
+				//
+        //      $vista='estudante';
+        //    return view('gestorCurriculum', ['est'=>$estudante,'vista'=>$vista]);
 
         }
-		return redirect(route('curriculo'));
+
+        $_SESSION['estudante']=true;
+        $vaga=Vaga::all();
+        $fillable = Auth::user()->get();
+        $fillable2=Auth::user()->tipo;
+        $vista='estudanteGravar';
+        $v='endereco';
+        if($fillable2=='estudante')
+            return view('gestorCurriculum',['vista'=>$vista,'v'=>$v]);
+
+        else
+            return view('gestorEmpregador',['vaga'=>$vaga]);
+
+      /*  if($fillable.isEmpty()){
+            return view('gestorEmpregador',['vaga'=>$vaga]);
+
+        }else
+            return view('gestorCurriculum');*/
+
+
 //return view('home');
+
 	}
 
 }

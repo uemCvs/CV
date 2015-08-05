@@ -1,45 +1,48 @@
 <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
-<script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 <script src="{{URL::asset('Start/js/bootstrap.js')}}"></script>
-<script src="{{URL::asset('js/jquery.js')}}"></script>
 
   <form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('enderecos')}}">
 
       <h4 class="text-center">Endereço</h4>
+      @if(session('message'))
+          <div class="alert alert-success">
+              {{Session::get('message')}}
+          </div>
 
+      @endif
 
       <div class="form-group">
-          <label class="control-label col-sm-3" id="pais1" for="pais">Pais</label>
+          <label class="control-label col-sm-3"  for="pais">Pais</label>
           <div class="col-sm-9">
               <select class="form-control" name='pais' id="pais" onclick="showPais()">
-                  <option>Mocambique</option>
+                  <option value="Mocambique">Mocambique</option>
                   <option >Outros</option>
 
               </select>
-              <input class="form-control" type="hidden" name="outros" id="outros"  placeholder="Introduza o seu pais" />
+              <input class="form-control" type="hidden" name="pais" id="outros"  placeholder="Introduza o seu pais" />
           </div>
       </div>
 
       <div class="form-group">
-          <label class="control-label col-sm-3" id="provincia1" for="provincia">Provincia</label>
+          <label class="control-label col-sm-3"  for="provincia">Provincia</label>
           <div class="col-sm-9">
               <select class="form-control" name="provincia" id="provincia">
-                  <option>Escolha a provincia</option>
-                  <option>Maputo-Cidade</option>
-                  <option >Matola</option>
-                  <option >Gaza</option>
-                  <option >Inhambane</option>
-                  <option >Sofala</option>
-                  <option >Manica</option>
-                  <option >Zambezia</option>
-                  <option >Tete</option>
-                  <option >Nampula</option>
-                  <option >Niassa</option>
-                  <option >Cabo-Delgado</option>
+
+                  <option value="Maputo-Cidade">Maputo-Cidade</option>
+                  <option value="Matola">Matola</option>
+                  <option value="Gaza">Gaza</option>
+                  <option value="Inhambane">Inhambane</option>
+                  <option value="Sofala">Sofala</option>
+                  <option value="Manica">Manica</option>
+                  <option value="Zambezia">Zambezia</option>
+                  <option value="Tete">Tete</option>
+                  <option value="Nampula">Nampula</option>
+                  <option value="Niassa">Niassa</option>
+                  <option value="Cabo-Delgado">Cabo-Delgado</option>
 
               </select>
-              <input class="form-control" type="hidden" name="outrasP" id="outrasP"  placeholder="Introduza a provincia" />
+              <input class="form-control" type="hidden" name="provincia" id="outrasP"  placeholder="Introduza a provincia" />
           </div>
       </div>
 
@@ -100,13 +103,15 @@
         var provincias=document.getElementById("provincia");
         var outrasP=document.getElementById("outrasP");
         var outros=document.getElementById("outros");
+        var out=outros.value;
         if(pais.value=='Outros'){
             outros.setAttribute('type','text');
             provincias.style.display="none"; // torna invisivel
             outrasP.setAttribute("type","text");
+            
         }else {
             outros.setAttribute('type','hidden');
-            provincias.style.display="inline";//torna visivel
+            provincias.style.display="block";//torna visivel
             outrasP.setAttribute("type","hidden");
         }
 

@@ -42,7 +42,7 @@
         <div class="form-group">
             <label class="control-label col-sm-3" id="Disponibilidade" for="Disponibilidade">Disponibilidade</label>
             <div class="col-sm-9">
-                <select class="form-control" id="Disponibilidade" name="disponibilidade">
+                <select class="form-control" id="Disponibilidade" name="disponibilidade" >
                     <option selected="selected">Escolha a disponibilidade</option>
                     <option value="Parcial">Parcial</option>
                     <option value="Inteiro">Inteiro</option>
@@ -51,15 +51,26 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-3" id="idioma" for="idioma">idioma</label>
+
+            {!! Form::label('idioma','Idioma(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-9">
-                <select class="form-control" id="idioma" name="idioma">
-                    <option selected="selected">Selecione o idioma</option>
-                    <option value="Parcial">ingles</option>
-                    <option value="Inteiro">Portugues</option>
-                </select>
+
+
+                {!! Form::select('idiomas[]', $idiomas ,null,['class'=>'form-control','multiple']) !!}
+
             </div>
         </div>
+
+     {{--   <div class="form-group">
+            <label class="control-label col-sm-3" for="idioma">Idioma </label>
+            <div class="col-sm-9">
+
+                @foreach($idiomas as $idioma)
+                    <input type="checkbox" value="{{$idioma->id}}" name="idioma[]"/>{{ $idioma->idioma}}  </br>
+
+                @endforeach
+            </div>
+        </div>--}}
 
         <div class="form-group">
             <label class="control-label col-sm-3" for="outroCurso">Curso adicional</label>
@@ -80,14 +91,14 @@
             </div>
         </div>
 
-        <div class="form-group">
-            {!! Form::label('curso','Curso',['class'=>'control-label col-sm-3']) !!}
+       {{-- <div class="form-group">
+            {!! Form::label('curso','Curso(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-9">
 
 
-                {!! Form::select('curso', [] , null,['class'=>'form-control']) !!}
+                {!! Form::select('curso', [] , null,['class'=>'form-control','multiple']) !!}
             </div>
-        </div>
+        </div>--}}
 
         <div class="form-group">
             <label class="control-label col-sm-3" for="Competencia" >Competencias</label>

@@ -6,7 +6,7 @@ use App\Curriculo;
 use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Session;
 //use App\HabilitacaoIntelectual;
 
 use Illuminate\Http\Request;
@@ -20,7 +20,12 @@ class habIntelectualController extends Controller {
 	 */
 	public function index()
 	{
-		return view('habIntelectual');
+        //$habilitacaoI=true;
+        $vista = 'habIntelectual';
+
+        return view('gestorCurriculum',["vista"=>$vista]);
+
+		//return view('habIntelectual');
 	}
 
 	/**
@@ -46,7 +51,13 @@ class habIntelectualController extends Controller {
 				$hab->curriculo_id=$curriculo_id;
         $hab->habilitacao= $request->get('habilitacao');
 				$hab->save();
-        return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
+
+        $habilitacaoI=true;
+        $vista = 'habilitacaoIntelectualEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["habilitacaoI"=>$habilitacaoI,"vista"=>$vista,"hab"=>$hab,'nav'=>"menu3"]);
+
+      //  return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 	}
 
 	/**
@@ -81,10 +92,23 @@ class habIntelectualController extends Controller {
 	 */
 	public function update(Request $request,$id)
 	{
+
+        $user_id=Auth::user()->id;
+        $estudante_id=Estudante::where('user_id','=',$user_id)->first()->id;
+        $curriculo_id=Curriculo::where('estudante_id','=',$estudante_id)->first()->id;
         $hab= HabilitacaoIntelectual::find($id);
+        $hab->curriculo_id=$curriculo_id;
         $hab->habilitacao= $request->get('habilitacao');
         $hab->save();
-        return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
+
+      /*  $hab->habilitacao= $request->get('habilitacao');
+        $hab->save();*/
+        $habilitacaoI=true;
+        $vista = 'habilitacaoIntelectualEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["habilitacaoI"=>$habilitacaoI,"vista"=>$vista,"hab"=>$hab,'nav'=>"menu3"]);
+
+        //return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
 
 
 
