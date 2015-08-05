@@ -36,7 +36,6 @@ Route::group(['middleware' => 'auth'], function() {
 
 
     //Experiencia
-
     Route::get('/experiencias', 'ExperienciaController@index');
     Route::get('/experiencias/create', 'ExperienciaController@create');
     Route::post('/experiencias', 'ExperienciaController@store');
@@ -45,7 +44,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/experiencias/{id}/',['as' =>'visualizarExperiencia', 'uses' => 'ExperienciaController@show'])->where(['id' => '[0-9]+']);
 
     //Endereco
-
     Route::get('/enderecos', 'EnderecoController@index');
     Route::get('/enderecos/create', 'EnderecoController@create');
     Route::post('/enderecos', 'EnderecoController@store');
@@ -121,20 +119,14 @@ Route::group(['middleware' => 'auth'], function() {
       Route::get('/procurarEstudante', 'ProcuraController@index');
       Route::get('/procurarEstudante/visualizarEstudante','ProcuraController@show');
 
-      // Route::get('/experiencias/create', 'ExperienciaController@create');
-      // Route::post('/experiencias', 'ExperienciaController@store');
-      // Route::get('/experiencias/{id}/editar',['as' =>'editar_experiencia', 'uses' => 'ExperienciaController@edit']);
-      // Route::put('/experiencias/{id}',['as' =>'put_exp', 'uses' => 'ExperienciaController@update']);
-      // Route::get('/experiencias/{id}/',['as' =>'visualizarExperiencia', 'uses' => 'ExperienciaController@show'])->where(['id' => '[0-9]+']);
+    Route::get('gestorCurriculum',['as'=>'curriculo', function(){
+
+     return view("gestorCurriculum"); }]);
 
 
-
-    /* Route::get('gestorCurriculum',['as'=>'curriculo', function(){
-
-     return view("gestorCurriculum"); }]);*/
-    Route::get('gestorCurriculum',function(){
-        return view("gestorCurriculum");
-    });
+    // Route::get('gestorCurriculum',function(){
+    //     return view("gestorCurriculum");
+    // });
     Route::get('gestorNucleo',function(){
         return view("gestorNucleo");
     });
@@ -163,3 +155,5 @@ Route::post('gravar-nivel','NivelController@createNivel');
 
 Route::get('curso','CursoController@showCurso');
 Route::post('gravar-curso','CursoController@createCurso');
+
+Route::get('apreciarPerfil/{id}','ApreciarPerfilController@show');

@@ -4,11 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Input;
-use DB;
-use App\User;
 
-class ProcuraController extends Controller {
+class ApreciarPerfilController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,7 +14,7 @@ class ProcuraController extends Controller {
 	 */
 	public function index()
 	{
-		return view('Procurar');
+		//
 	}
 
 	/**
@@ -25,8 +22,6 @@ class ProcuraController extends Controller {
 	 *
 	 * @return Response
 	 */
-
-
 	public function create()
 	{
 		//
@@ -48,40 +43,10 @@ class ProcuraController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show()
+	public function show($id)
 	{
-		$cursos=Input::get('cursos');
-		$disponibilidades=Input::get ('disponibilidades');
-		$niveis=Input::get('niveis');
-		$idiomas= Input::get ('idiomas');
-
-		$query=\App\Estudante::select(DB::raw('distinct estudantes.*'))
-		->join('curriculos AS c', 'c.estudante_id','=','estudantes.id')
-		->join('idiomas AS i','i.curriculo_id','=','c.id')
-		->join('disponibilidades AS d','d.curriculo_id','=','c.id');
-
-		if ($cursos) {
-			$query = $query->whereIn('estudantes.curso',$cursos);
-		}
-
-		if ($disponibilidades) {
-			$query = $query->whereIn('d.disp',$disponibilidades);
-		}
-
-		if ($niveis) {
-			$query->whereIn('estudantes.nivel',$niveis);
-		}
-
-		if ($idiomas) {
-			$query = $query->whereIn('i.lingua',$idiomas);
-		}
-
-		$estudantes = $query->get();
-
-			return view("VisualizarProcura",['estudantes'=>$estudantes]);
-	
-
-
+		$estudante=\App\Estudante::where('id',$id)->with(['curriculo','curriculo.disponibilidade','curriculo.Idioma'])->first();
+		return view('ApreciarPerfil',['estudante'=>$estudante]);
 	}
 
 	/**

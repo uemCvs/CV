@@ -106,20 +106,23 @@ class ContactoController extends Controller {
 	public function update($id)
 	{
 		$contacto = Contacto::find($id);
-		Auth::user()->contacto()->save($contacto);
+		//Auth::user()->contacto()->save($contacto);
+		$e = $contacto->email()->first();
+		$t = $contacto->telefone()->first();
+
 		$telefone=Input::get('telefone');
 		$email= Input::get ('email');
 
 		$t->telefone=$telefone;
-		$t->contacto()->associate($contacto);
+		//$t->contacto()->associate($contacto);
 		$t->save();
 
-				$e->email=$email;
-				$e->contacto()->associate($contacto);
-				$e->save();
+		$e->email=$email;
+		//$e->contacto()->associate($contacto);
+		$e->save();
 
-				return redirect(route('visualizarContacto',['id'=>$contacto->id]));
-				}
+		return redirect(route('visualizarContacto',['id'=>$contacto->id]));
+	}
 
 
 	/**

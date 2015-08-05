@@ -32,8 +32,12 @@ class HomeController extends Controller {
 	public function index()
 	{
          if (Auth::user()->estudante()->first()){
-             $estudante=Auth::user()->estudante()->first();
-           return redirect(route('visualizarEstudante', ['id'=>$estudante]));
+             $est=Auth::user()->estudante()->first();
+						$dadosPessoais=true;
+						$vista = 'estudante';
+						return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est]);
+
+           //return redirect(route('visualizarEstudante', ['id'=>$estudante]));
 
         }
 		return redirect(route('curriculo'));
