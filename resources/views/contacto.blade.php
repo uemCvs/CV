@@ -7,28 +7,23 @@
   <input type="hidden" name="_method" value="PUT" />
     <h4 class="text-center">Contacto</h4>
 
-        @foreach ($telefones as $telefone)
+
         <div class="form-group">
             <label class="control-label col-sm-3" for="telefone">Telefone</label>
             <div class="col-sm-9">
-                <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Introduza o telefone" value="{{ $telefone->telefone }}"/>
+                <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Introduza o telefone" value="{{ $cont->telefone->telefone }}"/>
             </div>
         </div>
-      @endforeach
 
-      @foreach ($emails as $email)
+
+
       <div class="form-group">
           <label class="control-label col-sm-3" for="email">Email</label>
           <div class="col-sm-9">
-<<<<<<< HEAD
-              <input class="form-control" type="text" name="email" id="anoConclusao" placeholder="aaaaa@bbbbb.ccc" value="{{ $email->email }}"  />
+              <input class="form-control" type="text" name="email" id="anoConclusao" placeholder="aaaaa@bbbbb.ccc" value="{{ $cont->email->email }}"  />
 
-=======
-              <input class="form-control" type="text" name="email[]" id="anoConclusao" placeholder="aaaaa@bbbbb.ccc" value="{{ $email->email }}"  />
-</div>
->>>>>>> 781078f3089c5cb3fabe029fc2ad149353224636
+            </div>
           </div>
-    @endforeach
 
 
             <div class="form-group">
