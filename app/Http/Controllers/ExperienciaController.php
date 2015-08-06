@@ -8,6 +8,7 @@ use \App\Experiencia;
 use App\Estudante;
 use App\Curriculo;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 class ExperienciaController extends Controller {
 
@@ -18,7 +19,10 @@ class ExperienciaController extends Controller {
 	 */
 	public function index()
 	{
-		return view('experienciaGravar');
+
+        $vista = 'experienciaGravar';
+        return view('gestorCurriculum',["vista"=>$vista]);
+		//return view('experienciaGravar');
 	}
 
 	/**
@@ -49,7 +53,10 @@ class ExperienciaController extends Controller {
 		$exp->anoTermino= $request->get ('anoConclusao');
 
 		$exp->save();
-		return redirect(route('visualizarExperiencia',['id'=>$exp->id]));
+        $experiencias=true;
+        $vista = 'experiencia';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["experiencias"=>$experiencias,"vista"=>$vista,"exp"=>$exp, 'nav'=>"experiencia"]);
 	}
 
 
@@ -94,7 +101,11 @@ class ExperienciaController extends Controller {
 		$exp->anoTermino= $request->get ('anoConclusao');
 
 		$exp->save();
-			return $exp;
+
+        $experiencias=true;
+        $vista = 'experiencia';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["experiencias"=>$experiencias,"vista"=>$vista,"exp"=>$exp, 'nav'=>"experiencia"]);
 	}
 
 	/**

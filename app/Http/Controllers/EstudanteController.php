@@ -28,10 +28,10 @@ class EstudanteController extends Controller {
 	 */
 
 	public function create()
-	{ $v='endereco';
+	{
 
         $vista = 'estudanteGravar';
-        return view('gestorCurriculum',["vista"=>$vista,'v'=>$v]);
+        return view('gestorCurriculum',["vista"=>$vista]);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class EstudanteController extends Controller {
 $dadosPessoais=true;
         $vista = 'estudante';
         Session::flash('message', 'Dados gravados com sucesso');
-        return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est]);
+        return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est, 'nav'=>"dados"]);
 		//return redirect(route('visualizarEstudante',['id'=>$est->id]));
 	//$est->utilizador()->associate(Auth::user());
 	//	$est->save();
@@ -111,7 +111,7 @@ $dadosPessoais=true;
         $vista = 'estudante';
         $dadosPessoais=true;
         Session::flash('message', 'Dados gravados com sucesso');
-        return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est]);
+        return view('gestorCurriculum',["dadosPessoais"=>$dadosPessoais,"vista"=>$vista,"est"=>$est, 'nav'=>"dados"]);
 		//return redirect(route('gestorCurriculumView',['id'=>$est->id]));
 	}
 

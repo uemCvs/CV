@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Estudante;
 use App\Curriculo;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class qualificacaoController extends Controller {
@@ -18,8 +19,9 @@ class qualificacaoController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-		return view('qualificacao');
+	{  $vista = 'qualificacao';
+        return view('gestorCurriculum',["vista"=>$vista]);
+
 	}
 
 	/**
@@ -49,7 +51,10 @@ class qualificacaoController extends Controller {
         $qual->nomeInstituicao = $request->get ('nomeInstituicao');
         $qual->anoConclusao = $request->get ('anoConclusao');
         $qual->save();
-        return redirect(route('visualizarQualificacao',['id'=>$qual->id]));
+        $qualificacoes=true;
+        $vista = 'qualificacaoEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["qualificacoes"=>$qualificacoes,"vista"=>$vista,"qual"=>$qual, 'nav'=>"quali"]);
 	}
 
 	/**
@@ -90,7 +95,10 @@ class qualificacaoController extends Controller {
         $qual->nomeInstituicao = $request->get ('nomeInstituicao');
         $qual->anoConclusao = $request->get ('anoConclusao');
         $qual->save();
-        return redirect(route('visualizarQualificacao',['id'=>$qual->id]));
+        $qualificacoes=true;
+        $vista = 'qualificacaoEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["qualificacoes"=>$qualificacoes,"vista"=>$vista,"qual"=>$qual, 'nav'=>"quali"]);
 	}
 
 	/**

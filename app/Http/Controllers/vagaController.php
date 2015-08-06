@@ -20,12 +20,13 @@ class vagaController extends Controller
     public function index()
     {
 
-        $idiomas=lingua::lists('idioma','id');
-
-
+        $cursos=\App\curso::all();
+        $idiomas=\App\lingua::all();
+        $vaga = Vaga::all()->isEmpty();
+$vista='vaga';
         $nivel = Nivel::lists('nome', 'id');
-        $vaga = Vaga::all();
-        return view('vaga')->with(['nivel' => $nivel, 'vaga' => $vaga,'idiomas'=>$idiomas]);
+        $vagas = Vaga::all();
+        return view('gestorEmpregador')->with(['nivel' => $nivel, 'vagas' => $vagas,'idiomas'=>$idiomas,'vaga'=>$vaga,'cursos'=>$cursos,'vista'=>$vista]);
     }
 
     /**
@@ -82,8 +83,12 @@ class vagaController extends Controller
             $iv->save();
 
         }
+        $vagasR=true;
+        $vista = 'vagaEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorEmpregador',["vagasR"=>$vagasR,"vista"=>$vista,'idiomas'=>$idiomas,'vaga'=>$vaga,'cursos'=>$cursos]);
 
-       // return redirect('vagaa',['idioma'=>$idiomas]);
+
     }
 
     /**
@@ -131,15 +136,17 @@ class vagaController extends Controller
         $vaga->descricao = $request->get('descricao');
         $vaga->nrVagas = $request->get('nrVagas');
         $vaga->sistemaEnsino = $request->get('sistemaEnsino');
-        $vaga->cursos = $request->get('cursos');
-        $vaga->idioma = $request->get('idioma');
+       // $vaga->cursos = $request->get('cursos');
+       // $vaga->idioma = $request->get('idioma');
         $vaga->outroCurso = $request->get('outroCurso');
         $vaga->disponibilidade = $request->get('disponibilidade');
         $vaga->competencia = $request->get('competencia');
         $vaga->condicoesOferecidas = $request->get('condicoesOferecidas');
         $vaga->save();
-        Session::flash('message', 'Dados alterados com sucesso');
-        return redirect(route('visualizarVaga', ['id' => $vaga->id]));
+        $vagasR=true;
+        $vista = 'vagaEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorEmpregador',["vagasR"=>$vagasR,"vista"=>$vista,'vaga'=>$vaga]);
 
 
     }

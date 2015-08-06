@@ -11,7 +11,7 @@
         <label class="control-label col-sm-3" id="nivel" for="nivel">Nivel</label>
         <div class="col-sm-9">
             <select class="form-control" name="nivel" id="nivel" >
-            {{--    <option selected="selected">E</option>--}}
+                {{--    <option selected="selected">E</option>--}}
                 <option value="primario">Primario</option>
                 <option value="basico">Basico</option>
                 <option value="medio">Medio</option>

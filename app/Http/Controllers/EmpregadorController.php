@@ -17,7 +17,10 @@ class EmpregadorController extends Controller {
 	 */
 	public function index()
 	{
-		return view('empregador');
+
+        $vista = 'empregador';
+        return view('gestorEmpregador',["vista"=>$vista]);
+
 	}
 
 	/**

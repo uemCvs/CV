@@ -1,6 +1,4 @@
-@extends('gestorEmpregador')
 
-@section('content')
     <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
     <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
     <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
@@ -50,7 +48,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+       {{-- <div class="form-group">
 
             {!! Form::label('idioma','Idioma(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-9">
@@ -59,9 +57,9 @@
                 {!! Form::select('idiomas[]', $idiomas ,null,['class'=>'form-control','multiple']) !!}
 
             </div>
-        </div>
+        </div>--}}
 
-     {{--   <div class="form-group">
+        <div class="form-group">
             <label class="control-label col-sm-3" for="idioma">Idioma </label>
             <div class="col-sm-9">
 
@@ -70,7 +68,7 @@
 
                 @endforeach
             </div>
-        </div>--}}
+        </div>
 
         <div class="form-group">
             <label class="control-label col-sm-3" for="outroCurso">Curso adicional</label>
@@ -91,14 +89,27 @@
             </div>
         </div>
 
-       {{-- <div class="form-group">
+        {{--<div class="form-group">
             {!! Form::label('curso','Curso(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-9">
 
 
-                {!! Form::select('curso', [] , null,['class'=>'form-control','multiple']) !!}
+                {!! Form::select('curso[]', [] , null,['class'=>'form-control','multiple']) !!}
             </div>
         </div>--}}
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="curso">curso </label>
+            <div class="col-sm-9">
+
+                @foreach($cursos as $curso)
+                    <input type="checkbox" value="{{$curso->id}}" name="curso[]"/>{{ $curso->nome}}  </br>
+
+                @endforeach
+
+
+
+            </div>
+        </div>
 
         <div class="form-group">
             <label class="control-label col-sm-3" for="Competencia" >Competencias</label>
@@ -115,7 +126,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                <input type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"/>
+                <input type="submit"  class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"/>
             </div>
         </div>
 
@@ -135,5 +146,6 @@
             });
         });
 
+
+
     </script>
-@stop

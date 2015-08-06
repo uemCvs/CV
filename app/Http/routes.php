@@ -22,8 +22,19 @@ Route::controllers([
 
 //  Route::resource('estudantes', 'EstudanteController');
 
+Route::get('/testar',function(){
+    return view('testar');
+});
 
+Route::post('/testar',function(\Illuminate\Http\Request $request){
+        $nome = $request->input('nome');
+        $nome2 = $request->input('nome2');
 
+        $nomes = [$nome,$nome2];
+        $nomesJSON = json_encode($nome);
+
+        return $nomesJSON;
+});
 
 Route::group(['middleware' => 'auth'], function() {
     //Route::resource('habilitacoes', 'HabilitacaoController');
@@ -34,6 +45,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/habilitacoes/{id}/',['as' =>'visualizarHab', 'uses' => 'HabilitacaoController@show'])->where(['id' => '[0-9]+']);
     Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
 
+
+    Route::get('procurarEstudante','ProcuraController@index');
+    Route::get('procurarEstudante/visualizarEstudante','ProcuraController@show');
+    Route::get('Meu_Perfil/{id}','ApreciarPerfilController@verCurriculo');
 
     //Experiencia
     Route::get('/experiencias', 'ExperienciaController@index');
@@ -98,7 +113,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/referencia/{id}',['as' =>'put_refer', 'uses' => 'referenciaController@update']);
 
     //Vaga
-    Route::get ('/gestorEmpregador',['as' =>'gravarVaga', 'uses' => 'vagaController@showVagas']);
+    Route::get ('/gestorEmpregador',['as' =>'gravarVaga', 'uses' => 'vagaController@index']);
     Route::post ('/gestorEmpregador','vagaController@store');
     Route::get('/vaga/{id}/editar',['as' =>'editar_vaga', 'uses' => 'vagaController@edit']);
     Route::get('/vaga/{id}/',['as' =>'visualizarVaga', 'uses' => 'vagaController@show'])->where(['id'=>'[0-9]+']);

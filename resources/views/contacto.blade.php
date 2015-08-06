@@ -7,34 +7,49 @@
   <input type="hidden" name="_method" value="PUT" />
     <h4 class="text-center">Contacto</h4>
 
-        @foreach ($telefones as $telefone)
+        @foreach ($cont->telefone as $t)
         <div class="form-group">
             <label class="control-label col-sm-3" for="telefone">Telefone</label>
             <div class="col-sm-9">
-                <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Introduza o telefone" value="{{ $telefone->telefone }}"/>
+                <input class="form-control" type="text" name="telefone" id="telefone" readonly value="{{ $t->telefone }}"/>
             </div>
         </div>
       @endforeach
 
-      @foreach ($emails as $email)
+      @foreach ($cont->email as $e)
       <div class="form-group">
           <label class="control-label col-sm-3" for="email">Email</label>
           <div class="col-sm-9">
-<<<<<<< HEAD
-              <input class="form-control" type="text" name="email" id="anoConclusao" placeholder="aaaaa@bbbbb.ccc" value="{{ $email->email }}"  />
 
-=======
-              <input class="form-control" type="text" name="email[]" id="anoConclusao" placeholder="aaaaa@bbbbb.ccc" value="{{ $email->email }}"  />
+              <input class="form-control" type="text" name="email[]" id="email" readonly value="{{ $e->email }}"  />
 </div>
->>>>>>> 781078f3089c5cb3fabe029fc2ad149353224636
+
           </div>
     @endforeach
 
-
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <input type="submit" class="btn btn-success" name="gravarQualificacao" id="gravarQualificacaoo" value="Gravar"/>
-                </div>
-            </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input type="button" class="btn btn-success" name="editarPessoais" id="editarPessoais" value="Editar"
+                   onclick="editar()"/>
+            <input style="display: none" type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"
+                    />
+        </div>
+    </div>
 
 </form>
+
+<script>
+
+    var btEditar = document.getElementById('editarPessoais');
+    var btGravar = document.getElementById('gravarDpessoais');
+    var telefone = document.getElementById('telefone');
+    var email = document.getElementById('email');
+    function editar() {
+
+        btEditar.style.display = 'none';
+        btGravar.style.display = 'block';
+        telefone.readOnly=false;
+        email.readOnly=false;
+    }
+
+    </script>

@@ -1,3 +1,4 @@
+{{--
 
 @if($exp)
 <a href="{{ route('editar_experiencia', ['id' => $exp->id]) }}"><button>Editar</button></a>
@@ -20,3 +21,4 @@
     @else
   <p>404 nao existe</p>
 @endif
+--}}

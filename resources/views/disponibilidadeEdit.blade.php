@@ -37,6 +37,14 @@
         <textarea class="form-control"  name="descricao" id="descricao" rows="10" readonly cols="10" >{{ $disp->descricao}}</textarea>
 
     </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input type="button" class="btn btn-success" name="editarPessoais" id="editarPessoais" value="Editar"
+                   onclick="editar()"/>
+            <input style="display: none" type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"
+                    />
+        </div>
+    </div>
 
 
 </form>

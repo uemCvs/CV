@@ -103,18 +103,7 @@
 
 
     <script>
-        var btEditar = document.getElementById('editarPessoais');
-        var btGravar = document.getElementById('gravarDpessoais');
-        var distrito=document.getElementById('distrito');
-        var rua=document.getElementById('rua');
-        var avenida=document.getElementById('avenida');
-        var quarteirao=document.getElementById('quarteirao');
-        var numero=document.getElementById('nrDeCasa');
-        var bairro=document.getElementById('bairro');
-        var provincia=document.getElementById('provincia');
-        var provincia1=document.getElementById('outrasProvincias');
-        var pais=document.getElementById('pais');
-        var pais1=document.getElementById('outroPais');
+
 
         function showPais(){
             // alert("cheguei")
@@ -135,7 +124,18 @@
         }
 
         function editar(){
-
+            var btEditar = document.getElementById('editarPessoais');
+            var btGravar = document.getElementById('gravarDpessoais');
+            var distrito=document.getElementById('distrito');
+            var rua=document.getElementById('rua');
+            var avenida=document.getElementById('avenida');
+            var quarteirao=document.getElementById('quarteirao');
+            var numero=document.getElementById('nrDeCasa');
+            var bairro=document.getElementById('bairro');
+            var provincia=document.getElementById('provincia');
+            var provincia1=document.getElementById('outrasProvincias');
+            var pais=document.getElementById('pais');
+            var pais1=document.getElementById('outroPais');
             distrito.readOnly=false;
             rua.readOnly=false;
             avenida.readOnly=false;

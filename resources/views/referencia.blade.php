@@ -3,7 +3,7 @@
 <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
 <script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
 
-<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('gestorCurriculum')}}">
+<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('referencia')}}">
     <h4 class="text-center">Referencias</h4>
     <div class="form-group">
         <label  for="referencia" >Referencias</label>

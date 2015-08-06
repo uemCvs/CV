@@ -44,7 +44,7 @@
             <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" placeholder="0000" required="required" min="1920"  max="{{date("Y")}}" />
 
         </div>
- </div>
+    </div>
 
     <div class="form-group">
         <label class="control-label col-sm-3" for="nomeInstituicao">Nome da Instituição</label>
@@ -52,7 +52,7 @@
             <input class="form-control" type="text" name="instituicao" id="instituicao" required="required" placeholder="Introduza o nome da instituicao" />
         </div>
     </div>
-        <input type="hidden" name="sisEnsino" id="sisEnsino" />
+    <input type="hidden" name="sisEnsino" id="sisEnsino" />
 
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">

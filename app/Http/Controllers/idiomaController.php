@@ -8,6 +8,7 @@ use App\Idioma;
 use App\Estudante;
 use App\Curriculo;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 class idiomaController extends Controller {
 
@@ -18,7 +19,8 @@ class idiomaController extends Controller {
 	 */
 	public function index()
 	{
-		return view('idioma');
+        $vista = 'idioma';
+        return view('gestorCurriculum',["vista"=>$vista]);
 	}
 
 	/**
@@ -49,7 +51,10 @@ class idiomaController extends Controller {
         $idioma->dominioFala = $request->get ('dominioFala');
         $idioma->dominioLei = $request->get ('dominioLei');
         $idioma->save();
-			  return redirect(url('idioma/'.$idioma->id.''));
+        $idiomas=true;
+        $vista = 'idiomaEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["idiomas"=>$idiomas,"vista"=>$vista,"idioma"=>$idioma, 'nav'=>"idioma"]);
 
     }
 
@@ -92,7 +97,10 @@ class idiomaController extends Controller {
         $idioma->dominioFala = $request->get ('dominioFala');
         $idioma->dominioLei = $request->get ('dominioLei');
         $idioma->save();
-        return redirect(url('idioma/'.$idioma->id.''));
+        $idiomas=true;
+        $vista = 'idiomaEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["idiomas"=>$idiomas,"vista"=>$vista,"idioma"=>$idioma, 'nav'=>"idioma"]);
 	}
 
 	/**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Estudante;
 use App\Curriculo;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 class referenciaController extends Controller {
 
@@ -17,8 +18,9 @@ class referenciaController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-        return view('referencia');
+	{  $vista = 'referencia';
+        return view('gestorCurriculum',["vista"=>$vista]);
+
 	}
 
 	/**
@@ -46,7 +48,10 @@ class referenciaController extends Controller {
 				$refer->curriculo_id=$curriculo_id;
         $refer->referencia=$request->get('referencia');
         $refer->save();
-        return redirect(route('visualizarReferencia',['id'=>$refer->id]));
+        $referencias=true;
+        $vista = 'referenciaEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["referencias"=>$referencias,"vista"=>$vista,"refer"=>$refer, 'nav'=>"menu5"]);
 	}
 
 	/**
@@ -86,8 +91,10 @@ class referenciaController extends Controller {
         $refer= referencia::find($id);
         $refer->referencia=$request->get('referencia');
         $refer->save();
-        return redirect(route('visualizarReferencia',['id'=>$refer->id]));
-
+        $referencias=true;
+        $vista = 'referenciaEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["referencias"=>$referencias,"vista"=>$vista,"refer"=>$refer, 'nav'=>"menu5"]);
 
 
     }

@@ -8,7 +8,7 @@ use \App\Habilitacao;
 use App\Estudante;
 use App\Curriculo;
 use Auth;
-
+use Illuminate\Support\Facades\Session;
 class HabilitacaoController extends Controller {
 
 	/**
@@ -18,8 +18,8 @@ class HabilitacaoController extends Controller {
 	 */
 	public function index()
 	{
-		$habilitacoes = Habilitacao::all();
-		return view('Teste',['habilitacoes'=>$habilitacoes]);
+        $vista = 'habilitacaoGravar';
+        return view('gestorCurriculum',["vista"=>$vista]);
 	}
 
 	/**
@@ -29,7 +29,8 @@ class HabilitacaoController extends Controller {
 	 */
 	public function create()
 	{
-		return view('habilitacaoGravar');
+        $vista = 'habilitacaoGravar';
+        return view('gestorCurriculum',["vista"=>$vista]);
 	}
 
 	/**
@@ -50,7 +51,10 @@ class HabilitacaoController extends Controller {
 		$hab->instituicao= $request->get ('instituicao');
 
 		$hab->save();
-			return redirect(route('visualizarHab',['id'=>$hab->id]));
+        $ensinos=true;
+        $vista = 'habilitacao';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["ensinos"=>$ensinos,"vista"=>$vista,"h"=>$hab, 'nav'=>"menu1"]);
 
 			}
 
@@ -93,8 +97,10 @@ class HabilitacaoController extends Controller {
 			$hab->instituicao= $request->get ('instituicao');
 
 			$hab->save();
-			//return $hab;
-			return redirect(route('visualizarHabilitacao',['id'=>$hab->id]));
+        $ensinos=true;
+        $vista = 'habilitacao';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["ensinos"=>$ensinos,"vista"=>$vista,"h"=>$hab, 'nav'=>"menu1"]);
 	}
 
 	/**

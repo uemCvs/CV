@@ -1,5 +1,4 @@
-var btEditar = document.getElementById('editarPessoais');
-var btGravar = document.getElementById('gravarDpessoais');<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
+<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
 <script src="{{URL::asset('Start/js/freelancer.js')}}"></script>
@@ -28,10 +27,11 @@ var btGravar = document.getElementById('gravarDpessoais');<link href="{{URL::ass
 
 <script>
 
-    var btEditar = document.getElementById('editarPessoais');
-    var btGravar = document.getElementById('gravarDpessoais');
+
 
     function editar(){
+        var btEditar = document.getElementById('editarPessoais');
+        var btGravar = document.getElementById('gravarDpessoais');
 
         btEditar.style.display='none';
         btGravar.style.display='block';

@@ -8,6 +8,7 @@ use App\disponibilidade;
 use App\Estudante;
 use App\Curriculo;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class disponibilidadeController extends Controller {
@@ -19,7 +20,8 @@ class disponibilidadeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('disponibilidade');
+        $vista = 'disponibilidade';
+        return view('gestorCurriculum',["vista"=>$vista]);
 	}
 
 	/**
@@ -50,7 +52,10 @@ class disponibilidadeController extends Controller {
         $disp->tempoFim=$request->get('tempoFim');
         $disp->descricao=$request->get('descricao');
         $disp->save();
-        return redirect(route('visualizarDisponibilidade',['id'=>$disp->id]));
+        $disponibilidades=true;
+        $vista = '$disponibilidadeEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["disponibilidades"=>$disponibilidades,"vista"=>$vista,"disp"=>$disp, 'nav'=>"menu4"]);
 	}
 
 	/**
@@ -92,7 +97,10 @@ class disponibilidadeController extends Controller {
         $disp->tempoFim=$request->get('tempoFim');
         $disp->descricao=$request->get('descricao');
         $disp->save();
-        return redirect(route('visualizarDisponibilidade',['id'=>$disp->id]));
+        $disponibilidades=true;
+        $vista = '$disponibilidadeEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorCurriculum',["disponibilidades"=>$disponibilidades,"vista"=>$vista,"disp"=>$disp, 'nav'=>"menu4"]);
 	}
 
 	/**

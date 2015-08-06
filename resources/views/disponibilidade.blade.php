@@ -1,7 +1,7 @@
 <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
 <script src="{{URL::asset('Start/js/bootstrap.js')}}"></script>
-<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('gestorCurriculum')}}">
+<form class="form-horizontal" id="form1" name="form1" method="post" action="{{url('disponibilidade')}}">
 
     <h4 class="text-center">Disponibilidade</h4>
     <div class="form-group">

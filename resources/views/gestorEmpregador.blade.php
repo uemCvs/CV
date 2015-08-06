@@ -23,6 +23,7 @@
             <ul class="nav nav-tabs nav-stacked nav-esquerdo ">
                 <li class="active"><a data-toggle="tab" href="#registar">Registar Vagas</a></li>
                 <li><a data-toggle="tab" href="#ver">Ver Vagas</a></li>
+                {{--<li><a data-toggle="tab" href="#verPerfil">Ver Perfil</a></li>--}}
             </ul>
         </div>
 
@@ -34,10 +35,16 @@
                 <div class="panel panel-body">
                     <div  class="tab-content">
                         <div id="registar" class="tab-pane fade in active" >
-                            {{--@include('vaga')--}}
-                            @yield('content')
+                            <?php if(isset($vagasR)) { ?>
+                            @if($vista=='vaga')
+                                @include('vaga')
+                            @elseif($vista=='vagaEdit')
+                                @include($vista,["vaga"=>$vaga])
+                            @endif
+                            <?php } else {?>
+                            @include("vaga")
 
-                            {{-- <iframe src="{{url('vaga')}}"></iframe>--}}
+                            <?php } ?>
                         </div>
                         <div id="ver" class="tab-pane fade " >
 
@@ -57,7 +64,7 @@
                                         </a>
 
 
-                                        {{--  <p>{{$vaga->descricao}}.</p>--}}
+
 
                                     </div>
                                 @endforeach
@@ -79,11 +86,11 @@
 
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                oua{{--{{$empregador->nome}}--}}
+               {{-- {{$empregador->nome}}--}}
             </div>
             <div class="form-group">
                 <label for="nome">Email:</label>
-                {{--{{$empregador->email}}--}}teste@gmail.com
+                {{--{{$empregador->email}}--}}
             </div>
         </div>
 

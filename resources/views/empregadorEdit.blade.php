@@ -16,7 +16,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="descricao" >Descricao</label>
         <div class="col-sm-9">
-            <textarea class="form-control"  name="descricao" id="descricao" value="{{ $emp->descricao }}"  ></textarea>
+            <textarea class="form-control"  name="descricao" id="descricao"   >value="{{ $emp->descricao }}"</textarea>
         </div>
     </div>
 
@@ -43,16 +43,16 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label">Password</label>
+        <label class="col-md-4 control-label" for="password">Password</label>
         <div class="col-md-6">
-            <input type="password" class="form-control" name="password" value="{{ $user->password}}">
+            <input type="password" id="password" class="form-control" name="password" value="{{ $user->password}}">
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label">Confirm Password</label>
+        <label class="col-md-4 control-label" for="confirmPassword">Confirm Password</label>
         <div class="col-md-6">
-            <input type="password" class="form-control" name="remember_token" value="{{ $user->remember_token}}">
+            <input type="password" id="confirmPassword" class="form-control" name="remember_token" value="{{ $user->remember_token}}">
         </div>
     </div>
     <div class="form-group">

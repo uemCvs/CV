@@ -62,10 +62,10 @@ class EnderecoController extends Controller {
         $end->quarteirao= $request->get ('quarteirao');
         Auth::user()->endereco()->save($end);
         $vista = 'endereco';
-        $v = 'endereco';
+
         $enderecos=true;
         Session::flash('message', 'Dados gravados com sucesso');
-        return view('gestorCurriculum',["enderecos"=>$enderecos,"vista"=>$vista,"end"=>$end,"v"=>$v]);
+        return view('gestorCurriculum',["enderecos"=>$enderecos,"vista"=>$vista,"end"=>$end,  'nav'=>"endereco"]);
 
     }
 
@@ -121,7 +121,7 @@ class EnderecoController extends Controller {
         $vista = 'endereco';
         $enderecos=true;
         Session::flash('message', 'Dados gravados com sucesso');
-        return view('gestorCurriculum',["endereco"=>$enderecos,"vista"=>$vista,"end"=>$end]);
+        return view('gestorCurriculum',["endereco"=>$enderecos,"vista"=>$vista,"end"=>$end, 'nav'=>"endereco"]);
 
     }
 
