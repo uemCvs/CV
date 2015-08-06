@@ -48,9 +48,9 @@ class ApreciarPerfilController extends Controller {
 	{
 		$userId=\App\Estudante::find($id)->user_id;
 
-		 $estudante=\App\User::where('id',$userId)
-		->with(['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade',
-		'estudante.curriculo.disponibilidade','estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
+		 $resultado=\App\User::where('id',$userId)
+		->with(['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade'
+		,'estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
 		'estudante.curriculo.HabilitacaoIntelectual','estudante.curriculo.habilitacao','estudante.curriculo.experiencia',
 		'estudante.curriculo.Idioma'])->first();
 		// ->join('estudantes As e','e.user_id','=','users.id')
@@ -65,7 +65,7 @@ class ApreciarPerfilController extends Controller {
 		// 'utilizador.endereco'])->first();
 
 
-return view("ApreciarPerfil",['estudante'=>$estudante]);
+return view("ApreciarPerfil",['resultado'=>$resultado]);
 //return $estudante;
 
 	}
