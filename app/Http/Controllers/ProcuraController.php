@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Input;
 use DB;
 use App\User;
+use App\Idioma;
 
 class ProcuraController extends Controller {
 
@@ -17,7 +18,8 @@ class ProcuraController extends Controller {
 	 */
 	public function index()
 	{
-		return view('Procurar');
+		$idiomas=Idioma::lists('lingua');
+		return view('Procurar',['idiomas'=>$idiomas]);
 	}
 
 	/**
@@ -79,7 +81,7 @@ class ProcuraController extends Controller {
 		$estudantes = $query->get();
 
 			return view("VisualizarProcura",['estudantes'=>$estudantes]);
-	
+
 
 
 	}

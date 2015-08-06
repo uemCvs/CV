@@ -50,11 +50,9 @@
         <label class="control-label col-sm-3" id="nivel" for="idioma">Idioma:</label>
         <div class="col-sm-9">
         </br>
-              <input type="checkbox" name="idiomas[]" value="Inglês">Inglês
-              <input type="checkbox" name="idiomas[]" value="Português">Português
-              <input type="checkbox" name="idiomas[]" value="Francês">Francês
-              <input type="checkbox" name="idiomas[]" value="Espanhol">Espanhol
-
+        @foreach ($idiomas as $idioma)
+        <input type="checkbox" name="idiomas[]" value="{{$idioma}}">{{$idioma}}
+         @endforeach
         </div>
     </div>
 

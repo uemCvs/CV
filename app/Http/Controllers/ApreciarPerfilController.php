@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ApreciarPerfilController extends Controller {
 
@@ -45,8 +46,28 @@ class ApreciarPerfilController extends Controller {
 	 */
 	public function show($id)
 	{
-		$estudante=\App\Estudante::where('id',$id)->with(['curriculo','curriculo.disponibilidade','curriculo.Idioma'])->first();
-		return view('ApreciarPerfil',['estudante'=>$estudante]);
+		$userId=\App\Estudante::find($id)->user_id;
+
+		 $estudante=\App\User::where('id',$userId)
+		->with(['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade',
+		'estudante.curriculo.disponibilidade','estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
+		'estudante.curriculo.HabilitacaoIntelectual','estudante.curriculo.habilitacao','estudante.curriculo.experiencia',
+		'estudante.curriculo.Idioma'])->first();
+		// ->join('estudantes As e','e.user_id','=','users.id')
+		// ->where('e.id','=',$id)->with(['contacto','endereco'])
+
+
+		//
+		// $estudante=\App\Estudante::where('estudantes.id',$id)
+		// ->with(['curriculo','curriculo.disponibilidade',
+		// 'curriculo.OutraQualificacao','curriculo.referencia','curriculo.HabilitacaoIntelectual',
+		// 'curriculo.habilitacao','curriculo.experiencia','curriculo.Idioma','utilizador','utilizador.contacto',
+		// 'utilizador.endereco'])->first();
+
+
+return view("ApreciarPerfil",['estudante'=>$estudante]);
+//return $estudante;
+
 	}
 
 	/**

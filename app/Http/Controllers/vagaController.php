@@ -166,7 +166,3 @@ class vagaController extends Controller
     }
 
 }
-
-
-
-
