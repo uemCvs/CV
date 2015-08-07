@@ -46,9 +46,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/habilitacoes/{id}',['as' =>'put_h', 'uses' => 'HabilitacaoController@update']);
 
 
-    Route::get('procurarEstudante','ProcuraController@index');
-    Route::get('procurarEstudante/visualizarEstudante','ProcuraController@show');
-    Route::get('Meu_Perfil/{id}','ApreciarPerfilController@verCurriculo');
+    Route::get('/procurarEstudante','ProcuraController@index');
+    Route::get('/procurarEstudante/visualizarEstudante','ProcuraController@show');
+    Route::get('/Meu_Perfil/{id}','ApreciarPerfilController@verCurriculo');
 
     //Experiencia
     Route::get('/experiencias', 'ExperienciaController@index');
@@ -147,6 +147,13 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
 
+    Route::get ('/cadastroEmpregador',['as' =>'cadastrarEmpregador', 'uses' => 'EmpregadorController@index']);
+    Route::post ('/cadastroEmpregador','EmpregadorController@store');
+    Route::get('/cadastroEmpregador/{id}/editar',['as' =>'editar_Empregador', 'uses' => 'EmpregadorController@edit']);
+    Route::get('/cadastroEmpregador/{id}/',['as' =>'visualizarEmpregador', 'uses' => 'EmpregadorController@show'])->where(['id'=>'[0-9]+']);
+    Route::put('/cadastroEmpregador/{id}',['as' =>'put_Empregador', 'uses' => 'EmpregadorController@update']);
+
+
     Route::get('print','PrintController@index');
 
 
@@ -162,7 +169,7 @@ Route::group(['middleware' => 'auth'], function() {
         return view("layouts/main");
     });
 
-    Route::get('gestorEmpregador','vagaController@showVagas');
+    Route::get('/gestorEmpregadorVagas','vagaController@showVagas');
 
 });
 /*Route::get('inicio',function(){

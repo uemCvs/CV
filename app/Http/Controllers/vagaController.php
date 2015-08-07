@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Idioma;
 use App\Nivel;
 use App\Vaga;
 use App\IdiomaVaga;
@@ -21,7 +22,7 @@ class vagaController extends Controller
     {
 
         $cursos=\App\curso::all();
-        $idiomas=\App\lingua::all();
+        $idiomas=lingua::lists('idioma','id');
         $vaga = Vaga::all()->isEmpty();
 $vista='vaga';
         $nivel = Nivel::lists('nome', 'id');
@@ -67,7 +68,7 @@ $vista='vaga';
         $v = Vaga::all();
         $t = sizeof($v);
         $vg = $v[--$t];
-
+$idioma=lingua::lists('idioma','id');
         $cursos = $request->get('curso');
         $idiomas = $request->get('idioma');
         for ($i=0;$i<count($cursos);$i++) {
@@ -83,10 +84,25 @@ $vista='vaga';
             $iv->save();
 
         }
+
+$nivel=Nivel::lists('nome','id');
+        $vaga->nome = $request->get('nome');
+        $vaga->descricao = $request->get('descricao');
+        $vaga->nrVagas = $request->get('nrVagas');
+        $vaga->sistemaEnsino = $request->get('nivel');
+        // $vaga->cursos = $request->get('cursos');
+        // $vaga->idioma = $request->get('idioma');
+        $vaga->outroCurso = $request->get('outroCurso');
+        $vaga->disponibilidade = $request->get('disponibilidade');
+        $vaga->competencia = $request->get('competencia');
+        $vaga->condicoesOferecidas = $request->get('condicoesOferecidas');
+        $vaga->save();
+
+
         $vagasR=true;
         $vista = 'vagaEdit';
         Session::flash('message', 'Dados gravados com sucesso');
-        return view('gestorEmpregador',["vagasR"=>$vagasR,"vista"=>$vista,'idiomas'=>$idiomas,'vaga'=>$vaga,'cursos'=>$cursos]);
+        return view('gestorEmpregador',["vagasR"=>$vagasR,"vista"=>$vista,'idioma'=>$idiomas,'idiomas'=>$idioma,'vagas'=>$v,'cursos'=>$cursos,'nivel'=>$nivel,'nav'=>'vagaR']);
 
 
     }
@@ -116,9 +132,9 @@ $vista='vaga';
     {
         $v = new Vaga();
         $vaga = $v::find($id);
-
+$idiomas=lingua::lists('idioma','id');
         $nivel = Nivel::lists('nome', 'id');
-        return view("vagaEdit")->with(array('vaga' => $vaga, 'nivel' => $nivel/*'nive'=>$nive,'curs'=>$curs*/));
+        return view("gestorEmpregador")->with(array('vaga' => $vaga, 'nivel' => $nivel,'idiomas'=>$idiomas));
 
 
     }
@@ -130,12 +146,14 @@ $vista='vaga';
      * @return Response
      */
     public function update(Request $request, $id)
-    {
+    {$idiomas=lingua::lists('idioma','id');
+        $nivel = Nivel::lists('nome', 'id');
+
         $vaga = Vaga::find($id);
         $vaga->nome = $request->get('nome');
         $vaga->descricao = $request->get('descricao');
         $vaga->nrVagas = $request->get('nrVagas');
-        $vaga->sistemaEnsino = $request->get('sistemaEnsino');
+        $vaga->sistemaEnsino = $request->get('nivel');
        // $vaga->cursos = $request->get('cursos');
        // $vaga->idioma = $request->get('idioma');
         $vaga->outroCurso = $request->get('outroCurso');
@@ -146,7 +164,7 @@ $vista='vaga';
         $vagasR=true;
         $vista = 'vagaEdit';
         Session::flash('message', 'Dados gravados com sucesso');
-        return view('gestorEmpregador',["vagasR"=>$vagasR,"vista"=>$vista,'vaga'=>$vaga]);
+        return view('gestorEmpregador',["vagasR"=>$vagasR,"vista"=>$vista,'vaga'=>$vaga,'nivel'=>$nivel,'idiomas'=>$idiomas,'nav'=>'vagaR']);
 
 
     }

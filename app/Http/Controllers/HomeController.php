@@ -46,7 +46,7 @@ $d=true;
 
         }
 
-        $idiomas=lingua::all();
+        $idiomas=lingua::lists('idioma','id');
         $_SESSION['estudante']=true;
         $vagas=Vaga::all();
         $cursos=\App\curso::all();
@@ -56,18 +56,19 @@ $d=true;
         $fillable2=Auth::user()->tipo;
         //$emp=Auth::user()->empregador()->first;
         $vista='estudanteGravar';
-        if($fillable2=='estudante')
-            return view('gestorCurriculum',['vista'=>$vista]);
+        if($fillable2=='estudante'){
+
+            return view('gestorCurriculum',['vista'=>$vista]);}
 
         elseif($fillable2=='empregador')
         { $vista='empregador';
-            $vaga = Vaga::all()->isEmpty();
-            return view('gestorEmpregador',['vagas'=>$vagas,'idiomas'=>$idiomas,'vaga'=>$vaga,'nivel'=>$nivel,'cursos'=>$cursos,'vista'=>$vista]);
+            $vagas = Vaga::all();
+            return view('gestorEmpregador',['vagas'=>$vagas,'idiomas'=>$idiomas,'nivel'=>$nivel,'cursos'=>$cursos,'vista'=>$vista]);
         }else
         {
-            $idiomas=Idioma::lists('lingua');
+            $idiomas=Idioma::lists('lingua','id');
             $vaga=Vaga::all();
-            return view('Procurar',["vaga"=>$vaga,"idiomas"=>$idiomas]);}
+            return view('gestorNucleo',["vaga"=>$vaga,"idiomas"=>$idiomas]);}
 
 
         /*  if($fillable.isEmpty()){

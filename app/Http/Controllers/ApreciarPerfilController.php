@@ -5,7 +5,10 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
+use App\Estudante;
 use DB;
+use Illuminate\Support\Facades\View;
 
 class ApreciarPerfilController extends Controller {
 
@@ -49,11 +52,10 @@ class ApreciarPerfilController extends Controller {
     {
         $userId=\App\Estudante::find($id)->user_id;
 
-        $resultado=\App\User::where('id',$userId)
-            ->with(['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade'
-                ,'estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
-                'estudante.curriculo.HabilitacaoIntelectual','estudante.curriculo.habilitacao','estudante.curriculo.experiencia',
-                'estudante.curriculo.Idioma'])->first();
+        $resultado=User::with((['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade'
+            ,'estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
+            'estudante.curriculo.HabilitacaoIntelectual','estudante.curriculo.habilitacao','estudante.curriculo.experiencia',
+            'estudante.curriculo.Idioma']))->where('id',$userId)->first();
         // ->join('estudantes As e','e.user_id','=','users.id')
         // ->where('e.id','=',$id)->with(['contacto','endereco'])
 
@@ -66,23 +68,43 @@ class ApreciarPerfilController extends Controller {
         // 'utilizador.endereco'])->first();
 
 
-        return view("ApreciarPerfil",['resultado'=>$resultado]);
+        return view("ApreciarNucleo",['resultado'=>$resultado]);
 //return $estudante;
 
     }
 
     public function verCurriculo($id){
+//$resultado="";
+        //$userId=\App\Estudante::find($id)->user_id;
+        $userId=Auth::user()->estudante->user_id;
+        //$estudante=Estudante::all()->where("user_id",$userId);
+        //if()
+        if($id ==$userId){
+           // echo $id;
+           // echo $userId;
+            $resultado=User::with((['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade'
+                ,'estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
+                'estudante.curriculo.HabilitacaoIntelectual','estudante.curriculo.habilitacao','estudante.curriculo.experiencia',
+                'estudante.curriculo.Idioma']))->where('id',$userId)->first();
 
-        $userId=\App\Estudante::find($id)->user_id;
-        if(Auth::user()->id ==$userId){
-            $resultado=\App\User::where('id',$userId)
-                ->with(['endereco','contacto','estudante','estudante.curriculo','estudante.curriculo.disponibilidade'
-                    ,'estudante.curriculo.OutraQualificacao','estudante.curriculo.referencia',
-                    'estudante.curriculo.HabilitacaoIntelectual','estudante.curriculo.habilitacao','estudante.curriculo.experiencia',
-                    'estudante.curriculo.Idioma'])->first();
-        }
-        return view("ApreciarPerfil",['resultado'=>$resultado]);
 
+            $parameter = array();
+            $parameter['resultado'] = $resultado;
+
+           /* $html=View::make('ApreciarPerfil')->withData($parameter);
+            $dompdf=new \DOMPDF();
+            $dompdf->set_base_path(public_path().'/Start/css/MeuStyle');//use style exterior
+            $dompdf->load_html($html);
+            $dompdf->render();
+           $dompdf->stream("cv.pdf");
+        }*/
+
+            $pdf = \PDF::loadView('ApreciarPerfil',$parameter);
+            return $pdf->stream('Curriculum.pdf');}
+//echo $resultado;
+        //return view("ApreciarPerfil",['resultado'=>$resultado]);}
+else
+        return "nao foi encontrado";
     }
 
     /**

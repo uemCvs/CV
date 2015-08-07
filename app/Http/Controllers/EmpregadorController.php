@@ -3,6 +3,7 @@
 use App\Empregador;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 use App\User;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class EmpregadorController extends Controller {
 	{
 
         $vista = 'empregador';
-        return view('gestorEmpregador',["vista"=>$vista]);
+        return view('gestorNucleo',["vista"=>$vista]);
 
 	}
 
@@ -58,7 +59,10 @@ class EmpregadorController extends Controller {
 
         $u->empregador()->save($emp);
 
-        return redirect(route('visualizarEmpregador',['id'=>$emp->id]));
+        $empregadores=true;
+        $vista = 'empregadorEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorNucleo',["empregadores"=>$empregadores,"vista"=>$vista,"emp"=>$emp, 'nav'=>"empregad","user"=>$u]);
 	}
 
 	/**
@@ -112,7 +116,10 @@ class EmpregadorController extends Controller {
         ]);
 
         $u->empregador()->save($emp);
-        return $emp;
+        $empregadores=true;
+        $vista = 'empregadorEdit';
+        Session::flash('message', 'Dados gravados com sucesso');
+        return view('gestorNucleo',["empregadores"=>$empregadores,"vista"=>$vista,"emp"=>$emp, 'nav'=>"empregad","user"=>$u]);
     }
 
 	/**

@@ -72,6 +72,7 @@
         </div>
     </div>
 
+
     <div class="form-group">
         <label class="control-label col-sm-3" for="curso">curso </label>
         <div class="col-sm-9">
@@ -115,6 +116,7 @@
                    onclick="editar()"/>
             <input style="display: none" type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"
                     />
+            <a href="{{url('gestorEmpregador')}}"><button class="btn btn success">Adicionar</button> </a>
         </div>
     </div>
 

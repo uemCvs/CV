@@ -30,7 +30,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="anoConclusao">Ano de Conclusão</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" readonly value="{{ $exp->anoTermino }}" required="required" maxlength="4" min="1920" onclick="changeMin()" max="{{date("Y")}}" />
+            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao"  value="{{ $exp->anoTermino }}" required="required" maxlength="4" min="1920"  max="{{date("Y")}}" />
 
         </div>
     </div>

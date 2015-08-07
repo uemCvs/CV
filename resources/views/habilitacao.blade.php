@@ -11,7 +11,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" id="nivel" for="nivel">Nivel</label>
         <div class="col-sm-9">
-            <select class="form-control" name="nivel" id="nivel" disabled >
+            <select class="form-control" name="nivel" id="nivel"  >
                     <option value={{ $h->nivel }}>{{ $h->nivel }}</option>
                 <option value="primario">Primario</option>
                 <option value="basico">Basico</option>
@@ -27,7 +27,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="anoConclusao">Ano de Conclusão</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" readonly value="{{ $h->anoDeConclusao}}" required="required" min="1920"  max="{{date("Y")}}" />
+            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao"   value="{{ $h->anoDeConclusao}}" required="required" min="1920"  max="{{date("Y")}}" />
 
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="nomeInstituicao">Nome da Instituição</label>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="instituicao" id="instituicao" required="required" readonly value="{{ $h->instituicao }}" />
+            <input class="form-control" type="text" name="instituicao" id="instituicao" required="required"  value="{{ $h->instituicao }}" />
         </div>
     </div>
     <div class="form-group">
@@ -67,12 +67,13 @@
             btGravar.style.display='block';
             var curso=document.getElementById('curso');
             var nivel=document.getElementById('nivel');
-            var instituicao=document.getElementById('instituicao');
-            var anoConclusao=document.getElementById('anoConclusao');
+            var instituicao=document.getElementById('instituicao').readOnly=false;
+            var ano=document.getElementById('anoConclusao').readOnly=false;
             nivel.disabled=false;
-            instituicao.readOnly=false;
-            anoConclusao.readOnly=false;
+           // instituicao.readOnly=false;
+           // ano.readOnly=false;
             curso.readOnly=false;
+
 
 
         }

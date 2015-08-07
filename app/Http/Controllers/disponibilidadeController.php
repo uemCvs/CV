@@ -53,7 +53,7 @@ class disponibilidadeController extends Controller {
         $disp->descricao=$request->get('descricao');
         $disp->save();
         $disponibilidades=true;
-        $vista = '$disponibilidadeEdit';
+        $vista = 'disponibilidadeEdit';
         Session::flash('message', 'Dados gravados com sucesso');
         return view('gestorCurriculum',["disponibilidades"=>$disponibilidades,"vista"=>$vista,"disp"=>$disp, 'nav'=>"menu4"]);
 	}

@@ -48,18 +48,18 @@
             </div>
         </div>
 
-       {{-- <div class="form-group">
+        <div class="form-group">
 
-            {!! Form::label('idioma','Idioma(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
+            {!! Form::label('idiomas','Idioma(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-9">
 
 
-                {!! Form::select('idiomas[]', $idiomas ,null,['class'=>'form-control','multiple']) !!}
+                {!! Form::select('idiomas', $idiomas ,null,['class'=>'form-control','multiple']) !!}
 
             </div>
-        </div>--}}
+        </div>
 
-        <div class="form-group">
+        {{--<div class="form-group">
             <label class="control-label col-sm-3" for="idioma">Idioma </label>
             <div class="col-sm-9">
 
@@ -68,7 +68,7 @@
 
                 @endforeach
             </div>
-        </div>
+        </div>--}}
 
         <div class="form-group">
             <label class="control-label col-sm-3" for="outroCurso">Curso adicional</label>
@@ -89,25 +89,12 @@
             </div>
         </div>
 
-        {{--<div class="form-group">
+        <div class="form-group">
             {!! Form::label('curso','Curso(Pressione shif para selecionar mais de um)',['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-9">
 
 
-                {!! Form::select('curso[]', [] , null,['class'=>'form-control','multiple']) !!}
-            </div>
-        </div>--}}
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="curso">curso </label>
-            <div class="col-sm-9">
-
-                @foreach($cursos as $curso)
-                    <input type="checkbox" value="{{$curso->id}}" name="curso[]"/>{{ $curso->nome}}  </br>
-
-                @endforeach
-
-
-
+                {!! Form::select('curso', [] , null,['class'=>'form-control','multiple']) !!}
             </div>
         </div>
 
@@ -126,7 +113,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                <input type="submit"  class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"/>
+                <input type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"/>
             </div>
         </div>
 
@@ -135,17 +122,16 @@
 
     <script>
         $('select[name=nivel]').change(function(){
-            //alert('eu');
+
             var id=$(this).val();
 
             $.get('/get-curso/'+id, function(curso){
                 $('select[name=curso]').empty();
                 $.each(curso, function(key,value){
                     $('select[name=curso]').append('<option value'+value.id+'>'+value.nome+'</option>');
+
                 });
             });
         });
-
-
 
     </script>

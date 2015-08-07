@@ -8,21 +8,21 @@
     <div class="form-group">
         <label class="control-label col-sm-3" for="nomeCurso">Nome do Curso</label>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="nomeCurso" id="nomeCurso" required="required" readonly value="{{ $qual->nomeCurso }}" />
+            <input class="form-control" type="text" name="nomeCurso" id="nomeCurso" required="required"  value="{{ $qual->nomeCurso }}" />
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-sm-3" for="nomeInstituicao">Nome da Instituição</label>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="nomeInstituicao" id="nomeInstituicao" required="required" readonly value="{{ $qual->nomeInstituicao }}" />
+            <input class="form-control" type="text" name="nomeInstituicao" id="nomeInstituicao" required="required"  value="{{ $qual->nomeInstituicao }}" />
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-sm-3" for="anoConclusao">Ano de Conclusão</label>
         <div class="col-sm-9">
-            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" value="{{ $qual->anoConclusao}}" readonly required="required" min="1920"  max="{{date("Y")}}" />
+            <input class="form-control" type="number" name="anoConclusao" id="anoConclusao" value="{{ $qual->anoConclusao}}"  required="required" min="1920"  max="{{date("Y")}}" />
 
         </div>
     </div>

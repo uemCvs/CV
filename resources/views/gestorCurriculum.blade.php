@@ -13,11 +13,13 @@
 
     <script>
 
+
         var home, menu1, menu2, menu3, menu4, menu5, dados, endereco, contacto, ensinoG, ensinoT, ensinoS, experiencia, idioma, quali, nav;
         nav = "none";
         @if(isset($nav))
         nav = '<?=$nav?>';
-        @endif
+
+            @endif
     </script>
 
 
@@ -100,12 +102,10 @@
 
 
                             <div id="divmenu1" class="tab-pane fade">
-                                <div class="row">
 
-                                    <div class="col-md-9">
-                                        <div class="panel panel-body">
-                                            <div class="tab-content">
-                                                <div id="divEnsinoG" class="tab-pane fade in active">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+
                                                     <?php if(isset($ensinos)) { ?>
                                                     @if($vista=='habilitacaoGravar')
                                                     @include('habilitacaoGravar')
@@ -119,11 +119,7 @@
 
                                                 </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
                             </div>
                             <div id="divmenu2" class="tab-pane fade">
                                 <div class="row">
@@ -249,7 +245,7 @@
                             <p></p></div>
                         <div class="row">
                             <p>
-                                <a href="{{url('Meu_Perfil/'.Auth::user()->estudante->id)}}">
+                                <a target="_blank" href="{{url('Meu_Perfil/'.Auth::user()->id)}}">
                                     <button type="submit" class="btn btn-success btn-sm" id="geradorPDF">Visualizar Curriculum</button>
                                 </a>
                             </p>
@@ -276,7 +272,7 @@
         });
 
         function clica(nome) {
-            alert('clica '+nome);
+            //alert('clica '+nome);
             var tag,parent;
             tag = document.getElementById(nome);
             tag.click();
@@ -289,17 +285,19 @@
 
         $(document).ready(function () {
             if (nav!='none') {
-                alert('oloa');
+                //alert('oloa');
                 switch (nav) {
                     case "home":
                         clica('home');
+                            clica("dados");
                         break;
                     case "menu1":
                         clica('menu1');
+
                         break;
                     case "menu2":
                         clica('menu2');
-
+                        clica("experiencia");
                         break;
                     case "menu3":
                         clica('menu3');

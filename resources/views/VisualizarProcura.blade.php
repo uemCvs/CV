@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('body')
+
 @if(count($estudantes) != 0)
   <ul>
 @foreach($estudantes as $estudante)
@@ -7,3 +11,4 @@
 @else
   <p>404 Nenhum estudante encontrado</p>
 @endif
+@stop

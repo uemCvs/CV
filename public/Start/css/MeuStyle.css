@@ -529,9 +529,7 @@ footer .footer-col {
     background-color: #B2DFDB;
 }
 
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
+#tempoFinal{
     background-color: #fff;
     /* background-color: #B2DFDB;*/
     opacity: 1;

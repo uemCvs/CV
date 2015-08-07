@@ -113,6 +113,7 @@
                 <hr class="star-light">
             </div>
         </div>
+        </div>
         <div class="row">
             <div class="col-lg-4 col-lg-offset-2">
                 <p>UEM CV'S é um projecto do núcleo de estudantes da Faculdade de Engenharia da UEM com o objectivo de criar curriculum vitae automaticos para os estudantes da faculdade. Com vista a facilitar na selecao de melhores candidatos para oportunidades de emprego, estágios oferecidas a essa instituicao.</p>
@@ -122,7 +123,7 @@
                     se es empresário a procurar de estudantes cheios de conhecimento. Contacte nos!</p>
             </div>
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a href="#" class="btn btn-lg btn-outline">
+                <a href="{{url('/auth/register')}}" class="btn btn-lg btn-outline">
                     Criar Conta
                 </a>
             </div>

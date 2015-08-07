@@ -57,10 +57,28 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-            <input type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"/>
+            <input type="button" class="btn btn-success" name="editarPessoais" id="editarPessoais" value="Editar"
+                   onclick="editar()"/>
+            <input style="display: none" type="submit" class="btn btn-success" name="gravarDpessoais" id="gravarDpessoais" value="Gravar"
+                    />
         </div>
     </div>
 
 
 </form>
+
+<script>
+
+    var btEditar = document.getElementById('editarPessoais');
+    var btGravar = document.getElementById('gravarDpessoais');
+
+    function editar(){
+
+        btEditar.style.display='none';
+        btGravar.style.display='block';
+
+    }
+
+</script>
+
 

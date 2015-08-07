@@ -18,7 +18,7 @@ class ProcuraController extends Controller {
 	 */
 	public function index()
 	{
-		$idiomas=Idioma::lists('lingua');
+		$idiomas=Idioma::lists('lingua','id');
 		return view('Procurar',['idiomas'=>$idiomas]);
 	}
 
@@ -80,7 +80,7 @@ class ProcuraController extends Controller {
 
 		$estudantes = $query->get();
 
-			return view("VisualizarProcura",['estudantes'=>$estudantes]);
+			return view("VisualizarProcura",['estudantes'=>$estudantes,"idiomas"=>$idiomas]);
 
 
 

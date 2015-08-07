@@ -11,19 +11,27 @@
     <link href="{{URL::asset('Start/js/bootstrap.js')}} " rel="script">
     <script src="{{URL::asset("js/jquery.min.js")}}"></script>
     <script src="{{URL::asset("js/bootstrap.min.js")}}"></script>
-    <script src="{{URL::asset("Start/js/progressbar.js")}}"></script>
-    <script src="{{URL::asset("Start/js/progressbar.min.js")}}"></script>
 
 
 
+    <script>
+
+
+        var vagaR,vagaV, perfilV;
+        nav = "none";
+        @if(isset($nav))
+        nav = '<?=$nav?>';
+
+        @endif
+    </script>
 
     <div class="row">
 
         <div class="col-md-2 portfolio-item">
             <ul class="nav nav-tabs nav-stacked nav-esquerdo ">
-                <li class="active"><a data-toggle="tab" href="#registar">Registar Vagas</a></li>
-                <li><a data-toggle="tab" href="#ver">Ver Vagas</a></li>
-                {{--<li><a data-toggle="tab" href="#verPerfil">Ver Perfil</a></li>--}}
+                <li  ><a id="vagaR" data-toggle="tab" href="#registar">Registar Vagas</a></li>
+                <li><a id="vagaV" data-toggle="tab" href="#ver">Ver Vagas</a></li>
+               {{-- <li><a id="perfilV" data-toggle="tab" href="#verPerfil">Ver Perfil</a></li>--}}
             </ul>
         </div>
 
@@ -35,27 +43,18 @@
                 <div class="panel panel-body">
                     <div  class="tab-content">
                         <div id="registar" class="tab-pane fade in active" >
-                            <?php if(isset($vagasR)) { ?>
-                            @if($vista=='vaga')
-                                @include('vaga')
-                            @elseif($vista=='vagaEdit')
-                                @include($vista,["vaga"=>$vaga])
-                            @endif
-                            <?php } else {?>
-                            @include("vaga")
 
-                            <?php } ?>
+                            @include('vaga')
                         </div>
                         <div id="ver" class="tab-pane fade " >
 
 
-                            @if($vaga)
-                                <p>Nenhuma Vaga Disponivel</p>
-                            @else
+
+
                                 @foreach($vagas as $vaga)
                                     <div id="imgE" class="col-md-4 portfolio-item">
                                         <a href="#"  onclick="vaga()">
-                                            <img   class="img-responsive " src="{{URL::asset('Start/img/empregador/vaga9.png')}}" alt="vaga">
+                                            <img   class="img-responsive " src="{{url('Start/img/empregador/vaga9.png')}}" alt="vaga">
 
                                             <h4 id="verVaga" class="text-center" >
                                                 {{$vaga->nome}}
@@ -64,16 +63,18 @@
                                         </a>
 
 
-
+                                        {{--  <p>{{$vaga->descricao}}.</p>--}}
 
                                     </div>
                                 @endforeach
 
 
-                            @endif
+
                         </div>
 
+                        <div id="verPerfil" class="tab-pane fade" >
 
+                        </div>
 
                     </div>
                 </div>
@@ -86,7 +87,7 @@
 
             <div class="form-group">
                 <label for="nome">Nome:</label>
-               {{-- {{$empregador->nome}}--}}
+                {{-- {{$empregador->nome}}--}}
             </div>
             <div class="form-group">
                 <label for="nome">Email:</label>
@@ -106,14 +107,44 @@
             var x= $('#ver').load('/vaga/'+verSelect);
 
         }
-        function teste(){
+       /* function teste(){
             var id = $('#hidden').val();
             $.put('/gestorEmpregador/'+id,function(){
                 var x= $('#ver').load('/vaga/'+verSelect);
             });
+        }*/
+
+        function clica(nome) {
+            //alert('clica '+nome);
+            var tag,parent;
+            tag = document.getElementById(nome);
+            tag.click();
         }
 
+        $(document).ready(function () {
+            if (nav!='none') {
+                //alert('oloa');
+                switch (nav) {
+                    case "vagaR":
+                        clica('vagaR');
 
+                        break;
+                    case "vagaV":
+                        clica('vagaV');
+alert("v");
+                        break;
+                    case "perfilV":
+                        clica('perfilV');
+
+                        break;
+
+                    default:
+                        clica('vagaR');
+
+                        break;
+                }
+            }
+        });
 
 
 

@@ -15,12 +15,12 @@
       <div class="form-group">
           <label class="control-label col-sm-3"  for="pais">Pais</label>
           <div class="col-sm-9">
-              <select class="form-control" name='pais' id="pais" onclick="showPais()">
+              <select class="form-control" name='pais' id="pais" >
                   <option value="Mocambique">Mocambique</option>
-                  <option >Outros</option>
+                  <option value="Outros">Outros</option>
 
               </select>
-              <input class="form-control" type="hidden" name="pais" id="outros"  placeholder="Introduza o seu pais" />
+             {{-- <input class="form-control" type="hidden" name="pais" id="outros"  placeholder="Introduza o seu pais" />--}}
           </div>
       </div>
 
@@ -42,7 +42,7 @@
                   <option value="Cabo-Delgado">Cabo-Delgado</option>
 
               </select>
-              <input class="form-control" type="hidden" name="provincia" id="outrasP"  placeholder="Introduza a provincia" />
+             {{-- <input class="form-control" type="hidden" name="provincia" id="outrasP"  placeholder="Introduza a provincia" />--}}
           </div>
       </div>
 
@@ -103,7 +103,7 @@
         var provincias=document.getElementById("provincia");
         var outrasP=document.getElementById("outrasP");
         var outros=document.getElementById("outros");
-        var out=outros.value;
+        //var out=outros.value;
         if(pais.value=='Outros'){
             outros.setAttribute('type','text');
             provincias.style.display="none"; // torna invisivel

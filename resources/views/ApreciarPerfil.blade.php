@@ -1,237 +1,251 @@
-@extends("layouts.main")
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Curriculum Vitae</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style/css">
 
-@section("container")
-<link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
-<link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
-<script src="{{URL::asset('Start/js/bootstrap.js')}}"></script>
+
+</head>
+<style type="text/css">
+    body {
+        font-family: sans-serif;
+
+
+    }
+    p, h2, {
+        font-size: 2em;
+        background: #eee;
+        padding: 1em;
+        text-align: center;
+
+    }
+    h4{
+
+    }
+
+
+    label {
+        text-align: right;
+        float: left;
+        width: 15%;
+    }
+
+</style>
+
+<body>
+
 
 
 <div class="container">
+    <h2>Curriculum Vitae</h2>
+
 <h4 >Dados Pessoais</h4>
 
-<div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Nome completo :</label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->estudante->outrosNomes}}{{ $resultado->estudante->apelido}}" />
+<div >
+    <label class="text-justify" for="tempoFinal" >Nome completo :</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->estudante->outrosNomes}}&nbsp;{{ $resultado->estudante->apelido}}
+
     </div>
+
+<div class="form-group css">
+    <label class="control-label col-sm-3" for="tempoFinal" >Data de nascimento :</label>{{--&nbsp;&nbsp;&nbsp;{{$resultado->estudante->dataNascimeto}}--}}
+{{$resultado->estudante->dataNascimeto}}
 </div>
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Data de nascimento :</label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->estudante->dataNascimeto}}" />
-    </div>
-</div>
-<div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Curso : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->estudante->curso}}" />
-    </div>
+    <label class="text-justify" for="tempoFinal" >Curso : </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->estudante->curso}}
+
+
 </div>
 <div class="form-group css">
     <label class="control-label col-sm-3" for="tempoFinal" >Nivel : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->estudante->nivel}}" />
-    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->estudante->nivel}}
+
 </div>
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Número de estudante : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->estudante->nrEstudante}}" />
-    </div>
-</div>
-________________________________________________________________________________________________________________
+    <label class="control-label col-sm-3" for="tempoFinal" >Numero de estudante : </label>{{$resultado->estudante->nrEstudante}}
 
-<h4 >Endereço</h4>
+</div>
+_____________________________________________________________________________________________________
+
+<h4 >Endereco</h4>
 
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >País :</label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->pais}}" />
-    </div>
+    <label class="control-label col-sm-3" for="tempoFinal" >Pais :</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->pais}}
+
 </div>
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Província:</label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->provincia}}" />
-    </div>
+    <label class="control-label col-sm-3" for="tempoFinal" >Provincia:</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->provincia}}
+
 </div>
 <div class="form-group css">
     <label class="control-label col-sm-3" for="tempoFinal" >Distrito :</label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->distrito}}" />
-    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->distrito}}
+
 </div>
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Bairro : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->bairro}}" />
-    </div>
+    <label class="control-label col-sm-3" for="tempoFinal" >Bairro  : </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->bairro}}
+
 </div>
 <div class="form-group css">
     <label class="control-label col-sm-3" for="tempoFinal" >Avenida : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->avenida}}" />
-    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->avenida}}
+
 </div>
 <div class="form-group css">
     <label class="control-label col-sm-3" for="tempoFinal" >Rua : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->rua}}" />
-    </div>
+    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$resultado->endereco->rua}}
+
 </div>
 
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Quarteirão : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->quarteirao}}" />
-    </div>
+    <label class="control-label col-sm-3" for="tempoFinal" >Quarteirao : </label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->quarteirao}}
+
 </div>
 <div class="form-group css">
-    <label class="control-label col-sm-3" for="tempoFinal" >Número de casa : </label>
-    <div class="col-sm-9">
-        <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$resultado->endereco->nrDeCasa}}" />
-    </div>
+    <label class="control-label col-sm-3" for="tempoFinal" >Numero de casa : </label>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$resultado->endereco->nrDeCasa}}
+
 </div>
 
-________________________________________________________________________________________________________________
+
 
 @if(count($resultado->estudante->curriculo->Idioma) != null)
+        ________________________________________________________________________________________________________________
     <h4 >Idiomas :</h4>
     @foreach($resultado->estudante->curriculo->Idioma as $i)
         <div class="form-group css">
             <label class="control-label col-sm-3" for="tempoFinal" >Lingua : </label>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$i->lingua}}" />
-            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$i->lingua}}
+
         </div>
         <div class="form-group css">
             <label class="control-label col-sm-3" for="tempoFinal" >Dominio de Escrita : </label>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$i->dominioEsc}}" />
-            </div>
+            &nbsp;&nbsp;{{$i->dominioEsc}}
+
         </div>
         <div class="form-group css">
             <label class="control-label col-sm-3" for="tempoFinal" >Dominio de Fala: </label>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$i->dominioFala}}" />
-            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$i->dominioFala}}
+
         </div>
         <div class="form-group css">
             <label class="control-label col-sm-3" for="tempoFinal" >Dominio de Leitura: </label>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" name="tempoFinal" readonly id="tempoFinal" value="{{$i->dominioLei}}" />
-            </div>
+            &nbsp;&nbsp; {{$i->dominioLei}}
+
         </div>
        - - -  - -- - - - - -- -- - -- -- - - - - - - -- - - - -- - -- - - -- - - - -- - - -- - - -- - - - -- - -
     @endforeach
 @endif
-_________________________________________________________________________________________________________________________________
+
 @if(count($resultado->estudante->curriculo->habilitacao) != null)
-    <h4 >Habilitações Literárias :</h4>
+        ________________________________________________________________________________________________________________
+    <h4 >Habilitacoes Literarias :</h4>
     @foreach($resultado->estudante->curriculo->habilitacao as $h)
         <div class="form-group css">
             <label class="control-label col-sm-3" for="tempoFinal" >Nivel : </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$h->nivel}}" />
-            </div>
+            &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$h->nivel}}
+
         </div>
         <div class="form-group css">
-            <label class="control-label col-sm-3" for="tempoFinal" >Ano de Conclusão : </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$h->anoDeConclusao}}" />
-            </div>
+            <label class="control-label col-sm-3" for="tempoFinal" >Ano de Conclusao : </label>
+       &nbsp; {{$h->anoDeConclusao}}
+
         </div>
         <div class="form-group css">
-            <label class="control-label col-sm-3" for="tempoFinal" >Instituição: </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$h->instituicao}}" />
-            </div>
+            <label class="control-label col-sm-3" for="tempoFinal" >Instituicao: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$h->instituicao}}
+
         </div>
     - - -  - -- - - - - -- -- - -- -- - - - - - - -- - - - -- - -- - - -- - - - -- - - -- - - -- - - - -- - -
     @endforeach
 @endif
-________________________________________________________________________________________________________________
+
 @if(count($resultado->estudante->curriculo->OutraQualificacao) != null)
-    <h4 >Outras qualificações :</h4>
+        ________________________________________________________________________________________________________________
+    <h4 >Outras qualificacoes :</h4>
     @foreach($resultado->estudante->curriculo->OutraQualificacao as $o)
         <div class="form-group css">
             <label class="control-label col-sm-3" for="tempoFinal" >Curso : </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$o->nomeCurso}}" />
-            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$o->nomeCurso}}
+
         </div>
         <div class="form-group css">
-            <label class="control-label col-sm-3" for="tempoFinal" >Nome de Instituição : </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$o->nomeInstituicao}}" />
-            </div>
+            <label class="control-label col-sm-3" for="tempoFinal" >Nome de Instituicao : </label>
+            {{$o->nomeInstituicao}}
+
         </div>
         <div class="form-group css">
-            <label class="control-label col-sm-3" for="tempoFinal" >Ano de Conclusão: </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$o->anoConclusao}}" />
-            </div>
+            <label class="control-label col-sm-3" for="tempoFinal" >Ano de Conclusao: </label>
+            &nbsp;&nbsp;{{$o->anoConclusao}}
+
         </div>
        - - -  - -- - - - - -- -- - -- -- - - - - - - -- - - - -- - -- - - -- - - - -- - - -- - - -- - - - -- - -
     @endforeach
 @endif
-________________________________________________________________________________________________________________
+
 @if(count($resultado->estudante->curriculo->experiencia) != null)
-    <h4 >Experiência Profissonal :</h4>
+        ________________________________________________________________________________________________________________
+    <h4 >Experiencia Profissonal :</h4>
     @foreach($resultado->estudante->curriculo->experiencia as $exp )
         <div class="form-group css">
-            <label class="control-label col-sm-3" for="tempoFinal" >Instituição: </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$exp->instituicao}}" />
-            </div>
+            <label class="control-label col-sm-3" for="tempoFinal" >Instituicao: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$exp->instituicao}}
+
         </div>
         <div class="form-group css">
-            <label class="control-label col-sm-3" for="tempoFinal" >Cargo: </label>
-            <div class="col-sm-9">
-                <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$exp->cargo}}" />
-            </div>
+            <label class="control-label col-sm-3" for="tempoFinal" >Cargo : </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$exp->cargo}}
+
         </div>
             <div class="form-group css">
                 <label class="control-label col-sm-3" for="tempoFinal" >Ano de Ingresso: </label>
-                <div class="col-sm-9">
-                    <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$exp->anoIngresso}}" />
-                </div>
+                &nbsp;&nbsp;  {{$exp->anoIngresso}}
+
             </div>
             <div class="form-group css">
-                <label class="control-label col-sm-3" for="tempoFinal" > Ano de Conclusão:</label>
-                <div class="col-sm-9">
-                    <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$exp->anoTermino}}" />
-                </div>
+                <label class="control-label col-sm-3" for="tempoFinal" > Ano de Conclusao:</label>
+                &nbsp;{{$exp->anoTermino}}
+
             </div>
 
       - - -  - -- - - - - -- -- - -- -- - - - - - - -- - - - -- - -- - - -- - - - -- - - -- - - -- - - - -- - -
     @endforeach
 @endif
-________________________________________________________________________________________________________________
+
 @if(count($resultado->estudante->curriculo->HabilitacaoIntelectual) != null)
+        ________________________________________________________________________________________________________________
         <h4 >Habilitacao Intelectual :</h4>
     @foreach($resultado->estudante->curriculo->HabilitacaoIntelectual as $hab )
             <div class="form-group css">
                 <label class="control-label col-sm-3" for="tempoFinal" >Habilitacoes Intelectuais: </label>
-                <div class="col-sm-9">
-                    <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$hab->habilitacao}}" />
-                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$hab->habilitacao}}
+
             </div>
      - - -  - -- - - - - -- -- - -- -- - - - - - - -- - - - -- - -- - - -- - - - -- - - -- - - -- - - - -- - -
         @endforeach
 @endif
-_________________________________________________________________________________________________________________
+
 @if(count($resultado->estudante->curriculo->referencia) != null)
+        ________________________________________________________________________________________________________________
         <h4 >Referencias :</h4>
     @foreach($resultado->estudante->curriculo->referencia as $r )
             <div class="form-group css">
                 <label class="control-label col-sm-3" for="tempoFinal" >Referencias: </label>
-                <div class="col-sm-9">
-                    <input class="form-control" readonly type="text" name="tempoFinal" id="tempoFinal" value="{{$r->referencia}}" />
-                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{$r->referencia}}
+
             </div>
        - - -  - -- - - - - -- -- - -- -- - - - - - - -- - - - -- - -- - - -- - - - -- - - -- - - -- - - - -- - -
         @endforeach
 @endif
 </div>
-@stop
+
+
+
+</body>
+</html>

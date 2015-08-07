@@ -1,6 +1,4 @@
-@extends("gestorNucleo")
 
-@section("body")
 
 <link href="{{URL::asset('Start/css/bootstrap.css')}} " rel="stylesheet">
 <link href="{{URL::asset('Start/css/MeuStyle.css')}} " rel="stylesheet">
@@ -39,7 +37,7 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-sm-3" id="nivel" for="curso">Curso:</label>
+        <label class="control-label col-sm-3" id="nivel" for="curso">Nivel:</label>
         <div class="col-sm-9">
             </br>
             <input type="checkbox" name="niveis[]" value="1">1
@@ -54,9 +52,9 @@
         <label class="control-label col-sm-3" id="nivel" for="idioma">Idioma:</label>
         <div class="col-sm-9">
             </br>
-            @foreach ($idiomas as $idioma)
+           {{-- @foreach ($idiomas as $idioma)
                 <input type="checkbox" name="idiomas[]" value="{{$idioma}}">{{$idioma}}
-            @endforeach
+            @endforeach--}}
         </div>
     </div>
 
@@ -68,4 +66,3 @@
 
 
 </form>
-@stop
