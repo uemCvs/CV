@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\disponibilidade;
+use App\Estudante;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -9,13 +11,19 @@ use DB;
 use App\User;
 use App\Idioma;
 
+session_start();
+
 class ProcuraController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
+     *
+     *
 	 */
+
+
 	public function index()
 	{
 		$idiomas=Idioma::lists('lingua','id');
@@ -57,28 +65,14 @@ class ProcuraController extends Controller {
 		$niveis=Input::get('niveis');
 		$idiomas= Input::get ('idiomas');
 
-		$query=\App\Estudante::select(DB::raw('distinct estudantes.*'))
-		->join('curriculos AS c', 'c.estudante_id','=','estudantes.id')
-		->join('idiomas AS i','i.curriculo_id','=','c.id')
-		->join('disponibilidades AS d','d.curriculo_id','=','c.id');
+        $curso = "";
+        $nivel ="";
+        $disponibilidade="";
 
-		if ($cursos) {
-			$query = $query->whereIn('estudantes.curso',$cursos);
-		}
-
-		if ($disponibilidades) {
-			$query = $query->whereIn('d.disp',$disponibilidades);
-		}
-
-		if ($niveis) {
-			$query->whereIn('estudantes.nivel',$niveis);
-		}
-
-		if ($idiomas) {
-			$query = $query->whereIn('i.lingua',$idiomas);
-		}
-
-		$estudantes = $query->get();
+          $estudantes = DB::table('estudantes')->where('curso','like',"%$curso%")->where('nivel','like',"%$nivel%")->
+              join('curriculos','estudantes.id','=','curriculos.id')->
+              join('disponibilidades','curriculos.id','=','disponibilidades.curriculo_id')
+                  ->where('disponibilidades.disp','like',"%$disponibilidade%")->get();
 
 			return view("VisualizarProcura",['estudantes'=>$estudantes,"idiomas"=>$idiomas]);
 
